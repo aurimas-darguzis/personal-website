@@ -1,0 +1,7 @@
+.name {
+  margin-left: 10px;
+}
+
+.menu-item:hover, :active {
+  cursor: not-allowed;
+}
