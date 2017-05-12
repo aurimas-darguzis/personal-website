@@ -12,4 +12,8 @@ export class NavigationComponent implements OnInit {
   ngOnInit() {
   }
 
+  someModalShoudlOpen () {
+    console.log('yep, some modal just opened. :D')
+  }
+
 }

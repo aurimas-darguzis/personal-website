@@ -1,14 +1,30 @@
 <md-sidenav-container fullscreen>
   <md-sidenav #sidenav mode="side">
     <md-toolbar>
-      <span class="menu-item">Personality</span>
+      <!--<span class="menu-item">Personality</span>-->
+      <img src="../../assets/img/me-rounded-min.png" alt="Aurimas Darguzis self portrait" class="self_portrait">
 
       <md-toolbar-row>
-        <span class="menu-item">Projects</span>
+        <span class="menu-item"></span>
       </md-toolbar-row>
 
       <md-toolbar-row>
-        <span class="menu-item">Contact details</span>
+        <span class="menu-item"></span>
+        <a href="#">Location</a>
+      </md-toolbar-row>
+      
+      <md-toolbar-row>
+        <span class="menu-item"></span>
+        <a href="#">github</a>
+      </md-toolbar-row>
+
+      <md-toolbar-row>
+        <span class="menu-item"></span>
+        <a href="#">twitter</a>
+      </md-toolbar-row>
+
+      <md-toolbar-row>
+        <span class="menu-item-contact" (click)=someModalShoudlOpen()>Contact</span>
       </md-toolbar-row>
     </md-toolbar>
   </md-sidenav>

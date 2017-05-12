@@ -5,3 +5,14 @@
 .menu-item:hover, :active {
   cursor: not-allowed;
 }
+
+.self_portrait {
+  border-radius: 50%;
+  width: 100px;
+  margin: 0 auto;
+  margin-top: 100px;
+}
+
+.menu-item-contact {
+  cursor: pointer;
+}
