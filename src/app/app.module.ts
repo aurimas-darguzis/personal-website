@@ -7,13 +7,15 @@ import 'hammerjs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
-import { NavigationComponent } from './navigation/navigation.component';
+import { NavigationComponent, DialogResultExampleDialog } from './navigation/navigation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavigationComponent
+    NavigationComponent,
+    DialogResultExampleDialog
   ],
+  entryComponents: [DialogResultExampleDialog],
   imports: [
     BrowserModule,
     FormsModule,
