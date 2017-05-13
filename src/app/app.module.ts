@@ -6,7 +6,7 @@ import { MaterialModule } from '@angular/material';
 import 'hammerjs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { DialogBox } from './material-components';
+import { DialogBoxComponent } from './material-components';
 
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navigation.component';
@@ -15,9 +15,9 @@ import { NavigationComponent } from './navigation/navigation.component';
   declarations: [
     AppComponent,
     NavigationComponent,
-    DialogBox
+    DialogBoxComponent
   ],
-  entryComponents: [DialogBox],
+  entryComponents: [DialogBoxComponent],
   imports: [
     BrowserModule,
     FormsModule,

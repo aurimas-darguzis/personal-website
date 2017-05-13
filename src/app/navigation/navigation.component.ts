@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MdDialog } from '@angular/material';
-import { DialogBox } from './../material-components/dialog-box/dialog-box.component';
+import { DialogBoxComponent } from './../material-components/dialog-box/dialog-box.component';
 
 
 @Component({
@@ -14,10 +14,10 @@ export class NavigationComponent implements OnInit {
   constructor(public dialog: MdDialog) { }
 
   openDialog () {
-    const dialogRef = this.dialog.open(DialogBox);
+    const dialogRef = this.dialog.open(DialogBoxComponent);
     dialogRef.afterClosed().subscribe(result => {
       console.log(result);
-      // this.selectedOption = result;
+      this.selectedOption = result;
     })
   }
 
