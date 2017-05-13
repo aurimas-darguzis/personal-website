@@ -13,7 +13,7 @@ export class NavigationComponent implements OnInit {
   }
 
   someModalShoudlOpen () {
-    console.log('yep, some modal just opened. :D')
+    console.log('yep, some modal just opened. :D');
   }
 
 }
