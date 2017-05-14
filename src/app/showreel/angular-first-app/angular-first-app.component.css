@@ -1,0 +1,8 @@
+.example-card {
+  width: 400px;
+}
+
+.example-header-image {
+  background-image: url('./img/girl-640-min.jpg');
+  background-size: cover;
+}

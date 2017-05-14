@@ -1,5 +1,7 @@
 <md-sidenav-container fullscreen>
-  <md-sidenav #sidenav mode="side">
+  <!--<md-sidenav-container class="example-container">-->
+  <md-sidenav #sidenav mode="side" >
+    <!--class="example-sidenav"-->
     <md-toolbar>
       <!--<span class="menu-item">Personality</span>-->
       <img src="../../assets/img/me-rounded-min.png" alt="Aurimas Darguzis self portrait" class="self_portrait">
@@ -27,10 +29,11 @@
         <!--<span>Contact me</span>-->
       </md-toolbar-row>
     </md-toolbar>
-
-
   </md-sidenav>
 
+  <div class="example-sidenav-content">
+    <!--<button md-button (click)=sidenav.open()>Open me</button>-->
+  </div>
 
   <md-toolbar color="primary">
     <button md-button (click)="sidenav.toggle()">
