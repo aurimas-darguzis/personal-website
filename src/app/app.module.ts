@@ -11,13 +11,15 @@ import { DialogBoxComponent } from './material-components';
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { ShowreelComponent } from './showreel/showreel.component';
+import { AngularFirstAppComponent } from './showreel/angular-first-app/angular-first-app.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
     DialogBoxComponent,
-    ShowreelComponent
+    ShowreelComponent,
+    AngularFirstAppComponent
   ],
   entryComponents: [DialogBoxComponent],
   imports: [
