@@ -8,6 +8,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { DialogBoxComponent } from './material-components';
 
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { environment } from '../environments/environment';
+
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { ShowreelComponent } from './showreel/showreel.component';
@@ -27,7 +32,10 @@ import { AngularFirstAppComponent } from './showreel/angular-first-app/angular-f
     FormsModule,
     HttpModule,
     BrowserAnimationsModule,
-    MaterialModule.forRoot()
+    MaterialModule.forRoot(),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]
