@@ -1,3 +1,7 @@
 .showreel {
   margin-top: 64px;
 }
+
+md-grid-tile {
+  background: lightblue;
+}
