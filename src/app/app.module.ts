@@ -32,7 +32,7 @@ import { AngularFirstAppComponent } from './showreel/angular-first-app/angular-f
     FormsModule,
     HttpModule,
     BrowserAnimationsModule,
-    MaterialModule.forRoot(),
+    MaterialModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule
