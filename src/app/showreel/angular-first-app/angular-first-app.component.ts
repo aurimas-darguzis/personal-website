@@ -1,3 +1,4 @@
+import { ShowreelService } from './../showreel.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AngularFirstAppComponent implements OnInit {
 
-  constructor() { }
+  private project: any;
+
+  constructor(private showreelService: ShowreelService) { }
 
   ngOnInit() {
+    this.project = this.showreelService.getProject();
   }
 
 }

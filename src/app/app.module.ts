@@ -16,6 +16,7 @@ import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { ShowreelComponent } from './showreel/showreel.component';
+import { ShowreelService } from './showreel/showreel.service';
 import { AngularFirstAppComponent } from './showreel/angular-first-app/angular-first-app.component';
 import { AboutMeComponent } from './about-me/about-me.component';
 import { BlogComponent } from './blog/blog.component';
@@ -26,6 +27,7 @@ import { BlogComponent } from './blog/blog.component';
     NavigationComponent,
     DialogBoxComponent,
     ShowreelComponent,
+    // ShowreelService,
     AngularFirstAppComponent,
     AboutMeComponent,
     BlogComponent
@@ -41,7 +43,7 @@ import { BlogComponent } from './blog/blog.component';
     AngularFireDatabaseModule,
     AngularFireAuthModule
   ],
-  providers: [],
+  providers: [ShowreelService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
