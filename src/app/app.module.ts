@@ -17,6 +17,8 @@ import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { ShowreelComponent } from './showreel/showreel.component';
 import { AngularFirstAppComponent } from './showreel/angular-first-app/angular-first-app.component';
+import { AboutMeComponent } from './about-me/about-me.component';
+import { BlogComponent } from './blog/blog.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { AngularFirstAppComponent } from './showreel/angular-first-app/angular-f
     NavigationComponent,
     DialogBoxComponent,
     ShowreelComponent,
-    AngularFirstAppComponent
+    AngularFirstAppComponent,
+    AboutMeComponent,
+    BlogComponent
   ],
   entryComponents: [DialogBoxComponent],
   imports: [
