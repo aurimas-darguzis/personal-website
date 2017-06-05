@@ -18,7 +18,7 @@ export class NavigationComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log(result);
       this.selectedOption = result;
-    })
+    });
   }
 
   ngOnInit() {
