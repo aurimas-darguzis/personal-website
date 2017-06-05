@@ -1,3 +1,4 @@
+import { ShowreelService } from './showreel.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./showreel.component.css']
 })
 export class ShowreelComponent implements OnInit {
+  private projects;
+
   tiles = [
     {text: 'Angular',   cols: 1, rows: 1, color: 'lightblue'},
     {text: 'React',   cols: 1, rows: 1, color: 'lightblue'},
@@ -17,8 +20,10 @@ export class ShowreelComponent implements OnInit {
     // {text: 'Four',  cols: 1, rows: 1, color: '#DDBDF1'},
   ];
 
-  constructor() { }
+  constructor(private showreelService: ShowreelService) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.projects = this.showreelService.getProject();
+  }
 
 }
