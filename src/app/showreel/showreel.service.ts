@@ -16,7 +16,6 @@ export class ShowreelService {
                   as well. :)`
   }];
 
-  
 
   constructor(private http: Http ,private projectService: ProjectsService) { }
 
@@ -25,9 +24,10 @@ export class ShowreelService {
   }
 
   getProjects () {
-    return this.http.get('https://ng-recipe-book.firebaseio.com/recipes.json')
+    return this.http.get('https://ng-recipe-book.firebaseio.com/projects/')
       .map(
         (response: Response) => {
+          console.log(response);
           const projects: Project[] = response.json();
           for (const project of projects) {
             if (!project['description']) {
