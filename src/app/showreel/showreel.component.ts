@@ -1,6 +1,7 @@
 import { ShowreelService } from './showreel.service';
+import { Project } from './showreel.model';
 import { Component, OnInit } from '@angular/core';
-import { Response } from '@angular/http';
+
 
 @Component({
   selector: 'app-showreel',
@@ -28,9 +29,9 @@ export class ShowreelComponent implements OnInit {
   }
 
   onSaveProject() {
-    this.showreelService.saveProject()
+    this.showreelService.getProjects()
       .subscribe(
-        (response: Response) => {
+        (response: any) => {
           console.log(response);
         }
       );

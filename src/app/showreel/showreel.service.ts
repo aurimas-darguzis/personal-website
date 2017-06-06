@@ -1,5 +1,8 @@
 import { ProjectsService } from './db/projects.service';
 import { Injectable } from '@angular/core';
+import { Http, Response } from '@angular/http';
+import { Project } from './showreel.model';
+
 
 @Injectable()
 export class ShowreelService {
@@ -13,14 +16,41 @@ export class ShowreelService {
                   as well. :)`
   }];
 
-  constructor(private projectService: ProjectsService) { }
+  
+
+  constructor(private http: Http ,private projectService: ProjectsService) { }
 
   getProject () {
     return this.project;
   }
 
-  saveProject () {
+  getProjects () {
+    return this.http.get('https://ng-recipe-book.firebaseio.com/recipes.json')
+      .map(
+        (response: Response) => {
+          const projects: Project[] = response.json();
+          for (const project of projects) {
+            if (!project['description']) {
+              project['description'] = '';
+            }
+          }
+          return projects;
+        }
+      );
+      // .subscribe(
+      //   (projects: Project[]) => {
+      //     console.log(projects);
+      //     // this.showReelService.setProjects(projects);
+      //     // this.saveProject(projects);
+      //   }
+      // );
+  }
+
+  saveProject (projects) {
     return this.projectService.storeProject();
   }
 
+
+
 }
+
