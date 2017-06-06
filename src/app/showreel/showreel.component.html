@@ -11,6 +11,8 @@
 <app-angular-first-app *ngFor="let project of projects"></app-angular-first-app>
 <br>
 
-<button md-button (click)="onSaveProject()">
-  <md-icon>save</md-icon>  
-</button>
+<div class="add-project-row">
+    <button md-raised-button (click)="onSaveProject()">
+    <md-icon>add_circle_outline</md-icon>  
+    </button>
+</div>
