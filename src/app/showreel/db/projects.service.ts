@@ -1,8 +1,24 @@
 import { Injectable } from '@angular/core';
+import { Http } from '@angular/http';
+
 
 @Injectable()
 export class ProjectsService {
 
-  constructor() { }
+  constructor(private http: Http) {
+   }
+
+   storeProject() {
+     this.http.put('https://civic-genre-139017.firebaseio.com/projects.json', this.getProjects());
+   }
+
+   getData() {
+     return;
+    //  return this.http.put('https://civic-genre-139017.firebaseio.com/', )
+   }
+
+   getProjects() {
+     return;
+   }
 
 }

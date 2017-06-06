@@ -1,3 +1,4 @@
+import { ProjectsService } from './showreel/db/projects.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -43,7 +44,7 @@ import { BlogComponent } from './blog/blog.component';
     AngularFireDatabaseModule,
     AngularFireAuthModule
   ],
-  providers: [ShowreelService],
+  providers: [ShowreelService, ProjectsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
