@@ -1,3 +1,4 @@
+import { ProjectsService } from './db/projects.service';
 import { Injectable } from '@angular/core';
 
 @Injectable()
@@ -12,10 +13,14 @@ export class ShowreelService {
                   as well. :)`
   }];
 
-  constructor() { }
+  constructor(private projectService: ProjectsService) { }
 
   getProject () {
     return this.project;
+  }
+
+  saveProject () {
+    this.projectService.storeProject();
   }
 
 }

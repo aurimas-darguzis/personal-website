@@ -26,4 +26,8 @@ export class ShowreelComponent implements OnInit {
     this.projects = this.showreelService.getProject();
   }
 
+  onSaveProject() {
+    this.showreelService.saveProject();
+  }
+
 }
