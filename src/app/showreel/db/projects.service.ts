@@ -9,7 +9,7 @@ export class ProjectsService {
    }
 
    storeProject() {
-     this.http.put('https://civic-genre-139017.firebaseio.com/projects.json', this.getProjects());
+     return this.http.put('https://civic-genre-139017.firebaseio.com/projects.json', this.getProjects());
    }
 
    getData() {

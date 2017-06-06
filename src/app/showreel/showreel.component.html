@@ -10,4 +10,7 @@
 
 <app-angular-first-app *ngFor="let project of projects"></app-angular-first-app>
 <br>
-<a (click)="onSaveProject">Save</a>
+
+<button md-button (click)="onSaveProject()">
+  <md-icon>save</md-icon>  
+</button>

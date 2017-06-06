@@ -20,7 +20,7 @@ export class ShowreelService {
   }
 
   saveProject () {
-    this.projectService.storeProject();
+    return this.projectService.storeProject();
   }
 
 }
