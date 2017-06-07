@@ -29,7 +29,7 @@ export class ShowreelComponent implements OnInit {
   }
 
   onSaveProject() {
-    this.showreelService.getProjects()
+    this.showreelService.getProjectFromFirebase()
       .subscribe(
         (response: any) => {
           console.log(response);

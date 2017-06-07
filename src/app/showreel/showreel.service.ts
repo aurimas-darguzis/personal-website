@@ -23,8 +23,8 @@ export class ShowreelService {
     return this.project;
   }
 
-  getProjects () {
-    return this.http.get('https://ng-recipe-book.firebaseio.com/projects/')
+  getProjectFromFirebase () {
+    return this.http.get('https://civic-genre-139017.firebaseio.com/projects.json')
       .map(
         (response: Response) => {
           console.log(response);

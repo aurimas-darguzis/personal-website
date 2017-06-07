@@ -9,9 +9,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { DialogBoxComponent } from './material-components';
 
-import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
-import { AngularFireAuthModule } from 'angularfire2/auth';
+// import { AngularFireModule } from 'angularfire2';
+// import { AngularFireDatabaseModule } from 'angularfire2/database';
+// import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
 
 import { AppComponent } from './app.component';
@@ -40,9 +40,9 @@ import { BlogComponent } from './blog/blog.component';
     HttpModule,
     BrowserAnimationsModule,
     MaterialModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule,
-    AngularFireAuthModule
+    // AngularFireModule.initializeApp(environment.firebase),
+    // AngularFireDatabaseModule,
+    // AngularFireAuthModule
   ],
   providers: [ShowreelService, ProjectsService],
   bootstrap: [AppComponent]
