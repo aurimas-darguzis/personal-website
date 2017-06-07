@@ -34,6 +34,7 @@ export class ShowreelService {
               project['description'] = '';
             }
           }
+          // console.log(projects);
           return projects;
         }
       );

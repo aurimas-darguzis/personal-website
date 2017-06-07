@@ -10,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShowreelComponent implements OnInit {
   private projects;
+  private firebaseProject;
 
   tiles = [
     {text: 'Angular',   cols: 1, rows: 1, color: 'lightblue'},
@@ -26,13 +27,15 @@ export class ShowreelComponent implements OnInit {
 
   ngOnInit() {
     this.projects = this.showreelService.getProject();
+    // this.projects = this.showreelService.getProjectFromFirebase();
   }
 
   onSaveProject() {
     this.showreelService.getProjectFromFirebase()
       .subscribe(
         (response: any) => {
-          console.log(response);
+          // console.log(response);
+          this.firebaseProject = response;
         }
       );
   }
