@@ -1,4 +1,5 @@
 {
   "md-docs":"https://material.angular.io/components",
-  "md-icons-list": "https://klarsys.github.io/angular-material-icons/"
+  "md-icons-list": "https://klarsys.github.io/angular-material-icons/",
+  "flex-layout": "https://stackoverflow.com/questions/37244788/are-layout-directives-supported-by-angular-2-material-design-components"
 }
