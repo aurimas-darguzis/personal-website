@@ -7,15 +7,20 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./angular-first-app.component.css']
 })
 export class AngularFirstAppComponent implements OnInit {
-  @Input() project;
+  // @Input() project;
 
-  // private project: any;
+  private project: any;
 
   constructor(private showreelService: ShowreelService) { }
 
   ngOnInit() {
-    console.log(this.project);
-    this.project = this.showreelService.getProject();
+    // this.project = this.showreelService.getProject();
+    this.showreelService.getProjectFromFirebase().subscribe(
+      (projects => {
+        this.project = projects;
+      })
+    );
+    // console.log(this.project);
   }
 
 }

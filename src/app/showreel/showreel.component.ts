@@ -27,7 +27,7 @@ export class ShowreelComponent implements OnInit {
 
   ngOnInit() {
     // this.projects = this.showreelService.getProject();
-    this.projects = this.showreelService.getProjectFromFirebase();
+    this.projects = new Array(this.showreelService.getProjectFromFirebase());
   }
 
   onSaveProject() {

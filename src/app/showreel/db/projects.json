@@ -1,8 +1,13 @@
 {
-    "projects": {
+    "projects": [{
       "name": "First app",
       "category": "Angular 2+",
       "image": "assets/img/showreel/girl-640-min.jpg",
       "description": "The website you are browsing currently is written using Angular. It started as Angular2, and now continuesly growing with the frameworkas well."
-    }
+    },{
+      "name": "Beta app",
+      "category": "Angular 2+",
+      "image": "",
+      "description": "Second test app"
+    }]
 }
