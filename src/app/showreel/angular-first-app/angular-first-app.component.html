@@ -1,13 +1,13 @@
-<md-card class="example-card">
+<md-card class="example-card" *ngFor="let project of projects">
         <md-card-header>
           <div md-card-avatar class="example-header-image"></div>
-          <!--<md-card-title>{{ project.name }}</md-card-title>-->
-          <!--<md-card-subtitle>{{ project.category }}</md-card-subtitle>-->
+          <md-card-title>{{ project.name }}</md-card-title>
+          <md-card-subtitle>{{ project.category }}</md-card-subtitle>
         </md-card-header>
         <img md-card-image src="assets/img/showreel/girl-640-min.jpg">
         <md-card-content>
           <p>
-            <!--{{ project.description }}-->
+            {{ project.description }}
           </p>
         </md-card-content>
         <md-card-actions>
@@ -16,3 +16,4 @@
           <button md-button>CODE</button>
         </md-card-actions>
 </md-card>
+<br />

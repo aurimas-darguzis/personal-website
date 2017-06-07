@@ -27,14 +27,13 @@ export class ShowreelService {
     return this.http.get('https://civic-genre-139017.firebaseio.com/projects.json')
       .map(
         (response: Response) => {
-          console.log(response);
-          const projects: Project[] = response.json();
-          for (const project of projects) {
-            if (!project['description']) {
-              project['description'] = '';
-            }
-          }
-          // console.log(projects);
+          const projects: Project[] = new Array(response.json());
+          // for (const project of projects) {
+          //   if (!project['description']) {
+          //     project['description'] = '';
+          //   }
+          // }
+          console.log(projects);
           return projects;
         }
       );

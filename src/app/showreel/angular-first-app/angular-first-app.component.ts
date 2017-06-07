@@ -1,4 +1,5 @@
 import { ShowreelService } from './../showreel.service';
+import { Project } from '../showreel.model';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
@@ -9,15 +10,16 @@ import { Component, OnInit, Input } from '@angular/core';
 export class AngularFirstAppComponent implements OnInit {
   // @Input() project;
 
-  private project: any;
+  private projects: Project[];
 
   constructor(private showreelService: ShowreelService) { }
 
   ngOnInit() {
     // this.project = this.showreelService.getProject();
     this.showreelService.getProjectFromFirebase().subscribe(
-      (projects => {
-        this.project = projects;
+      ((projects: Project[]) => {
+        this.projects = projects;
+        console.log(this.projects);
       })
     );
     // console.log(this.project);
