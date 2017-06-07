@@ -26,8 +26,8 @@ export class ShowreelComponent implements OnInit {
   constructor(private showreelService: ShowreelService) { }
 
   ngOnInit() {
-    this.projects = this.showreelService.getProject();
-    // this.projects = this.showreelService.getProjectFromFirebase();
+    // this.projects = this.showreelService.getProject();
+    this.projects = this.showreelService.getProjectFromFirebase();
   }
 
   onSaveProject() {
