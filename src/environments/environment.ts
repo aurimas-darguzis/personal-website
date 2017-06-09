@@ -13,4 +13,4 @@ export const environment = {
     storageBucket: 'civic-genre-139017.appspot.com',
     messagingSenderId: '644038543495'
   }
-}
+};

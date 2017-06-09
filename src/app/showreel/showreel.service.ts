@@ -17,7 +17,7 @@ export class ShowreelService {
   }];
 
 
-  constructor(private http: Http ,private projectService: ProjectsService) { }
+  constructor(private http: Http , private projectService: ProjectsService) { }
 
   getProject () {
     return this.project;
