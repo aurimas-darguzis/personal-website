@@ -24,7 +24,8 @@ import { BlogComponent } from './blog/blog.component';
 
 // firebaseconfig
 export const firebaseConfig = {
-    1: true
+    1: true,
+    2: true
 };
 
 @NgModule({
