@@ -22,6 +22,11 @@ import { AngularFirstAppComponent } from './showreel/angular-first-app/angular-f
 import { AboutMeComponent } from './about-me/about-me.component';
 import { BlogComponent } from './blog/blog.component';
 
+// firebaseconfig
+export const firebaseConfig = {
+    1: true
+};
+
 @NgModule({
   declarations: [
     AppComponent,
