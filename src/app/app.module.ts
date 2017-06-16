@@ -1,3 +1,4 @@
+import { AppRoutingModule } from './app-routing.module';
 import { ProjectsService } from './showreel/db/projects.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -53,6 +54,7 @@ export const firebaseConfig = {
   entryComponents: [DialogBoxComponent],
   imports: [
     BrowserModule,
+    AppRoutingModule,
     FormsModule,
     HttpModule,
     BrowserAnimationsModule,

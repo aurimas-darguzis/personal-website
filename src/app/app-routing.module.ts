@@ -7,11 +7,11 @@ import { BlogComponent } from './blog/blog.component';
 import { SignupComponent } from './auth/signup/signup.component';
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: '/' },
-  { path: '/about', component: AboutMeComponent },
-  { path: '/showreel', component: ShowreelComponent },
-  { path: '/blog', component: BlogComponent },
-  { path: '/signup', component: SignupComponent }
+  { path: '', redirectTo: '/about', pathMatch: 'full' },
+  { path: 'about', component: AboutMeComponent },
+  { path: 'showreel', component: ShowreelComponent },
+  { path: 'blog', component: BlogComponent },
+  { path: 'signup', component: SignupComponent }
 ];
 
 @NgModule({
