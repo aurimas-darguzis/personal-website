@@ -24,6 +24,7 @@ import { AboutMeComponent } from './about-me/about-me.component';
 import { BlogComponent } from './blog/blog.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { SigninComponent } from './auth/signin/signin.component';
+import { HeaderComponent } from './header/header.component';
 
 // firebaseconfig
 export const firebaseConfig = {
@@ -46,7 +47,8 @@ export const firebaseConfig = {
     AboutMeComponent,
     BlogComponent,
     SignupComponent,
-    SigninComponent
+    SigninComponent,
+    HeaderComponent
   ],
   entryComponents: [DialogBoxComponent],
   imports: [
