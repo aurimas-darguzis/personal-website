@@ -762,3 +762,9 @@
     }
   }
 */
+.blog-component {
+  background: url('../blog/img/comingSoon-min-bg.jpg');
+  width: 300px;
+  height: auto;
+  margin: 0 auto;
+}
