@@ -1,14 +1,27 @@
-<div class="some-container">
-  <div class="navigation-bar">
-    <a routerLink="/">Darguzis</a>
-  </div>
-</div>
+<md-toolbar color="primary">
+  <!--<button md-button routerLink="/">
+    <md-icon>home</md-icon>
+  </button>-->
 
-<div class="some-collapsable-bar">
-  <ul>
-    <li><a routerLink="/about">About</a></li>
-    <li><a routerLink="/showreel">Showreel</a></li>
-    <li><a routerLink="/blog">Blog</a></li>
-    <li><a routerLink="/signup">Register</a></li>
-  </ul>
-</div>
+  <button md-button (click)="openDialog()">
+    <md-icon>email</md-icon>
+  </button>
+
+  <!-- This fills the remaining space of the current row -->
+  <span class="fill-remaining-space"></span>
+  <div fxLayout="row" fxShow="false" fxShow.gt-sm>
+    <button md-button routerLink="/about">About</button>
+    <button md-button routerLink="/showreel">Showreel</button>
+    <button md-button routerLink="/blog">Blog</button>
+  </div>
+
+  <button md-button [md-menu-trigger-for]="menu" fxHide="false" fxHide.gt-sm>
+    <md-icon>menu</md-icon>
+  </button>
+
+</md-toolbar>
+<md-menu x-position="before" #menu="mdMenu">
+  <button md-menu-item routerLink="/about">About</button>
+  <button md-menu-item routerLink="/showreel">Showreel</button>
+  <button md-menu-item routerLink="/blog">Blog</button>
+</md-menu>

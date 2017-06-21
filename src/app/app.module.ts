@@ -9,6 +9,7 @@ import 'hammerjs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { DialogBoxComponent } from './material-components';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AngularFireModule } from 'angularfire2';
 // import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -26,16 +27,10 @@ import { BlogComponent } from './blog/blog.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { SigninComponent } from './auth/signin/signin.component';
 import { HeaderComponent } from './header/header.component';
+import { ProjectDetailsComponent } from './showreel/showreel-project/project-details/project-details.component';
+import { ShowreelProjectComponent } from './showreel/showreel-project/showreel-project.component';
+import { ProjectEditComponent } from './showreel/showreel-project/project-edit/project-edit.component';
 
-// firebaseconfig
-export const firebaseConfig = {
-    apiKey: 'AIzaSyAaUrcQV4PZObFU61mZXjsK39Dce2vC5Zw',
-    authDomain: 'civic-genre-139017.firebaseapp.com',
-    databaseURL: 'https://civic-genre-139017.firebaseio.com',
-    projectId: 'civic-genre-139017',
-    storageBucket: 'civic-genre-139017.appspot.com',
-    messagingSenderId: '644038543495'
-};
 
 @NgModule({
   declarations: [
@@ -49,7 +44,10 @@ export const firebaseConfig = {
     BlogComponent,
     SignupComponent,
     SigninComponent,
-    HeaderComponent
+    HeaderComponent,
+    ProjectDetailsComponent,
+    ShowreelProjectComponent,
+    ProjectEditComponent
   ],
   entryComponents: [DialogBoxComponent],
   imports: [
@@ -59,6 +57,7 @@ export const firebaseConfig = {
     HttpModule,
     BrowserAnimationsModule,
     MaterialModule,
+    FlexLayoutModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
     // AngularFireDatabaseModule,
     // AngularFireAuthModule

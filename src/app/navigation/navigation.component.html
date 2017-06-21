@@ -1,20 +1,76 @@
-<!--<md-toolbar color="primary">-->
-  <button md-button (click)="openDialog()">
-    <md-icon>email</md-icon>  
-  </button>
-  <span class="name">Aurimas Darguzis</span>
-<!--</md-toolbar>-->
+<!-- 
+  ***** FLEXLAYOUT + MATERIAL  (md is using flex layout by default) *****
 
-<md-tab-group>
-  <!-- currently not using About section -->
-  <md-tab label="About">
-    <app-about-me></app-about-me>
-  </md-tab>
-  <md-tab label="Projects">
-    <app-showreel></app-showreel>
-  </md-tab>
-  <md-tab label="Blog">
-    <app-blog></app-blog>
-  </md-tab>
-</md-tab-group>
+  <md-toolbar color="primary">
+    <button md-button routerLink="/">
+      <md-icon>home</md-icon>
+    </button>
 
+    This fills the remaining space of the current row 
+    <span class="fill-remaining-space"></span>
+    <div fxLayout="row" fxShow="false" fxShow.gt-sm>
+      <button md-button routerLink="/about">About</button>
+      <button md-button routerLink="/showreel">Showreel</button>
+      <button md-button routerLink="/blog">Blog</button>
+    </div>
+
+    <button md-button [md-menu-trigger-for]="menu" fxHide="false" fhHide.gt-sm>
+      <md-icon>menu</md-icon>
+    </button>
+
+  </md-toolbar>
+  <md-menu x-position="before" #menu="mdMenu">
+    <button md-menu-item routerLink="/about">About</button>
+    <button md-menu-item routerLink="/showreel">Showreel</button>
+    <button md-menu-item routerLink="/blog">Blog</button>
+  </md-menu>
+ -->
+
+<!-- 
+  ***** MATERIAL DESIGN *****
+
+  <md-toolbar color="primary">
+    <button md-button (click)="openDialog()">
+      <md-icon>email</md-icon>  
+    </button>
+    <span class="name">Aurimas Darguzis</span>
+  </md-toolbar>
+
+  <md-tab-group>
+    currently not using About section 
+    <md-tab label="About">
+      <app-about-me></app-about-me>
+    </md-tab>
+    <md-tab label="Projects">
+      <app-showreel></app-showreel>
+    </md-tab>
+    <md-tab label="Blog">
+      <app-blog></app-blog>
+    </md-tab>
+  </md-tab-group>
+-->
+
+<!--
+  ***** HTML *****
+  
+  <div class="header-component">
+  <div class="some-container">
+    <div>
+      Header.component
+    </div>
+    <div class="navigation-bar">
+      <a routerLink="/">Darguzis</a>
+    </div>
+  </div>
+
+  <div class="some-collapsable-bar">
+    <ul class="some-nav">
+      <li><a routerLink="/about">About</a></li>
+      <li><a routerLink="/showreel">Showreel</a></li>
+      <li><a routerLink="/blog">Blog</a></li>
+      <li><a routerLink="/signup">Register</a></li>
+    </ul>
+  </div>
+</div>
+
+-->

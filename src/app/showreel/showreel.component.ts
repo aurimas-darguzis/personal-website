@@ -9,24 +9,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./showreel.component.css']
 })
 export class ShowreelComponent implements OnInit {
-  private projects;
-  private firebaseProject;
-
+  private projects: Project[];
 
   constructor(private showreelService: ShowreelService) { }
 
   ngOnInit() {
-    // this.projects = this.showreelService.getProject();
-    // this.projects = new Array(this.showreelService.getProjectFromFirebase());
+    this.showreelService.getProjectFromFirebase().subscribe(
+      (projects: Project[]) => {
+        this.projects = projects;
+      }
+    );
   }
 
   onSaveProject() {
-    this.showreelService.getProjectFromFirebase()
-      .subscribe(
-        (response: any) => {
-          // console.log(response);
-          this.firebaseProject = response;
-        }
-      );
+    return;
   }
 }
