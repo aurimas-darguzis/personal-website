@@ -21,7 +21,7 @@ export class ShowreelProjectComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.projects);
+    // console.log(this.projects);
   }
 
 }

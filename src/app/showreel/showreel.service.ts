@@ -33,7 +33,7 @@ export class ShowreelService {
           //     project['description'] = '';
           //   }
           // }
-          console.log(projects);
+          // console.log(projects);
           return projects;
         }
       );
