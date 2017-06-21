@@ -12,8 +12,8 @@ import { BlogComponent } from './blog/blog.component';
 import { SignupComponent } from './auth/signup/signup.component';
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: '/about', pathMatch: 'full' },
-  { path: 'about', component: AboutMeComponent },
+  { path: '', redirectTo: '/showreel', pathMatch: 'full' },
+  // { path: 'about', component: AboutMeComponent },
   { path: 'showreel', component: ShowreelComponent, children: [
       { path: '', component: ShowreelProjectComponent },
       { path: 'new', component: ProjectEditComponent },
@@ -21,8 +21,8 @@ const appRoutes: Routes = [
       { path: ':id/edit', component: ProjectEditComponent }
     ]
   },
-  { path: 'blog', component: BlogComponent },
-  { path: 'signup', component: SignupComponent }
+  // { path: 'blog', component: BlogComponent },
+  // { path: 'signup', component: SignupComponent }
 ];
 
 @NgModule({

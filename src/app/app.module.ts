@@ -58,7 +58,7 @@ import { ProjectEditComponent } from './showreel/showreel-project/project-edit/p
     BrowserAnimationsModule,
     MaterialModule,
     FlexLayoutModule.forRoot(),
-    AngularFireModule.initializeApp(environment.firebase),
+    // AngularFireModule.initializeApp(environment.firebase),
     // AngularFireDatabaseModule,
     // AngularFireAuthModule
   ],
