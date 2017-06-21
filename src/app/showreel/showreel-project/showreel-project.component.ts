@@ -7,20 +7,21 @@ import { Project } from '../showreel.model';
   styleUrls: ['./showreel-project.component.css']
 })
 export class ShowreelProjectComponent implements OnInit {
-  @Input() data: Project[];
+  @Input() projecttt: Project[];
   @Input() index: number;
 
-  // project: Project = {
-  //   name: '',
-  //   category: '',
-  //   image: '',
-  //   description: ''
-  // };
+  projects: Project[] = [{
+    name: 'Angular 2',
+    category: `The website you are browsing currently is written using Angular. It started as Angular2, 
+               and now continuesly growing with the frameworkas well.`,
+    imagePath: '',
+    description: 'First App'
+  }];
 
   constructor() { }
 
   ngOnInit() {
-    console.log(this.data);
+    console.log(this.projects);
   }
 
 }
