@@ -760,11 +760,12 @@
       transform: scale(1);
       opacity: 1;
     }
-  }
-*/
+  }*/
+
 .blog-component {
-  background: url('../blog/img/comingSoon-min-bg.jpg');
-  width: 300px;
-  height: auto;
-  margin: 0 auto;
+  background: url('../blog/img/comingSoon-min-bg.jpg') no-repeat center;
+  background-size: cover;
+  /*width: 100vw;*/
+  height: 100vh;
+  /*margin: 0 auto;*/
 }

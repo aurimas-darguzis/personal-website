@@ -21,7 +21,7 @@ const appRoutes: Routes = [
       { path: ':id/edit', component: ProjectEditComponent }
     ]
   },
-  // { path: 'blog', component: BlogComponent },
+  { path: 'blog', component: BlogComponent },
   // { path: 'signup', component: SignupComponent }
 ];
 
