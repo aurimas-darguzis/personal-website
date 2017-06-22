@@ -1,3 +1,4 @@
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
