@@ -13,7 +13,7 @@ import { SignupComponent } from './auth/signup/signup.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/showreel', pathMatch: 'full' },
-  // { path: 'about', component: AboutMeComponent },
+  { path: 'about', component: AboutMeComponent },
   { path: 'showreel', component: ShowreelComponent, children: [
       { path: '', component: ShowreelProjectComponent },
       { path: 'new', component: ProjectEditComponent },
@@ -22,7 +22,7 @@ const appRoutes: Routes = [
     ]
   },
   { path: 'blog', component: BlogComponent },
-  // { path: 'signup', component: SignupComponent }
+  { path: 'signup', component: SignupComponent }
 ];
 
 @NgModule({
