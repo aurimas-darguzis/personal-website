@@ -1,18 +1,15 @@
 <md-toolbar color="primary">
-
-
   <!-- This fills the remaining space of the current row -->
       <!--* this one right here pushes stuff to the most right *-->
   <!--<span class="fill-remaining-space"></span>-->
-  <div fxLayout="row" fxShow="false" fxShow.gt-sm>
+  <!--<div fxLayout="row" fxShow="false" fxShow.gt-sm>-->
+  <div fxLayout="row">
     <button md-button routerLink="/">         <md-icon>home</md-icon>           </button>
     <button md-button routerLink="/about">    <md-icon>assignment_ind</md-icon> </button>
     <button md-button routerLink="/showreel"> <md-icon>next_week</md-icon>      </button>
     <button md-button routerLink="/blog">     <md-icon>description</md-icon>    </button>
     <button md-button (click)="openDialog()"> <md-icon>room_service</md-icon>   </button>
   </div>
-
-
 </md-toolbar>
   
   <!--<button md-button routerLink="/login"><md-icon>login</md-icon></button>
@@ -20,7 +17,3 @@
   <button md-button routerLink="/showreel"><md-icon>work</md-icon></button>
   <button md-button routerLink="/blog"><md-icon>vpn_key</md-icon></button>
   <button md-button (click)="openDialog()"><md-icon>email</md-icon></button>-->
-  
-    <!--<button md-button routerLink="/about">About</button>
-    <button md-button routerLink="/showreel">Showreel</button>
-    <button md-button routerLink="/blog">Blog</button>-->
