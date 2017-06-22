@@ -5,26 +5,15 @@
       <!--* this one right here pushes stuff to the most right *-->
   <!--<span class="fill-remaining-space"></span>-->
   <div fxLayout="row" fxShow="false" fxShow.gt-sm>
-
-  <button md-button routerLink="/"><md-icon>home</md-icon></button>
-  <button md-button routerLink="/about"><md-icon>assignment_ind</md-icon></button>
-  <button md-button routerLink="/showreel"><md-icon>next_week</md-icon></button>
-  <button md-button routerLink="/blog"><md-icon>description</md-icon></button>
-  <button md-button (click)="openDialog()"><md-icon>room_service</md-icon></button>
-  
-  
+    <button md-button routerLink="/">         <md-icon>home</md-icon>           </button>
+    <button md-button routerLink="/about">    <md-icon>assignment_ind</md-icon> </button>
+    <button md-button routerLink="/showreel"> <md-icon>next_week</md-icon>      </button>
+    <button md-button routerLink="/blog">     <md-icon>description</md-icon>    </button>
+    <button md-button (click)="openDialog()"> <md-icon>room_service</md-icon>   </button>
   </div>
 
-  <button md-button [md-menu-trigger-for]="menu" fxHide="false" fxHide.gt-sm>
-    <md-icon>menu</md-icon>
-  </button>
 
 </md-toolbar>
-<md-menu x-position="before" #menu="mdMenu">
-  <button md-menu-item routerLink="/about">About</button>
-  <button md-menu-item routerLink="/showreel">Showreel</button>
-  <button md-menu-item routerLink="/blog">Blog</button>
-</md-menu>
   
   <!--<button md-button routerLink="/login"><md-icon>login</md-icon></button>
   <button md-button routerLink="/showreel"><md-icon>view_carousel</md-icon></button>
