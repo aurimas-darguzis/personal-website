@@ -30,6 +30,7 @@ import { HeaderComponent } from './header/header.component';
 import { ProjectDetailsComponent } from './showreel/showreel-project/project-details/project-details.component';
 import { ShowreelProjectComponent } from './showreel/showreel-project/showreel-project.component';
 import { ProjectEditComponent } from './showreel/showreel-project/project-edit/project-edit.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { ProjectEditComponent } from './showreel/showreel-project/project-edit/p
     HeaderComponent,
     ProjectDetailsComponent,
     ShowreelProjectComponent,
-    ProjectEditComponent
+    ProjectEditComponent,
+    HomeComponent
   ],
   entryComponents: [DialogBoxComponent],
   imports: [

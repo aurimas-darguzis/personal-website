@@ -1,3 +1,4 @@
+import { HomeComponent } from './home/home.component';
 import { ProjectEditComponent } from './showreel/showreel-project/project-edit/project-edit.component';
 import { AngularFirstAppComponent } from './showreel/angular-first-app/angular-first-app.component';
 import { ShowreelProjectComponent } from './showreel/showreel-project/showreel-project.component';
@@ -12,7 +13,8 @@ import { BlogComponent } from './blog/blog.component';
 import { SignupComponent } from './auth/signup/signup.component';
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: '/showreel', pathMatch: 'full' },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
   { path: 'about', component: AboutMeComponent },
   { path: 'showreel', component: ShowreelComponent, children: [
       { path: '', component: ShowreelProjectComponent },
