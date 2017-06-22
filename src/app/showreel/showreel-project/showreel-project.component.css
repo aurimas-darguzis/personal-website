@@ -7,3 +7,15 @@
   text-decoration: none;
   color: black;
 }
+
+.showreel-header {
+  font-size: 1.6em;
+  font-family: 'Libre Baskerville', serif;
+  margin-left: 20px;
+}
+
+.showreel-header h1 {
+  color: #009933;
+  color: #663300;
+  
+}

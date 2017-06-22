@@ -2,5 +2,6 @@
   "md-docs":"https://material.angular.io/components",
   "md-icons-list": "https://klarsys.github.io/angular-material-icons/",
   "flex-layout": "https://stackoverflow.com/questions/37244788/are-layout-directives-supported-by-angular-2-material-design-components",
-  "flex-layout-stackoverflow": "https://stackoverflow.com/questions/41720366/develop-responsive-layouts-in-angular-2-material-using-flex-layouts"
+  "flex-layout-stackoverflow": "https://stackoverflow.com/questions/41720366/develop-responsive-layouts-in-angular-2-material-using-flex-layouts",
+  "web-safe-colors": "https://websafecolors.info/color-chart",
 }
