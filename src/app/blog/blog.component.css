@@ -1,3 +1,11 @@
+.blog-component {
+  background: url('../blog/img/comingSoon-min-bg.jpg') no-repeat center;
+  background-size: cover;
+  height: 100vh;
+  /*width: 100vw;*/
+  /*margin: 0 auto;*/
+}
+
 /*
   .sp-container {
     background: url('./img/dust.jpg');
@@ -762,10 +770,4 @@
     }
   }*/
 
-.blog-component {
-  background: url('../blog/img/comingSoon-min-bg.jpg') no-repeat center;
-  background-size: cover;
-  /*width: 100vw;*/
-  height: 100vh;
-  /*margin: 0 auto;*/
-}
+

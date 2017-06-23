@@ -1,0 +1,8 @@
+.who-am-I-container {
+  border: 1px solid green;
+  width: 100vw;
+  height: 100vh;
+  background: url('../../assets/img/bg-home.svg');
+  background-size: cover;
+  opacity: 0.1;
+}
