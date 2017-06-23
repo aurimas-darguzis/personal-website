@@ -1,7 +1,16 @@
 <div class="who-am-I-container">
-  <div fxLayout="row">
-    <div class="flex-item" fxFlex>
-      <button type="">Who Am I <md-icon></md-icon></button>
-    </div>
+  <div fxLayout="row"
+       fxLayout.xs="column"
+       fxLayoutAlign="center center"
+       fxLayoutAlign.xs="start">
+
+      <a routerLink="/about">
+        <button md-raised-button>Who Am I?</button>
+      </a>
+
+    <!--<div class="flex-item main-focus">
+    </div>-->
   </div>
 </div>
+
+
