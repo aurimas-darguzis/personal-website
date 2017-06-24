@@ -24,4 +24,8 @@ export class ShowreelProjectComponent implements OnInit {
     // console.log(this.projects);
   }
 
+  onNewProject() {
+    return;
+  }
+
 }

@@ -5,8 +5,9 @@
 <!--<div fxLayout="row" fxFlexAlign="center" class="controls_row">-->
 <div fxFlexAlign="center">
   <div>
-    <button md-fab><md-icon>add</md-icon></button>
-    <button md-fab><md-icon>reply_all</md-icon></button>
+    <!--<a routerLink="/showreel/new"><button md-fab><md-icon>add</md-icon></button></a>-->
+    <button md-fab (click)="onNewProject()"><md-icon>add</md-icon></button>
+    <button md-fab><md-icon>star</md-icon></button>
   </div>
 </div>
 
