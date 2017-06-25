@@ -18,9 +18,10 @@
   </div>
 </div> <!-- END of row -->
 
+<!-- *** WORKING HERE ***-->
 <div fxLayout="row">
   <div fxLayoutAlign="center" fxFlexOffset="20px">
-    <div fxFlex *ngFor="let project of projects">
+    <div fxFlex *ngFor="let project of projects; let i = index">
 
       <md-card>
         <md-card-header>
@@ -32,7 +33,7 @@
         </md-card-content>
       </md-card>
       <md-card-actions>
-        <button md-fab (click)="onDetails()"><md-icon>details</md-icon></button>
+        <a [routerLink]="[i]"><button md-fab (click)="onDetails()"><md-icon>details</md-icon></button></a>
         <button md-fab (click)="onEditProject()"><md-icon>edit</md-icon></button>
       </md-card-actions>
     </div>
@@ -41,7 +42,6 @@
 
 <div fxLayout="row" fxLayout.xs="column">
   <div fxFlexOffset="20px">
-    <!--<div fxFlex="1 2 calc(15em + 20px)"> sita taip ir palik uzkomeninta --> 
     <div fxFlex="50">
 
     <md-card>
@@ -56,16 +56,11 @@
         <p>
           Axioma - statement that is taken to be true, to serve as a premise or starting point for further reasoning and arguments.
         </p>
-        <!--<p>
-          Open to explore<br/>
-          Demo to visit the website<br/>
-        </p>-->
       </md-card-content>
       <md-card-actions>
         <a class="link" routerLink="/showreel">                                             <button md-button disabled>OPEN</button></a>
         <a class="link" href="http://www.axioma.world/" target="blank">                     <button md-button>DEMO</button></a>
         <a class="link" href="https://github.com/aurimas-darguzis/axioma" target="blank">   <button md-button>CODE</button></a>
-        <!--<a class="link" routerLink="/showreel/$id">                                         <button md-fab><md-icon>edit</md-icon></button></a>-->
         <br>
         <button md-fab (click)="onDetails()"><md-icon>details</md-icon></button>
         <button md-fab (click)="onEditProject()"><md-icon>edit</md-icon></button>
@@ -78,3 +73,4 @@
 
 
 </div>
+    <!--<div fxFlex="1 2 calc(15em + 20px)"> sita taip ir palik uzkomeninta --> 

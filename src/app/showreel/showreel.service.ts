@@ -29,7 +29,7 @@ export class ShowreelService {
   constructor(private http: Http , private projectService: ProjectsService) { }
 
   getProject (index: number) {
-    return this.projects.slice()[index];
+    return this.projects[index];
   }
 
   getProjects () {

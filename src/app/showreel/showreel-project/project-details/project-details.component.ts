@@ -9,8 +9,7 @@ import { Project } from '../../showreel.model';
   styleUrls: ['./project-details.component.css']
 })
 export class ProjectDetailsComponent implements OnInit {
-  // project: Project;
-  project: any;
+  project: Project;
   id: number;
 
   constructor(private showreelService: ShowreelService,
