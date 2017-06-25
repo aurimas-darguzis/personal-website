@@ -18,6 +18,27 @@
   </div>
 </div> <!-- END of row -->
 
+<div fxLayout="row">
+  <div fxLayoutAlign="center" fxFlexOffset="20px">
+    <div fxFlex *ngFor="let project of projects">
+
+      <md-card>
+        <md-card-header>
+          <md-card-title>{{project.name}}</md-card-title>
+          <md-card-subtitle>{{project.category}}</md-card-subtitle>
+        </md-card-header>
+        <md-card-content>
+          {{project.description}}
+        </md-card-content>
+      </md-card>
+      <md-card-actions>
+        <button md-fab (click)="onDetails()"><md-icon>details</md-icon></button>
+        <button md-fab (click)="onEditProject()"><md-icon>edit</md-icon></button>
+      </md-card-actions>
+    </div>
+  </div>
+</div> <!-- END of row -->
+
 <div fxLayout="row" fxLayout.xs="column">
   <div fxFlexOffset="20px">
     <!--<div fxFlex="1 2 calc(15em + 20px)"> sita taip ir palik uzkomeninta --> 
@@ -41,10 +62,13 @@
         </p>-->
       </md-card-content>
       <md-card-actions>
-      <a class="link" routerLink="/showreel">                                               <button md-button disabled>OPEN</button></a>
+        <a class="link" routerLink="/showreel">                                             <button md-button disabled>OPEN</button></a>
         <a class="link" href="http://www.axioma.world/" target="blank">                     <button md-button>DEMO</button></a>
         <a class="link" href="https://github.com/aurimas-darguzis/axioma" target="blank">   <button md-button>CODE</button></a>
-        <a class="link" routerLink="/showreel/$id">                                         <button md-fab><md-icon>edit</md-icon></button></a>
+        <!--<a class="link" routerLink="/showreel/$id">                                         <button md-fab><md-icon>edit</md-icon></button></a>-->
+        <br>
+        <button md-fab (click)="onDetails()"><md-icon>details</md-icon></button>
+        <button md-fab (click)="onEditProject()"><md-icon>edit</md-icon></button>
       </md-card-actions>
     </md-card>
     </div>

@@ -1,3 +1,4 @@
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Component, OnInit, Input } from '@angular/core';
 import { Project } from '../showreel.model';
 
@@ -9,23 +10,45 @@ import { Project } from '../showreel.model';
 export class ShowreelProjectComponent implements OnInit {
   @Input() projecttt: Project[];
   @Input() index: number;
+  id: number;
 
-  projects: Project[] = [{
-    name: 'Angular 2',
-    category: `The website you are browsing currently is written using Angular. It started as Angular2, 
-               and now continuesly growing with the frameworkas well.`,
-    imagePath: '',
-    description: 'First App'
-  }];
+  // projects: Project[] = [
+  projects: any[] = [
+    {
+      id: 1,
+      name: 'Angular 2',
+      category: 'First App',
+      description: `The website you are browsing currently is written using Angular. It started as Angular2, 
+                and now continuesly growing with the frameworkas well.`,
+      imagePath: '',
+    },
+    {
+      id: 2,
+      name: 'Whack A Mole Game',
+      category: 'ES6',
+      description: `Hit as much moles as you can and collect your prize! `,
+      imagePath: '',
+    },
+  ];
 
-  constructor() { }
+  constructor(private router: Router,
+              private route: ActivatedRoute) { }
 
   ngOnInit() {
-    // console.log(this.projects);
+    this.route.params
+      .subscribe(
+        (params: Params) => {
+          this.id = +params['id'];
+        }
+      );
   }
 
   onNewProject() {
-    return;
+    this.router.navigate(['new'], {relativeTo: this.route});
   }
 
+  onEditProject() {
+    this.router.navigate(['edit'], {relativeTo: this.route});
+    // this.router.navigate(['../', this.id, 'edit']);
+  }
 }
