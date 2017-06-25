@@ -1,6 +1,6 @@
 import { ShowreelService } from './../../showreel.service';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Project } from '../../showreel.model';
 
 @Component({
@@ -13,7 +13,8 @@ export class ProjectDetailsComponent implements OnInit {
   id: number;
 
   constructor(private showreelService: ShowreelService,
-    private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              private router: Router) { }
 
   ngOnInit() {
     this.route.params
@@ -27,6 +28,6 @@ export class ProjectDetailsComponent implements OnInit {
   }
 
   onEditProject () {
-    console.log('editing');
+    this.router.navigate(['edit'], {relativeTo: this.route});
   }
 }
