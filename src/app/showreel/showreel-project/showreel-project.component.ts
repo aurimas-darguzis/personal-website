@@ -38,9 +38,9 @@ export class ShowreelProjectComponent implements OnInit {
     return;
   }
 
-  onEditProject (id) {
-    console.log(id);
-    this.router.navigate([`edit/${id}`], {relativeTo: this.route});
+  // onEditProject (id) {
+  //   console.log(id);
+    // this.router.navigate([`${id}/edit`], {relativeTo: this.route});
     // this.router.navigate(['../', this.id, 'edit']);
-  }
+  // }
 }
