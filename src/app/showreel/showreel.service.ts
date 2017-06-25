@@ -7,20 +7,33 @@ import { Project } from './showreel.model';
 @Injectable()
 export class ShowreelService {
 
-  private project = [{
-    name: 'First app',
-    category: 'Angular 2+',
-    image: 'assets/img/showreel/girl-640-min.jpg',
-    description: `The website you are browsing currently is written using Angular.
-                  It started as Angular2, and now continuesly growing with the framework
-                  as well. :)`
-  }];
+  private projects: Project[] = [
+    {
+      id: 1,
+      name: 'Angular 2',
+      category: 'First App',
+      description: `The website you are browsing currently is written using Angular. It started as Angular2, 
+                and now continuesly growing with the frameworkas well.`,
+      imagePath: '',
+    },
+    {
+      id: 2,
+      name: 'Whack A Mole Game',
+      category: 'ES6',
+      description: `Hit as much moles as you can and collect your prize! `,
+      imagePath: '',
+    },
+  ];
 
 
   constructor(private http: Http , private projectService: ProjectsService) { }
 
-  getProject () {
-    return this.project;
+  getProject (index: number) {
+    return this.projects.slice()[index];
+  }
+
+  getProjects () {
+    return this.projects.slice();
   }
 
   getProjectFromFirebase () {

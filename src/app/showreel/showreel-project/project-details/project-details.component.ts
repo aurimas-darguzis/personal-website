@@ -9,7 +9,8 @@ import { Project } from '../../showreel.model';
   styleUrls: ['./project-details.component.css']
 })
 export class ProjectDetailsComponent implements OnInit {
-  showreelProject: Project;
+  // project: Project;
+  project: any;
   id: number;
 
   constructor(private showreelService: ShowreelService,
@@ -20,9 +21,9 @@ export class ProjectDetailsComponent implements OnInit {
       .subscribe(
         (params: Params) => {
           this.id = +params['id'];
+          this.project = this.showreelService.getProject(this.id);
           // this.showreelProject = this.showreelService.getProjectFromFirebase(this.id);
         }
       );
   }
-
 }
