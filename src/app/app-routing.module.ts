@@ -18,8 +18,8 @@ const appRoutes: Routes = [
   { path: 'about', component: AboutMeComponent },
   { path: 'showreel', component: ShowreelComponent, children: [
       { path: '', component: ShowreelProjectComponent },
-      { path: 'new', component: ProjectEditComponent },
       { path: ':id', component: ProjectDetailsComponent },
+      { path: 'new', component: ProjectEditComponent },
       { path: ':id/edit', component: ProjectEditComponent }
     ]
   },

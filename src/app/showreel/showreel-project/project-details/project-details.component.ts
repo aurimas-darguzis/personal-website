@@ -25,4 +25,8 @@ export class ProjectDetailsComponent implements OnInit {
         }
       );
   }
+
+  onEditProject () {
+    console.log('editing');
+  }
 }

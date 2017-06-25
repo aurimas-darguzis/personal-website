@@ -1,3 +1,7 @@
+<h1>Project details:</h1>
 <p>
-  project-details works!
+  name: {{ project.name }} <br>
+  category: {{ project.category }} <br>
+  description: {{ project.description }} <br>
+  <button md-fab (click)="onEditProject()"><md-icon>edit</md-icon></button>
 </p>
