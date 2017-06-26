@@ -14,7 +14,7 @@ export class ShowreelProjectComponent implements OnInit {
   private projects: Project[];
   id: number;
 
-  constructor(private showreelService: ShowreelService, 
+  constructor(private showreelService: ShowreelService,
               private router: Router,
               private route: ActivatedRoute) { }
 
@@ -34,7 +34,7 @@ export class ShowreelProjectComponent implements OnInit {
   }
 
   onDetails () {
-    console.log('nothing has happened')
+    console.log('nothing has happened');
     return;
   }
 
