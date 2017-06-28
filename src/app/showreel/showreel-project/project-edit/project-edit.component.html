@@ -16,46 +16,62 @@
     
     <!-- Form Section -->
     <section class="project-section">
-        <!--<form>-->
+      <form (ngSubmit)="onAddProject(f)" #f="ngForm">
         <div class="project-form">
           <md-input-container class="project-full-width">
-            <input mdInput placeholder="Project name">
+            <input ngModel name="name" mdInput placeholder="Project name">
           </md-input-container>
 
           <md-input-container class="project-full-width">
-            <textarea mdInput placeholder="Project description"></textarea>
+            <textarea ngModel name="description" mdInput placeholder="Project description"></textarea>
           </md-input-container>
 
           <md-input-container class="project-full-width">
-            <input mdInput type="text" id="imagePath" placeholder="Upload image">
+            <input ngModel name="imagePath" mdInput type="text" id="imagePath" placeholder="Upload image">
           </md-input-container>
 
-          <md-checkbox class="project-categories-margin" [(ngModel)]="es6">ES6</md-checkbox>
-          <md-checkbox class="project-categories-margin" [(ngModel)]="angular">Angular</md-checkbox>
-          <md-checkbox class="project-categories-margin" [(ngModel)]="react">React</md-checkbox>
-          <md-checkbox class="project-categories-margin" [(ngModel)]="vue">Vue</md-checkbox>
+          <label>Category:</label><br>
+          <md-checkbox ngModel name="es6" class="project-categories-margin">ES6</md-checkbox>
+          <md-checkbox ngModel name="angular" class="project-categories-margin">Angular</md-checkbox>
+          <md-checkbox ngModel name="react" class="project-categories-margin">React</md-checkbox>
+          <md-checkbox ngModel name="vue" class="project-categories-margin">Vue</md-checkbox>
           
+          <div class="project-full-width" fxLayoutAlign="center">
+              <button md-fab type="submit" fxFlexLayout="end"><md-icon>save</md-icon></button>
+              <button md-fab type="button" fxFlexLayout="end"><md-icon>cancel</md-icon></button>
+          </div>
           
           
         </div>
-        <!--</form>-->
+      </form>
 
 
     </section>
      <!-- END of Form Section -->
-
-    <!-- Preview Card 
-    <md-card>
-      <md-card-content>
-        <div>
-          <p>preview:</p>
-          <img src="" alt="project title image">
-        </div>
-            <button md-fab type="submit" fxFlexLayout="end"><md-icon>save</md-icon></button>
-            <button md-fab type="button" fxFlexLayout="end"><md-icon>cancel</md-icon></button>
-      </md-card-content>
-    </md-card>  END of Preview Card -->
 </div>
+
+<div class="margintop50"></div>
+<br>
+  <div fxLayout="row"
+      fxLayout.xs="column"
+      fxLayoutAlign="center center"
+      fxLayoutAlign.xs="start">
+
+      <!-- Preview Card 
+      <md-card class="project-section">
+        <md-card-content class="project-form">
+          <div class="project-full-width">
+            <label>preview:</label>
+            <img src="" alt="sample image">
+          </div>
+
+          <div>
+              <button md-fab type="submit" fxFlexLayout="end"><md-icon>save</md-icon></button>
+              <button md-fab type="button" fxFlexLayout="end"><md-icon>cancel</md-icon></button>
+          </div>
+        </md-card-content>
+      </md-card>  <!-- END of Preview Card -->
+  </div>
 
 
 
