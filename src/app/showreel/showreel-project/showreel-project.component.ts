@@ -29,6 +29,11 @@ export class ShowreelProjectComponent implements OnInit {
     //   );
   }
 
+  showAddOption () {
+    const addButton = document.querySelector('.new-project');
+    addButton.classList.remove('hidden');
+  }
+
   onNewProject () {
     this.router.navigate(['new'], {relativeTo: this.route});
   }

@@ -19,5 +19,11 @@
   
 }
 
+.hidden {
+  display: none;
+}
+
+
+
 /*.controls_row {
 }*/
