@@ -3,33 +3,35 @@
 
 <div fxLayout="row">
   <div fxLayoutAlign="center">
-    <form>
-      <div fxLayout="row">
-        <button md-fab type="submit"><md-icon>save</md-icon></button>
-        <button md-fab type="button"><md-icon>cancel</md-icon></button>
-      </div>
-      <div fxLayout="row">
-        <label for="name">Name</label>
-        <input type="text"
-               id="name">
-      </div>
-      <div fxLayout="row">
-        <label for="imagePath">Image URL</label>
-        <input type="text"
-               id="imagePath">
-      </div>
-      <div fxLayout="row">
-        <p>preview:</p>
-        <img src="" alt="project title image">
-      </div>
-      <div fxLayout="row">
-        <label for="description">Description</label>
-        <textarea type="text"
-                  id="description"
-                  rows="6">
-        </textarea>
-      </div>
-    </form>
+    <md-card>
+      <form>
+        <div fxLayout="row">
+          <button md-fab type="submit"><md-icon>save</md-icon></button>
+          <button md-fab type="button"><md-icon>cancel</md-icon></button>
+        </div>
+        <div fxLayout="row">
+          <label for="name">Name</label>
+          <input type="text"
+                id="name">
+        </div>
+        <div fxLayout="row">
+          <label for="imagePath">Image URL</label>
+          <input type="text"
+                id="imagePath">
+        </div>
+        <div fxLayout="row">
+          <p>preview:</p>
+          <img src="" alt="project title image">
+        </div>
+        <div fxLayout="row">
+          <label for="description">Description</label>
+          <textarea type="text"
+                    id="description"
+                    rows="6">
+          </textarea>
+        </div>
+      </form>
+    </md-card>
   </div>
 </div>
 
