@@ -1,3 +1,4 @@
+import { NgForm } from '@angular/forms';
 import { ShowreelService } from './../../showreel.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -26,6 +27,11 @@ export class ProjectEditComponent implements OnInit {
           this.project = this.showreelService.getProject(this.id);
         }
       );
+  }
+
+  onAddProject(form: NgForm) {
+    const value = form.value;
+    const newProject = (value.name, value.description, value.imagePath, value.angular)
   }
 
 
