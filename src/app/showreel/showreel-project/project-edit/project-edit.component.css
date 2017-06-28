@@ -25,3 +25,16 @@
 .margintop50 {
   margin: 25px 0;
 }
+
+.margintop80 {
+  margin-top: 80px;
+}
+
+.form-action-buttons {
+  margin: 20px 10px;
+}
+
+.category-label {
+  color: grey;
+  opacity: 0.9;
+}

@@ -9,6 +9,8 @@
 
 </div>
 
+<div class="margintop80"></div>
+
 <div fxLayout="row"
      fxLayout.xs="column"
      fxLayoutAlign="center center"
@@ -30,15 +32,19 @@
             <input ngModel name="imagePath" mdInput type="text" id="imagePath" placeholder="Upload image">
           </md-input-container>
 
-          <label>Category:</label><br>
+          <br>
+
+          <label class="category-label">Category:</label><br>
           <md-checkbox ngModel name="es6" class="project-categories-margin">ES6</md-checkbox>
           <md-checkbox ngModel name="angular" class="project-categories-margin">Angular</md-checkbox>
           <md-checkbox ngModel name="react" class="project-categories-margin">React</md-checkbox>
           <md-checkbox ngModel name="vue" class="project-categories-margin">Vue</md-checkbox>
           
-          <div class="project-full-width" fxLayoutAlign="center">
-              <button md-fab type="submit" fxFlexLayout="end"><md-icon>save</md-icon></button>
-              <button md-fab type="button" fxFlexLayout="end"><md-icon>cancel</md-icon></button>
+          <div fxLayoutAlign="center">
+              <button md-fab type="submit" class="form-action-buttons" fxFlexLayout="end"><md-icon>save</md-icon></button>
+              <a routerLink="/showreel">
+                <button md-fab type="button" class="form-action-buttons" fxFlexLayout="end"><md-icon>cancel</md-icon></button>
+              </a>
           </div>
           
           
