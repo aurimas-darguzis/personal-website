@@ -12,6 +12,16 @@ export class ProjectDetailsComponent implements OnInit {
   project: Project;
   id: number;
 
+  // project properties
+  projectName: string;
+  projectDescription: string;
+
+    // project categories
+    es6 = false;
+    angular = false;
+    react = false;
+    vue = false;
+
   constructor(private showreelService: ShowreelService,
               private route: ActivatedRoute,
               private router: Router) { }

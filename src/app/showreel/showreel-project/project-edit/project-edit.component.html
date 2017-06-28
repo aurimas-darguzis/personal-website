@@ -1,38 +1,53 @@
 <a routerLink="/showreel"><button md-fab><md-icon>reply_all</md-icon></button></a>
 
-
-<div fxLayout="row">
-  <div fxLayoutAlign="center">
+<div fxLayout="row"
+     fxLayout.xs="column"
+     fxLayoutAlign="center center"
+     fxLayoutAlign.xs="start">
+    
+    <!-- Form Card -->
     <md-card>
-      <form>
-        <div fxLayout="row">
+      <md-card-content>
+        <section class="example-h2">
+
+        <!--<form>-->
+        <div class="project-form">
+          <md-input-container class="project-full-width">
+            <input mdInput placeholder="Project name">
+          </md-input-container>
+
+          <md-input-container class="project-full-width">
+            <textarea mdInput placeholder="Project description"></textarea>
+          </md-input-container>
+
+          <md-input-container class="project-full-width">
+            <input mdInput type="text" id="imagePath">
+          </md-input-container>
+
+          <md-checkbox class="example-margin" [(ngModel)]="es6">ES6</md-checkbox>
+          <md-checkbox class="example-margin" [(ngModel)]="angular">Angular</md-checkbox>
+          <md-checkbox class="example-margin" [(ngModel)]="react">React</md-checkbox>
+          <md-checkbox class="example-margin" [(ngModel)]="vue">Vue</md-checkbox>
+        
           <button md-fab type="submit"><md-icon>save</md-icon></button>
           <button md-fab type="button"><md-icon>cancel</md-icon></button>
         </div>
-        <div fxLayout="row">
-          <label for="name">Name</label>
-          <input type="text"
-                id="name">
-        </div>
-        <div fxLayout="row">
-          <label for="imagePath">Image URL</label>
-          <input type="text"
-                id="imagePath">
-        </div>
-        <div fxLayout="row">
+        <!--</form>-->
+
+
+        </section>
+      </md-card-content>
+    </md-card> <!-- END of Form Card -->
+
+    <!-- Preview Card -->
+    <md-card>
+      <md-card-content>
+        <div>
           <p>preview:</p>
           <img src="" alt="project title image">
         </div>
-        <div fxLayout="row">
-          <label for="description">Description</label>
-          <textarea type="text"
-                    id="description"
-                    rows="6">
-          </textarea>
-        </div>
-      </form>
-    </md-card>
-  </div>
+      </md-card-content>
+    </md-card> <!-- END of Preview Card -->
 </div>
 
 
