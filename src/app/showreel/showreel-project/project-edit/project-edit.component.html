@@ -5,10 +5,8 @@
      fxLayoutAlign="center center"
      fxLayoutAlign.xs="start">
     
-    <!-- Form Card -->
-    <md-card>
-      <md-card-content>
-        <section class="example-h2">
+    <!-- Form Section -->
+    <section class="project-section">
 
         <!--<form>-->
         <div class="project-form">
@@ -21,13 +19,13 @@
           </md-input-container>
 
           <md-input-container class="project-full-width">
-            <input mdInput type="text" id="imagePath">
+            <input mdInput type="text" id="imagePath" placeholder="Upload image">
           </md-input-container>
 
-          <md-checkbox class="example-margin" [(ngModel)]="es6">ES6</md-checkbox>
-          <md-checkbox class="example-margin" [(ngModel)]="angular">Angular</md-checkbox>
-          <md-checkbox class="example-margin" [(ngModel)]="react">React</md-checkbox>
-          <md-checkbox class="example-margin" [(ngModel)]="vue">Vue</md-checkbox>
+          <md-checkbox class="project-categories-margin" [(ngModel)]="es6">ES6</md-checkbox>
+          <md-checkbox class="project-categories-margin" [(ngModel)]="angular">Angular</md-checkbox>
+          <md-checkbox class="project-categories-margin" [(ngModel)]="react">React</md-checkbox>
+          <md-checkbox class="project-categories-margin" [(ngModel)]="vue">Vue</md-checkbox>
         
           <button md-fab type="submit"><md-icon>save</md-icon></button>
           <button md-fab type="button"><md-icon>cancel</md-icon></button>
@@ -35,11 +33,10 @@
         <!--</form>-->
 
 
-        </section>
-      </md-card-content>
-    </md-card> <!-- END of Form Card -->
+    </section>
+     <!-- END of Form Section -->
 
-    <!-- Preview Card -->
+    <!-- Preview Card 
     <md-card>
       <md-card-content>
         <div>
@@ -47,7 +44,7 @@
           <img src="" alt="project title image">
         </div>
       </md-card-content>
-    </md-card> <!-- END of Preview Card -->
+    </md-card>  END of Preview Card -->
 </div>
 
 

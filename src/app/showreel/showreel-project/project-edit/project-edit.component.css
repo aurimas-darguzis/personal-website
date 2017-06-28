@@ -1,14 +1,19 @@
-.example-h2 {
-  margin: 10px;
-}
-
-.example-section {
+.project-section {
   display: flex;
   align-content: center;
   align-items: center;
   height: 60px;
+  margin-top: 80px;
 }
 
-.example-margin {
+.project-categories-margin {
   margin: 0 10px;
+}
+
+.project-form {
+  width: 500px;
+}
+
+.project-full-width {
+  width: 100%;
 }
