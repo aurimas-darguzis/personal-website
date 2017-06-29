@@ -35,6 +35,13 @@
 }
 
 .category-label {
-  color: grey;
-  opacity: 0.9;
+  /*  42% black (3:1 contrast ratio) */
+  color: rgba(0, 0, 0, .42);
+  /*color: rgb(158, 158, 158);*/
+  font-size: 15.7px;
+}
+
+.project-categories {
+  position: relative;
+  top: 6px;
 }
