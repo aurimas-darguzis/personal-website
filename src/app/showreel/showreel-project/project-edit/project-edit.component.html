@@ -35,15 +35,15 @@
           <br>
 
           <label class="category-label">Category:</label><br>
-          <div class="project-categories">
-            <md-checkbox ngModel name="es6" class="project-categories-margin">ES6</md-checkbox>
-            <md-checkbox ngModel name="project" class="project-categories-margin">Angular</md-checkbox>
+          <div *ngFor="let category of categories" class="project-categories" >
+            <md-checkbox ngModel name='project' class="project-categories-margin">{{category}}</md-checkbox>
+            <!--<md-checkbox ngModel name="project" class="project-categories-margin">Angular</md-checkbox>
             <md-checkbox ngModel name="react" class="project-categories-margin">React</md-checkbox>
-            <md-checkbox ngModel name="vue" class="project-categories-margin">Vue</md-checkbox>
+            <md-checkbox ngModel name="vue" class="project-categories-margin">Vue</md-checkbox>-->
           </div>
           
           <div fxLayoutAlign="center">
-              <button md-fab type="submit" class="form-action-buttons" fxFlexLayout="end"><md-icon>save</md-icon></button>
+              <button [disabled]="!f.valid" md-fab type="submit" class="form-action-buttons" fxFlexLayout="end"><md-icon>save</md-icon></button>
               <a routerLink="/showreel">
                 <button md-fab type="button" class="form-action-buttons" fxFlexLayout="end"><md-icon>cancel</md-icon></button>
               </a>

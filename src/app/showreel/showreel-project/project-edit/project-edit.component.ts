@@ -15,6 +15,7 @@ export class ProjectEditComponent implements OnInit {
   id: number;
   editMode = false;
   projectForm: FormGroup;
+  categories = ['ES6', 'React', 'Angular', 'Vue'];
 
   constructor(private route: ActivatedRoute,
               private showreelService: ShowreelService) { }
