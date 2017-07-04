@@ -24,7 +24,7 @@ export class ProjectEditComponent implements OnInit {
           this.id = +params['id'];
           // check does it have an id
           this.editMode = params['id'] != null;
-          this.project = this.showreelService.getProject(this.id);
+         // this.project = this.showreelService.getProject(this.id);
         }
       );
   }
