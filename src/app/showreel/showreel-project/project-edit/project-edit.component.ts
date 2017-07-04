@@ -1,8 +1,9 @@
-import { NgForm } from '@angular/forms';
+import { NgForm, FormGroup } from '@angular/forms';
 import { ShowreelService } from './../../showreel.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Project } from '../../showreel.model';
+
 
 @Component({
   selector: 'app-project-edit',
@@ -13,6 +14,7 @@ export class ProjectEditComponent implements OnInit {
   project: Project;
   id: number;
   editMode = false;
+  projectForm: FormGroup;
 
   constructor(private route: ActivatedRoute,
               private showreelService: ShowreelService) { }
@@ -29,9 +31,18 @@ export class ProjectEditComponent implements OnInit {
       );
   }
 
+
+
   onAddProject(form: NgForm) {
     const value = form.value;
-    const newProject = (value.name, value.description, value.imagePath, value.angular)
+    const newProject = {
+      id: 3,
+      name: value.name,
+      description: value.description,
+      imagePath: value.imagePath,
+      project: value.project
+    };
+    this.showreelService.addProject(newProject);
   }
 
 
