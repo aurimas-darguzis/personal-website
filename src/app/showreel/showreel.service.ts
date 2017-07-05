@@ -2,10 +2,11 @@ import { ProjectsService } from './db/projects.service';
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Project } from './showreel.model';
-
+import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class ShowreelService {
+  startedEditing = new Subject<number>();
 
   private projects: Project[] = [
     {
