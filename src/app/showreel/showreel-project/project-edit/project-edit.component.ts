@@ -13,9 +13,11 @@ import { Project } from '../../showreel.model';
 })
 export class ProjectEditComponent implements OnInit, OnDestroy {
   subscription: Subscription;
+  editMode = false;
+  editedItemIndex: number;
+
   project: Project;
   id: number;
-  editMode = false;
   projectForm: FormGroup;
   categories = ['ES6', 'React', 'Angular', 'Vue'];
 
@@ -23,7 +25,13 @@ export class ProjectEditComponent implements OnInit, OnDestroy {
               private showreelService: ShowreelService) { }
 
   ngOnInit() {
-    this.subscription = this.showreelService.startedEditing.subscribe();
+    this.subscription = this.showreelService.startedEditing
+      .subscribe(
+        (index: number) => {
+          this.editedItemIndex = index;
+          this.editMode = true;
+        }
+      );
     /*
     this.route.params
       .subscribe(
