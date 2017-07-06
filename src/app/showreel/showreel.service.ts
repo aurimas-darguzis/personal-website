@@ -61,7 +61,7 @@ export class ShowreelService {
   }
 
   addProject (project) {
-    //return this.projectService.storeProject();
+    // return this.projectService.storeProject();
     console.log(project);
     this.projects.push(project);
   }

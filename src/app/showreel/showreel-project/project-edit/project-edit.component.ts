@@ -15,6 +15,7 @@ export class ProjectEditComponent implements OnInit, OnDestroy {
   subscription: Subscription;
   editMode = false;
   editedItemIndex: number;
+  editedProject: Project;
 
   project: Project;
   id: number;
@@ -30,6 +31,7 @@ export class ProjectEditComponent implements OnInit, OnDestroy {
         (index: number) => {
           this.editedItemIndex = index;
           this.editMode = true;
+          this.editedProject = this.showreelService.getProject(index);
         }
       );
     /*
