@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { NgForm, FormGroup } from '@angular/forms';
 import { Subscription } from 'rxjs/Subscription';
 import { ShowreelService } from './../../showreel.service';
@@ -12,6 +12,7 @@ import { Project } from '../../showreel.model';
   styleUrls: ['./project-edit.component.css']
 })
 export class ProjectEditComponent implements OnInit, OnDestroy {
+  @ViewChild('f') projectForm: NgForm;
   subscription: Subscription;
   editMode = false;
   editedItemIndex: number;
@@ -19,7 +20,7 @@ export class ProjectEditComponent implements OnInit, OnDestroy {
 
   project: Project;
   id: number;
-  projectForm: FormGroup;
+ // projectForm: FormGroup;
   categories = ['ES6', 'React', 'Angular', 'Vue'];
 
   constructor(private route: ActivatedRoute,
@@ -32,6 +33,12 @@ export class ProjectEditComponent implements OnInit, OnDestroy {
           this.editedItemIndex = index;
           this.editMode = true;
           this.editedProject = this.showreelService.getProject(index);
+          this.projectForm.setValue({
+            id: this.editedProject.id,
+            name: this.editedProject.name,
+            description: this.editedProject.description,
+            imagePath: this.editedProject.imagePath
+          });
         }
       );
     /*
