@@ -1,9 +1,9 @@
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { NgForm, FormGroup } from '@angular/forms';
+import { Subscription } from 'rxjs/Subscription';
 import { ShowreelService } from './../../showreel.service';
-import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Project } from '../../showreel.model';
-import { Subscription } from 'rxjs/Subscription';
 
 
 @Component({
@@ -11,7 +11,7 @@ import { Subscription } from 'rxjs/Subscription';
   templateUrl: './project-edit.component.html',
   styleUrls: ['./project-edit.component.css']
 })
-export class ProjectEditComponent implements OnInit {
+export class ProjectEditComponent implements OnInit, OnDestroy {
   subscription: Subscription;
   project: Project;
   id: number;
@@ -23,7 +23,7 @@ export class ProjectEditComponent implements OnInit {
               private showreelService: ShowreelService) { }
 
   ngOnInit() {
-    this.showreelService.startedEditing.subscribe();
+    this.subscription = this.showreelService.startedEditing.subscribe();
     /*
     this.route.params
       .subscribe(
@@ -49,6 +49,10 @@ export class ProjectEditComponent implements OnInit {
       project: value.project
     };
     this.showreelService.addProject(newProject);
+  }
+
+  ngOnDestroy () {
+    this.subscription.unsubscribe();
   }
 
 
