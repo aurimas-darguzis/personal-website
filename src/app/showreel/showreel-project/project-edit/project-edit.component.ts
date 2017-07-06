@@ -3,6 +3,7 @@ import { ShowreelService } from './../../showreel.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Project } from '../../showreel.model';
+import { Subscription } from 'rxjs/Subscription';
 
 
 @Component({
@@ -11,6 +12,7 @@ import { Project } from '../../showreel.model';
   styleUrls: ['./project-edit.component.css']
 })
 export class ProjectEditComponent implements OnInit {
+  subscription: Subscription;
   project: Project;
   id: number;
   editMode = false;
@@ -21,6 +23,8 @@ export class ProjectEditComponent implements OnInit {
               private showreelService: ShowreelService) { }
 
   ngOnInit() {
+    this.showreelService.startedEditing.subscribe();
+    /*
     this.route.params
       .subscribe(
         (params: Params) => {
@@ -30,6 +34,7 @@ export class ProjectEditComponent implements OnInit {
          // this.project = this.showreelService.getProject(this.id);
         }
       );
+    */
   }
 
 
