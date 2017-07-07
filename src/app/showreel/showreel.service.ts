@@ -6,7 +6,7 @@ import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class ShowreelService {
-  startedEditing = new Subject<number>();
+  projectsChanged = new Subject<Project[]>();
 
   private projects: Project[] = [
     {
@@ -62,6 +62,10 @@ export class ShowreelService {
 
   addProject (project) {
     this.projects.push(project);
+  }
+
+  updateProject (index: number, newProject) {
+    this.projects[index] = newProject;
   }
 
 

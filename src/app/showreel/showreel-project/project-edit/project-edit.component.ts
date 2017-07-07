@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs/Subscription';
 import { ShowreelService } from './../../showreel.service';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Project } from '../../showreel.model';
 
 
@@ -19,6 +19,7 @@ export class ProjectEditComponent implements OnInit, OnDestroy {
   categories = ['ES6', 'React', 'Angular', 'Vue'];
 
   constructor(private route: ActivatedRoute,
+              private router: Router,
               private showreelService: ShowreelService) { }
 
   ngOnInit() {
@@ -34,7 +35,19 @@ export class ProjectEditComponent implements OnInit, OnDestroy {
   }
 
   onSubmit() {
-    console.log(this.projectForm);
+    // const newProject = {
+    //       'id': this.id,
+    //       'name': this.projectForm.value['name'],
+    //       'imagePath': this.projectForm.value['imagePath'],
+    //       'description': this.projectForm.value['description'],
+    //       'category': this.projectForm.value['category'],
+    //     };
+    if (this.editMode) {
+      this.showreelService.updateProject(this.id, this.projectForm.value);
+    } else {
+      this.showreelService.addProject(this.projectForm.value);
+    }
+    this.router.navigate(['/showreel'], { relativeTo: this.route });
   }
 
   private initForm() {

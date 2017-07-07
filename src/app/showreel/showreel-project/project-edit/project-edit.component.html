@@ -49,7 +49,7 @@
       
       <div fxLayoutAlign="center">
         <button type="button" md-fab class="form-action-buttons"><md-icon>cancel</md-icon></button>
-        <button type="submit" md-fab class="form-action-buttons"><md-icon>save</md-icon></button>
+        <button [disabled]="!projectForm.valid" type="submit" md-fab class="form-action-buttons"><md-icon>save</md-icon></button>
       </div>
     </form>
 </div>

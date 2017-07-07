@@ -45,6 +45,6 @@ export class ShowreelProjectComponent implements OnInit {
 
   onEditProject (index: number) {
    // this.router.navigate([`${id}/edit`], {relativeTo: this.route});
-    this.showreelService.startedEditing.next(index);
+   // this.showreelService.startedEditing.next(index);
   }
 }
