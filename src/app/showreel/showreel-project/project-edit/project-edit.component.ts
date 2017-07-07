@@ -12,11 +12,6 @@ import { Project } from '../../showreel.model';
   styleUrls: ['./project-edit.component.css']
 })
 export class ProjectEditComponent implements OnInit, OnDestroy {
-  @ViewChild('f') projectForm: NgForm;
-  subscription: Subscription;
-  editMode = false;
-  editedItemIndex: number;
-  editedProject: Project;
 
   project: Project;
   id: number;
@@ -73,7 +68,6 @@ export class ProjectEditComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy () {
-    this.subscription.unsubscribe();
   }
 
 
