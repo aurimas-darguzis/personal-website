@@ -4,4 +4,5 @@ export  interface Project {
     description: string;
     imagePath: string;
     category: string;
+    technologies: string[];
   }

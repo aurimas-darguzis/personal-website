@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, FormArray } from '@angular/forms';
 import { Subscription } from 'rxjs/Subscription';
 import { ShowreelService } from './../../showreel.service';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -41,6 +41,7 @@ export class ProjectEditComponent implements OnInit, OnDestroy {
     let projectName = '';
     let projectImagePath = '';
     let projectDescription = '';
+    let projectTechnologies = new FormArray();
 
     if (this.editMode) {
       const project = this.showreelService.getProject(this.id);
