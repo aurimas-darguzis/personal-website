@@ -39,7 +39,7 @@ import { HomeComponent } from './home/home.component';
     NavigationComponent,
     DialogBoxComponent,
     ShowreelComponent,
-    // ShowreelService,
+    // sShowreelService,
     AngularFirstAppComponent,
     AboutMeComponent,
     BlogComponent,

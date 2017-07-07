@@ -33,6 +33,10 @@ export class ProjectEditComponent implements OnInit, OnDestroy {
         );
   }
 
+  onSubmit() {
+    console.log(this.projectForm);
+  }
+
   private initForm() {
     let projectName = '';
     let projectImagePath = '';

@@ -16,17 +16,17 @@
      fxLayoutAlign="center center"
      fxLayoutAlign.xs="start">
     
-    <form class="project-form">
+    <form [formGroup]="projectForm" (ngSubmit)="onSubmit()" class="project-form">
       <div fxLayoutAlign="center">
         <md-input-container>
           <label for="name">Name</label>
-          <input type="text" id="name" mdInput>
+          <input formControlName="name" type="text" id="name" mdInput>
         </md-input-container>
       </div>
       <div fxLayoutAlign="center">
         <md-input-container>
           <label for="imagePath">Image URL</label>
-          <input type="text" id="imagePath" mdInput>
+          <input formControlName="imagePath" type="text" id="imagePath" mdInput>
         </md-input-container>
       </div>
       <div fxLayoutAlign="center">
@@ -36,7 +36,7 @@
       <div fxLayoutAlign="center">
         <md-input-container>
           <label for="description">Description</label>
-          <textarea type="text" id="description" mdInput></textarea>
+          <textarea formControlName="description" type="text" id="description" mdInput></textarea>
         </md-input-container>
       </div>
 
