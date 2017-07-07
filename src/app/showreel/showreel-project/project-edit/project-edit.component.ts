@@ -55,7 +55,8 @@ export class ProjectEditComponent implements OnInit, OnDestroy {
     this.projectForm = new FormGroup({
       'name': new FormControl(projectName),
       'imagePath': new FormControl(projectImagePath),
-      'description': new FormControl(projectDescription)
+      'description': new FormControl(projectDescription),
+      'category': new FormControl(projectCategory)
     });
   }
 

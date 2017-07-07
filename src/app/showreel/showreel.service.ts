@@ -11,8 +11,8 @@ export class ShowreelService {
   private projects: Project[] = [
     {
       id: 1,
-      name: 'Angular 2',
-      category: 'First App',
+      name: 'First App',
+      category: 'Angular',
       description: `The website you are browsing currently is written using Angular. It started as Angular2, 
                 and now continuesly growing with the frameworkas well.`,
       imagePath: '/route/to/image/1'
@@ -61,8 +61,6 @@ export class ShowreelService {
   }
 
   addProject (project) {
-    // return this.projectService.storeProject();
-    console.log(project);
     this.projects.push(project);
   }
 
