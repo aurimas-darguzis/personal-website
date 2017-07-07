@@ -26,11 +26,11 @@
       <div fxLayoutAlign="center">
         <md-input-container>
           <label for="imagePath">Image URL</label>
-          <input formControlName="imagePath" type="text" id="imagePath" mdInput>
+          <input formControlName="imagePath" #imagePath type="text" id="imagePath" mdInput>
         </md-input-container>
       </div>
       <div fxLayoutAlign="center">
-        <img src="" alt="preview image">
+        <img [src]="imagePath.value" alt="preview image">
       </div>
 
       <div fxLayoutAlign="center">
