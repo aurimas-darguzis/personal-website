@@ -20,38 +20,42 @@ export class ProjectEditComponent implements OnInit, OnDestroy {
 
   project: Project;
   id: number;
- // projectForm: FormGroup;
   categories = ['ES6', 'React', 'Angular', 'Vue'];
 
   constructor(private route: ActivatedRoute,
               private showreelService: ShowreelService) { }
 
   ngOnInit() {
-    this.subscription = this.showreelService.startedEditing
-      .subscribe(
-        (index: number) => {
-          this.editedItemIndex = index;
-          this.editMode = true;
-          this.editedProject = this.showreelService.getProject(index);
-          this.projectForm.setValue({
-            id: this.editedProject.id,
-            name: this.editedProject.name,
-            description: this.editedProject.description,
-            imagePath: this.editedProject.imagePath
-          });
-        }
-      );
+    // this stuff was for the template driven forms
+     /*
+        this.subscription = this.showreelService.startedEditing
+          .subscribe(
+            (index: number) => {
+              this.editedItemIndex = index;
+              this.editMode = true;
+              this.editedProject = this.showreelService.getProject(index);
+              this.projectForm.setValue({
+                id: this.editedProject.id,
+                name: this.editedProject.name,
+                description: this.editedProject.description,
+                imagePath: this.editedProject.imagePath
+              });
+            }
+          );
+      */
     /*
-    this.route.params
-      .subscribe(
-        (params: Params) => {
-          this.id = +params['id'];
-          // check does it have an id
-          this.editMode = params['id'] != null;
-         // this.project = this.showreelService.getProject(this.id);
-        }
-      );
-    */
+    // this I can't recall the use case
+     /*
+      this.route.params
+        .subscribe(
+          (params: Params) => {
+            this.id = +params['id'];
+            // check does it have an id
+            this.editMode = params['id'] != null;
+          // this.project = this.showreelService.getProject(this.id);
+          }
+        );
+      */
   }
 
 
