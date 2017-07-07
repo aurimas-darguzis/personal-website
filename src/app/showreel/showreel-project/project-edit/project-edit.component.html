@@ -16,7 +16,34 @@
      fxLayoutAlign="center center"
      fxLayoutAlign.xs="start">
     
-    <form>
+    <form class="project-form">
+      <div fxLayoutAlign="center">
+        <md-input-container>
+          <label for="name">Name</label>
+          <input type="text" id="name" mdInput>
+        </md-input-container>
+
+        <md-input-container>
+          <label for="imagePath">Image URL</label>
+          <input type="text" id="imagePath" mdInput>
+        </md-input-container>
+
+        <div>
+          <img src="" alt="preview image">
+        </div>
+
+        <md-input-container>
+          <label for="description">Description</label>
+          <textarea type="text" id="description" mdInput></textarea>
+        </md-input-container>
+
+        <md-input-container>
+          <label for="category">Category</label>
+          <input type="text" id="category" mdInput>
+          <button><md-icon>close</md-icon></button>
+        </md-input-container>
+
+      </div>
       <div fxLayoutAlign="center">
         <button type="button" md-fab class="form-action-buttons"><md-icon>cancel</md-icon></button>
         <button type="submit" md-fab class="form-action-buttons"><md-icon>save</md-icon></button>
