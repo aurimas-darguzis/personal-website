@@ -41,13 +41,15 @@ export class ProjectEditComponent implements OnInit, OnDestroy {
     let projectName = '';
     let projectImagePath = '';
     let projectDescription = '';
-    let projectTechnologies = new FormArray();
+    let projectCategory = '';
 
     if (this.editMode) {
       const project = this.showreelService.getProject(this.id);
       projectName = project.name;
       projectImagePath = project.imagePath;
       projectDescription = project.description;
+      projectCategory = project.category;
+
     }
 
     this.projectForm = new FormGroup({

@@ -15,16 +15,14 @@ export class ShowreelService {
       category: 'First App',
       description: `The website you are browsing currently is written using Angular. It started as Angular2, 
                 and now continuesly growing with the frameworkas well.`,
-      imagePath: '/route/to/image/1',
-      technologies: []
+      imagePath: '/route/to/image/1'
     },
     {
       id: 2,
       name: 'Whack A Mole Game',
       category: 'ES6',
       description: `Hit as much moles as you can and collect your prize! `,
-      imagePath: '/route/to/image/2',
-      technologies: []
+      imagePath: '/route/to/image/2'
     },
   ];
 
