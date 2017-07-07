@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
-import { FormGroup, FormControl, FormArray } from '@angular/forms';
+import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs/Subscription';
 import { ShowreelService } from './../../showreel.service';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -53,10 +53,10 @@ export class ProjectEditComponent implements OnInit, OnDestroy {
     }
 
     this.projectForm = new FormGroup({
-      'name': new FormControl(projectName),
-      'imagePath': new FormControl(projectImagePath),
-      'description': new FormControl(projectDescription),
-      'category': new FormControl(projectCategory)
+      'name': new FormControl(projectName, Validators.required),
+      'imagePath': new FormControl(projectImagePath, Validators.required),
+      'description': new FormControl(projectDescription, Validators.required),
+      'category': new FormControl(projectCategory, Validators.required)
     });
   }
 
