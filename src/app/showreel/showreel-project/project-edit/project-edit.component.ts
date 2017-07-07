@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
-import { NgForm, FormGroup } from '@angular/forms';
+import { FormGroup, FormControl } from '@angular/forms';
 import { Subscription } from 'rxjs/Subscription';
 import { ShowreelService } from './../../showreel.service';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -12,59 +12,44 @@ import { Project } from '../../showreel.model';
   styleUrls: ['./project-edit.component.css']
 })
 export class ProjectEditComponent implements OnInit, OnDestroy {
-
-  project: Project;
   id: number;
+  project: Project;
+  editMode = false;
+  projectForm: FormGroup;
   categories = ['ES6', 'React', 'Angular', 'Vue'];
 
   constructor(private route: ActivatedRoute,
               private showreelService: ShowreelService) { }
 
   ngOnInit() {
-    // this stuff was for the template driven forms
-     /*
-        this.subscription = this.showreelService.startedEditing
-          .subscribe(
-            (index: number) => {
-              this.editedItemIndex = index;
-              this.editMode = true;
-              this.editedProject = this.showreelService.getProject(index);
-              this.projectForm.setValue({
-                id: this.editedProject.id,
-                name: this.editedProject.name,
-                description: this.editedProject.description,
-                imagePath: this.editedProject.imagePath
-              });
-            }
-          );
-      */
-    /*
-    // this I can't recall the use case
-     /*
       this.route.params
         .subscribe(
           (params: Params) => {
             this.id = +params['id'];
             // check does it have an id
             this.editMode = params['id'] != null;
-          // this.project = this.showreelService.getProject(this.id);
+            this.initForm();
           }
         );
-      */
   }
 
+  private initForm() {
+    let projectName = '';
+    let projectImagePath = '';
+    let projectDescription = '';
 
+    if (this.editMode) {
+      const project = this.showreelService.getProject(this.id);
+      projectName = project.name;
+      projectImagePath = project.imagePath;
+      projectDescription = project.description;
+    }
 
-  onAddProject(form: NgForm) {
-    const value = form.value;
-    const newProject = {
-      id: 3,
-      name: value.name,
-      description: value.description,
-      imagePath: value.imagePath,
-      project: value.project
-    };
-    this.showreelService.addProject(newProject);
+    this.projectForm = new FormGroup({
+      'name': new FormControl(projectName),
+      'imagePath': new FormControl(projectImagePath),
+      'description': new FormControl(projectDescription)
+    });
   }
 
   ngOnDestroy () {
