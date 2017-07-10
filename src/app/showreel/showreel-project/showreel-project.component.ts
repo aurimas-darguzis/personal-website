@@ -20,13 +20,6 @@ export class ShowreelProjectComponent implements OnInit {
 
   ngOnInit () {
     this.projects = this.showreelService.getProjects();
-
-    // this.route.params
-    //   .subscribe(
-    //     (params: Params) => {
-    //       this.id = +params['id'];
-    //     }
-    //   );
   }
 
   showAddOption () {
