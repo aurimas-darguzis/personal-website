@@ -25,8 +25,20 @@ export class ShowreelService {
   ];
 
 
-  constructor(private http: Http , private projectService: ProjectsService) { }
+  constructor(private http: Http,
+              private projectService: ProjectsService // this will be redudant sooooon
+             ) { }
 
+  /*  Firebase  */
+
+  storeProjects () {
+    const url = 'https://civic-genre-139017.firebaseio.com/projects.json';
+    this.http.post(url, this.projects);
+  }
+
+  /*  END of Firebase  */
+
+  /* Local data */
   getProject (index: number) {
     return this.projects[index];
   }
