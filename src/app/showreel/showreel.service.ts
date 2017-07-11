@@ -5,6 +5,7 @@ import { Project } from './showreel.model';
 
 @Injectable()
 export class ShowreelService {
+  url = 'https://civic-genre-139017.firebaseio.com/projects.json';
 
   private projects: Project[] = [
     {
@@ -32,8 +33,20 @@ export class ShowreelService {
   /*  Firebase  */
 
   storeProjects () {
-    const url = 'https://civic-genre-139017.firebaseio.com/projects.json';
-    return this.http.put(url, this.projects);
+    return this.http.put(this.url, this.projects);
+  }
+
+  getProjects () {
+    return this.http.get(this.url);
+    /*
+      .subscribe(
+        (response: Response) => {
+          // TODO: add type to projects
+          this.projects = response.json();
+          console.log(this.projects);
+          // return this.projects;
+        });
+        */
   }
 
   /*  END of Firebase  */
@@ -43,12 +56,12 @@ export class ShowreelService {
     return this.projects[index];
   }
 
-  getProjects () {
+  getProjectsLocaly () {
     return this.projects.slice();
   }
 
   getProjectFromFirebase () {
-    return this.http.get('https://civic-genre-139017.firebaseio.com/projects.json')
+    return this.http.get(this.url)
       .map(
         (response: Response) => {
           const projects: Project[] = new Array(response.json());

@@ -12,7 +12,8 @@ import { Project } from '../showreel.model';
 export class ShowreelProjectComponent implements OnInit {
   // @Input() projecttt: Project[];
   // @Input() index: number;
-  private projects: Project[];
+  // private projects: Project[];
+  private projects: any[] = [];
   id: number;
 
   constructor(private showreelService: ShowreelService,
@@ -20,7 +21,7 @@ export class ShowreelProjectComponent implements OnInit {
               private route: ActivatedRoute) { }
 
   ngOnInit () {
-    this.projects = this.showreelService.getProjects();
+    this.getProjects();
   }
 
   showAddOption () {
@@ -47,6 +48,13 @@ export class ShowreelProjectComponent implements OnInit {
     this.showreelService.storeProjects().subscribe(
       (response: Response) => {
         console.log(response);
+      });
+  }
+
+  getProjects () {
+    this.showreelService.getProjects().subscribe(
+      (response: Response) => {
+        this.projects = response.json();
       });
   }
 }
