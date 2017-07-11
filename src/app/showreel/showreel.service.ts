@@ -65,8 +65,5 @@ export class ShowreelService {
   updateProject (index: number, newProject) {
     this.projects[index] = newProject;
   }
-
-
-
 }
 
