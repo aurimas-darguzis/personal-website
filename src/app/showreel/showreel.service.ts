@@ -33,7 +33,7 @@ export class ShowreelService {
 
   storeProjects () {
     const url = 'https://civic-genre-139017.firebaseio.com/projects.json';
-    this.http.post(url, this.projects);
+    return this.http.put(url, this.projects);
   }
 
   /*  END of Firebase  */

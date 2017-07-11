@@ -1,5 +1,6 @@
-import { ShowreelService } from './../showreel.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import { Response } from '@angular/http';
+import { ShowreelService } from './../showreel.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { Project } from '../showreel.model';
 
@@ -39,5 +40,13 @@ export class ShowreelProjectComponent implements OnInit {
   onEditProject (index: number) {
    // this.router.navigate([`${id}/edit`], {relativeTo: this.route});
    // this.showreelService.startedEditing.next(index);
+  }
+
+  storeProjects () {
+    // subscribe in component to show errors/success message in UI
+    this.showreelService.storeProjects().subscribe(
+      (response: Response) => {
+        console.log(response);
+      });
   }
 }
