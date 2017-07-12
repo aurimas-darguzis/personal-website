@@ -26,6 +26,7 @@ export class ShowreelProjectComponent implements OnInit {
     .subscribe(project => {
       this.projects.push(project);
       console.log(this.projects);
+      console.log(project);
     });
   }
 
