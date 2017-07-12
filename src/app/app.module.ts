@@ -12,7 +12,7 @@ import { DialogBoxComponent } from './material-components';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AngularFireModule } from 'angularfire2';
-// import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 // import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
 // import { AF } from './providers/af';
@@ -60,8 +60,8 @@ import { HomeComponent } from './home/home.component';
     BrowserAnimationsModule,
     MaterialModule,
     FlexLayoutModule.forRoot(),
-    // AngularFireModule.initializeApp(environment.firebase),
-    // AngularFireDatabaseModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
     // AngularFireAuthModule
   ],
   providers: [ShowreelService, ProjectsService],
