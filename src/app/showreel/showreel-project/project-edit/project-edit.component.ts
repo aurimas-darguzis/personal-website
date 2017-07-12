@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
+import { Response } from '@angular/http';
 import { Subscription } from 'rxjs/Subscription';
 import { ShowreelService } from './../../showreel.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
@@ -45,23 +46,27 @@ export class ProjectEditComponent implements OnInit, OnDestroy {
     if (this.editMode) {
       this.showreelService.updateProject(this.id, this.projectForm.value);
     } else {
-      this.showreelService.addProject(this.projectForm.value);
+      // this.showreelService.addProject(this.projectForm.value);
+      this.showreelService.storeProject(this.projectForm.value)
+        .subscribe((res: Response) => {
+          console.log('stored!');
+          this.router.navigate(['/showreel'], { relativeTo: this.route });
+      });
     }
-    this.router.navigate(['/showreel'], { relativeTo: this.route });
   }
 
   private initForm() {
-    let projectName = '';
-    let projectImagePath = '';
-    let projectDescription = '';
-    let projectCategory = '';
+    const projectName = '';
+    const projectImagePath = '';
+    const projectDescription = '';
+    const projectCategory = '';
 
     if (this.editMode) {
-      const project = this.showreelService.getProject(this.id);
-      projectName = project.name;
-      projectImagePath = project.imagePath;
-      projectDescription = project.description;
-      projectCategory = project.category;
+      const project = this.showreelService.getProject(this.id).subscribe(res => console.log(res));
+      // projectName = project.name;
+      // projectImagePath = project.imagePath;
+      // projectDescription = project.description;
+      // projectCategory = project.category;
 
     }
 

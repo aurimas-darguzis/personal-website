@@ -31,7 +31,7 @@ export class ProjectDetailsComponent implements OnInit {
       .subscribe(
         (params: Params) => {
           this.id = +params['id'];
-          this.project = this.showreelService.getProject(this.id);
+         // this.project = this.showreelService.getProject(this.id);
           // this.showreelProject = this.showreelService.getProjectFromFirebase(this.id);
         }
       );

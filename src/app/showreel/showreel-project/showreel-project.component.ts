@@ -21,7 +21,12 @@ export class ShowreelProjectComponent implements OnInit {
               private route: ActivatedRoute) { }
 
   ngOnInit () {
-    this.getProjects();
+   // this.getProjects();
+   this.showreelService.getProjects()
+    .subscribe(project => {
+      this.projects.push(project);
+      console.log(this.projects);
+    });
   }
 
   showAddOption () {
@@ -45,7 +50,7 @@ export class ShowreelProjectComponent implements OnInit {
 
   storeProjects () {
     // subscribe in component to show errors/success message in UI
-    this.showreelService.storeProjects().subscribe(
+    this.showreelService.storeProjects(null).subscribe(
       (response: Response) => {
         console.log(response);
       });
@@ -54,7 +59,8 @@ export class ShowreelProjectComponent implements OnInit {
   getProjects () {
     this.showreelService.getProjects().subscribe(
       (response: Response) => {
-        this.projects = response.json();
+        console.log(response);
+        this.projects.push(response.json());
       });
   }
 }

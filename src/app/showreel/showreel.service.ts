@@ -31,28 +31,31 @@ export class ShowreelService {
              ) { }
 
   /*  Firebase  */
-
-  storeProjects () {
-    return this.http.put(this.url, this.projects);
+  
+  getProjects () {
+    return this.http.get(this.url)
+      .map((res: Response) => {
+        return res.json();
+      });
   }
 
-  getProjects () {
-    return this.http.get(this.url);
-    /*
-      .subscribe(
-        (response: Response) => {
-          // TODO: add type to projects
-          this.projects = response.json();
-          console.log(this.projects);
-          // return this.projects;
-        });
-        */
+  storeProjects (project) {
+    return this.http.put(this.url, project);
+  }
+
+  storeProject (project) {
+    return this.http.post(this.url, project);
+  }
+
+
+  getProject (id: number) {
+    return this.http.get(this.url + `/${id}`);
   }
 
   /*  END of Firebase  */
 
   /* Local data */
-  getProject (index: number) {
+  getProjectLocally (index: number) {
     return this.projects[index];
   }
 
