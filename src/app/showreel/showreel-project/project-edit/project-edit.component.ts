@@ -27,7 +27,7 @@ export class ProjectEditComponent implements OnInit, OnDestroy {
       this.route.params
         .subscribe(
           (params: Params) => {
-            this.id = +params['id'];
+            this.id = params['id'];
             // check does it have an id
             this.editMode = params['id'] != null;
             this.initForm();
@@ -37,12 +37,11 @@ export class ProjectEditComponent implements OnInit, OnDestroy {
 
   onSubmit() {
     if (this.editMode) {
-      console.log('edit mode');
-    //  this.showreelService.updateProject(this.id, this.projectForm.value);
+      this.showreelService.updateProject(this.id, this.projectForm.value);
     } else {
       this.showreelService.createProject(this.projectForm.value);
-      this.router.navigate(['/showreel'], { relativeTo: this.route });
     }
+      this.router.navigate(['/showreel'], { relativeTo: this.route });
   }
 
   private initForm() {
@@ -52,11 +51,11 @@ export class ProjectEditComponent implements OnInit, OnDestroy {
     let projectCategory = '';
 
     if (this.editMode) {
-     const project = this.showreelService.getProject(this.id).subscribe(project => {
-        projectName = project.name;
-        projectImagePath = project.imagePath;
-        projectDescription = project.description;
-        projectCategory = project.category;
+     const project = this.showreelService.getProject(this.id).subscribe(p => {
+        projectName = p.name;
+        projectImagePath = p.imagePath;
+        projectDescription = p.description;
+        projectCategory = p.category;
      });
 
     }

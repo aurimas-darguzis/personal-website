@@ -1,7 +1,7 @@
 <h1>Project details:</h1>
 <p>
-  name: {{ project.name }} <br>
-  category: {{ project.category }} <br>
-  description: {{ project.description }} <br>
+  name: {{ project?.name }} <br>
+  category: {{ project?.category }} <br>
+  description: {{ project?.description }} <br>  
   <button md-fab (click)="onEditProject()"><md-icon>edit</md-icon></button>
 </p>
