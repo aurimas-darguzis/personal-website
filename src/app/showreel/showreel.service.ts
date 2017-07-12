@@ -1,97 +1,69 @@
-import { ProjectsService } from './db/projects.service';
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import { Project } from './showreel.model';
 
 @Injectable()
 export class ShowreelService {
-  url = 'https://civic-genre-139017.firebaseio.com/projects.json';
 
-  private projects: Project[] = [
-    {
-      id: 1,
-      name: 'First App',
-      category: 'Angular',
-      description: `The website you are browsing currently is written using Angular. It started as Angular2, 
-                and now continuesly growing with the frameworkas well.`,
-      imagePath: '/route/to/image/1'
-    },
-    {
-      id: 2,
-      name: 'Whack A Mole Game',
-      category: 'ES6',
-      description: `Hit as much moles as you can and collect your prize! `,
-      imagePath: '/route/to/image/2'
-    },
-  ];
+  private basePath = '/projects';
+
+  constructor() { }
 
 
-  constructor(private http: Http,
-              private projectService: ProjectsService // this will be redudant sooooon
-             ) { }
 
-  /*  Firebase  */
+  /* ::: Firebase playground :::
 
-  getProjects () {
-    return this.http.get(this.url)
-      .map((res: Response) => {
-        return res.json();
-      });
-  }
+    getProjects () {
+      return this.http.get('')
+        .map((res: Response) => {
+          return res.json();
+        });
+    }
 
-  storeProjects (project) {
-    return this.http.put(this.url, project);
-  }
+    storeProjects (project) {
+      return this.http.put(this.url, project);
+    }
 
-  storeProject (project) {
-    return this.http.post(this.url, project);
-  }
+    storeProject (project) {
+      return this.http.post(this.url, project);
+    }
 
 
-  getProject (id: number) {
-    return this.http.get(this.url + `/${id}`);
-  }
+    getProject (id: number) {
+      return this.http.get(this.url + `/${id}`);
+    }
+
+  */
 
   /*  END of Firebase  */
 
-  /* Local data */
-  getProjectLocally (index: number) {
-    return this.projects[index];
-  }
+  /* ::: Local data playground :::
 
-  getProjectsLocaly () {
-    return this.projects.slice();
-  }
+    getProjectLocally (index: number) {
+      return this.projects[index];
+    }
 
-  getProjectFromFirebase () {
-    return this.http.get(this.url)
-      .map(
-        (response: Response) => {
-          const projects: Project[] = new Array(response.json());
-          // for (const project of projects) {
-          //   if (!project['description']) {
-          //     project['description'] = '';
-          //   }
-          // }
-          // console.log(projects);
-          return projects;
-        }
-      );
-      // .subscribe(
-      //   (projects: Project[]) => {
-      //     console.log(projects);
-      //     // this.showReelService.setProjects(projects);
-      //     // this.saveProject(projects);
-      //   }
-      // );
-  }
+    getProjectsLocaly () {
+      return this.projects.slice();
+    }
 
-  addProject (project) {
-    this.projects.push(project);
-  }
+    getProjectFromFirebase () {
+      return this.http.get(this.url)
+        .map(
+          (response: Response) => {
+            const projects: Project[] = new Array(response.json());
+            return projects;
+          }
+        );
+    }
 
-  updateProject (index: number, newProject) {
-    this.projects[index] = newProject;
-  }
+    addProject (project) {
+      this.projects.push(project);
+    }
+
+    updateProject (index: number, newProject) {
+      this.projects[index] = newProject;
+    }
+  */
 }
 
