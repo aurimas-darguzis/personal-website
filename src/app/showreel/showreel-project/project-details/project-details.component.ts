@@ -11,18 +11,7 @@ import { Project } from '../../showreel.model';
 })
 export class ProjectDetailsComponent implements OnInit {
   project: Project;
-  // project: FirebaseObjectObservable<Project>;
-  id: any;
-
-  // project properties
-  projectName: string;
-  projectDescription: string;
-
-  // project categories
-  es6 = false;
-  angular = false;
-  react = false;
-  vue = false;
+  id: string;
 
   constructor(private showreelService: ShowreelService,
               private route: ActivatedRoute,
@@ -33,7 +22,7 @@ export class ProjectDetailsComponent implements OnInit {
       .subscribe(
         (params: Params) => {
           this.id = params['id'];
-          this.showreelService.getProject(this.id).subscribe(p => {
+            this.showreelService.getProject(this.id).subscribe(p => {
             this.project = p;
           });
         }

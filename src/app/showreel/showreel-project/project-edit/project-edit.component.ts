@@ -13,11 +13,10 @@ import { Project } from '../../showreel.model';
   styleUrls: ['./project-edit.component.css']
 })
 export class ProjectEditComponent implements OnInit, OnDestroy {
-  id: any;
-  project: Project;
+  id: string;
   editMode = false;
+  project: Project;
   projectForm: FormGroup;
-  categories = ['ES6', 'React', 'Angular', 'Vue'];
 
   constructor(private route: ActivatedRoute,
               private router: Router,
@@ -51,7 +50,7 @@ export class ProjectEditComponent implements OnInit, OnDestroy {
     let projectCategory = '';
 
     if (this.editMode) {
-     const project = this.showreelService.getProject(this.id).subscribe(p => {
+      this.showreelService.getProject(this.id).subscribe(p => {
         projectName = p.name;
         projectImagePath = p.imagePath;
         projectDescription = p.description;
