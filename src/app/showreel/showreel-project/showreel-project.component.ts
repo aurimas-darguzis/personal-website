@@ -4,6 +4,8 @@ import { ShowreelService } from './../showreel.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { Project } from '../showreel.model';
 
+import { AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
+
 @Component({
   selector: 'app-showreel-project',
   templateUrl: './showreel-project.component.html',
@@ -13,21 +15,25 @@ export class ShowreelProjectComponent implements OnInit {
   // @Input() projecttt: Project[];
   // @Input() index: number;
   // private projects: Project[];
-  private projects: any[] = [];
+  // private projects: any[] = [];
+  projects: FirebaseListObservable<any[]>;
   id: number;
 
   constructor(private showreelService: ShowreelService,
               private router: Router,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+            db: AngularFireDatabase) {
+              this.projects = db.list('/projects');
+            }
 
   ngOnInit () {
    // this.getProjects();
-   this.showreelService.getProjects()
-    .subscribe(project => {
-      this.projects.push(project);
-      console.log(this.projects);
-      console.log(project);
-    });
+  //  this.showreelService.getProjects()
+  //   .subscribe(project => {
+  //     this.projects.push(project);
+  //     console.log(this.projects);
+  //     console.log(project);
+  //   });
   }
 
   showAddOption () {

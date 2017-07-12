@@ -21,7 +21,8 @@
 
   <div fxLayout="row">
     <div fxLayoutAlign="center" fxFlexOffset="20px">
-      <div fxFlex *ngFor="let project of projects; let i = index">
+      <!-- <div fxFlex *ngFor="let project of projects; let i = index"> -->
+      <div fxFlex *ngFor="let project of projects | async; let i = index">
 
         <md-card>
           <md-card-header>
