@@ -25,6 +25,7 @@ export class ShowreelService {
   getProject (key: string): FirebaseObjectObservable<Project> {
     const projectPath = `${this.basePath}/${key}`;
     this.project = this.db.object(projectPath);
+    console.log(this.project);
     return this.project;
   }
 

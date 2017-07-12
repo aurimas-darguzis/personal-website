@@ -13,7 +13,7 @@ import { Project } from '../../showreel.model';
   styleUrls: ['./project-edit.component.css']
 })
 export class ProjectEditComponent implements OnInit, OnDestroy {
-  id: number;
+  id: any;
   project: Project;
   editMode = false;
   projectForm: FormGroup;
@@ -46,17 +46,18 @@ export class ProjectEditComponent implements OnInit, OnDestroy {
   }
 
   private initForm() {
-    const projectName = '';
-    const projectImagePath = '';
-    const projectDescription = '';
-    const projectCategory = '';
+    let projectName = '';
+    let projectImagePath = '';
+    let projectDescription = '';
+    let projectCategory = '';
 
     if (this.editMode) {
-   //   const project = this.showreelService.getProject(this.id).subscribe(res => console.log(res));
-      // projectName = project.name;
-      // projectImagePath = project.imagePath;
-      // projectDescription = project.description;
-      // projectCategory = project.category;
+     const project = this.showreelService.getProject(this.id).subscribe(project => {
+        projectName = project.name;
+        projectImagePath = project.imagePath;
+        projectDescription = project.description;
+        projectCategory = project.category;
+     });
 
     }
 
@@ -66,6 +67,10 @@ export class ProjectEditComponent implements OnInit, OnDestroy {
       'description': new FormControl(projectDescription, Validators.required),
       'category': new FormControl(projectCategory, Validators.required)
     });
+  }
+
+  onCancel () {
+    this.router.navigate(['/showreel'], { relativeTo: this.route });
   }
 
   ngOnDestroy () {

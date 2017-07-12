@@ -48,47 +48,8 @@
       </div>
       
       <div fxLayoutAlign="center">
-        <button type="button" md-fab class="form-action-buttons"><md-icon>cancel</md-icon></button>
+        <button (click)="onCancel()" type="button" md-fab class="form-action-buttons"><md-icon>cancel</md-icon></button>
         <button [disabled]="!projectForm.valid" type="submit" md-fab class="form-action-buttons"><md-icon>save</md-icon></button>
       </div>
     </form>
 </div>
-
-
- <!-- Template Driven Form Section 
-      <section class="project-section">
-        <form (ngSubmit)="onAddProject(f)" #f="ngForm">
-          <div class="project-form">
-            <md-input-container class="project-full-width">
-              <input ngModel name="name" mdInput placeholder="Project name">
-            </md-input-container>
-
-            <md-input-container class="project-full-width">
-              <textarea ngModel name="description" mdInput placeholder="Project description"></textarea>
-            </md-input-container>
-
-            <md-input-container class="project-full-width">
-              <input ngModel name="imagePath" mdInput type="text" id="imagePath" placeholder="Upload image">
-            </md-input-container>
-
-            <br>
-
-            <label class="category-label">Category:</label><br>
-            <div *ngFor="let category of categories" class="project-categories" >
-              <md-checkbox ngModel name='project'  class="project-categories-margin">{{category}}</md-checkbox>
-            </div>
-            
-            <div fxLayoutAlign="center">
-                <button [disabled]="!f.valid" md-fab type="submit" class="form-action-buttons" fxFlexLayout="end"><md-icon>save</md-icon></button>
-                <a routerLink="/showreel">
-                  <button md-fab type="button" class="form-action-buttons" fxFlexLayout="end"><md-icon>cancel</md-icon></button>
-                </a>
-            </div>
-            
-            
-          </div>
-        </form>
-
-
-        </section>
-      END of Form Section -->
