@@ -30,7 +30,7 @@ export class ShowreelService {
 
   // Create new project
   createProject (project: Project): void {
-    this.projects.push(project)
+    this.db.list('/projects').push(project)
       .catch(error => this.handleError(error));
   }
 

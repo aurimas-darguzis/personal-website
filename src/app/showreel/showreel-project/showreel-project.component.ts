@@ -12,29 +12,16 @@ import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable }
   styleUrls: ['./showreel-project.component.css']
 })
 export class ShowreelProjectComponent implements OnInit {
-  // @Input() projecttt: Project[];
-  // @Input() index: number;
-  // private projects: Project[];
-  // private projects: any[] = [];
-  projects: FirebaseListObservable<any[]>;
-  // projects: FirebaseObjectObservable<any[]>;
+
+  projects: FirebaseListObservable<Project[]>;
   id: number;
 
   constructor(private showreelService: ShowreelService,
               private router: Router,
-              private route: ActivatedRoute,
-            db: AngularFireDatabase) {
-              this.projects = db.list('/projects');
-            }
+              private route: ActivatedRoute) {}
 
   ngOnInit () {
-    // this.getProjects();
-    //  this.showreelService.getProjects()
-    //   .subscribe(project => {
-    //     this.projects.push(project);
-    //     console.log(this.projects);
-    //     console.log(project);
-    //   });
+    this.projects = this.showreelService.getProjectsList();
   }
 
   deleteProject (key: string) {
@@ -51,28 +38,29 @@ export class ShowreelProjectComponent implements OnInit {
   }
 
   onDetails () {
-    console.log('nothing has happened');
+    console.log('on details');
     return;
   }
 
-  onEditProject (index: number) {
+  onEditProject (index: any) {
+    console.log(index);
    // this.router.navigate([`${id}/edit`], {relativeTo: this.route});
    // this.showreelService.startedEditing.next(index);
   }
 
   storeProjects () {
     // subscribe in component to show errors/success message in UI
-    this.showreelService.storeProjects(null).subscribe(
-      (response: Response) => {
-        console.log(response);
-      });
+    // this.showreelService.storeProjects(null).subscribe(
+    //   (response: Response) => {
+    //     console.log(response);
+    //   });
   }
 
   getProjects () {
-    this.showreelService.getProjects().subscribe(
-      (response: Response) => {
-        console.log(response);
-      //  this.projects.push(response.json());
-      });
+    // this.showreelService.getProjects().subscribe(
+    //   (response: Response) => {
+    //     console.log(response);
+    //    this.projects.push(response.json());
+    //   });
   }
 }

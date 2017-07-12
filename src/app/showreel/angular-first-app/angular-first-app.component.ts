@@ -16,12 +16,12 @@ export class AngularFirstAppComponent implements OnInit {
 
   ngOnInit() {
     // this.project = this.showreelService.getProject();
-    this.showreelService.getProjectFromFirebase().subscribe(
-      ((projects: Project[]) => {
-        this.projects = projects;
-        console.log(this.projects);
-      })
-    );
+    // this.showreelService.getProjectFromFirebase().subscribe(
+    //   ((projects: Project[]) => {
+    //     this.projects = projects;
+    //     console.log(this.projects);
+    //   })
+    // );
     // console.log(this.project);
   }
 

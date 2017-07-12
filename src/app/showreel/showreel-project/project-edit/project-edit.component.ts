@@ -36,22 +36,12 @@ export class ProjectEditComponent implements OnInit, OnDestroy {
   }
 
   onSubmit() {
-    // const newProject = {
-    //       'id': this.id,
-    //       'name': this.projectForm.value['name'],
-    //       'imagePath': this.projectForm.value['imagePath'],
-    //       'description': this.projectForm.value['description'],
-    //       'category': this.projectForm.value['category'],
-    //     };
     if (this.editMode) {
-      this.showreelService.updateProject(this.id, this.projectForm.value);
+      console.log('edit mode');
+    //  this.showreelService.updateProject(this.id, this.projectForm.value);
     } else {
-      // this.showreelService.addProject(this.projectForm.value);
-      this.showreelService.storeProject(this.projectForm.value)
-        .subscribe((res: Response) => {
-          console.log('stored!');
-          this.router.navigate(['/showreel'], { relativeTo: this.route });
-      });
+      this.showreelService.createProject(this.projectForm.value);
+      this.router.navigate(['/showreel'], { relativeTo: this.route });
     }
   }
 
@@ -62,7 +52,7 @@ export class ProjectEditComponent implements OnInit, OnDestroy {
     const projectCategory = '';
 
     if (this.editMode) {
-      const project = this.showreelService.getProject(this.id).subscribe(res => console.log(res));
+   //   const project = this.showreelService.getProject(this.id).subscribe(res => console.log(res));
       // projectName = project.name;
       // projectImagePath = project.imagePath;
       // projectDescription = project.description;
@@ -72,7 +62,7 @@ export class ProjectEditComponent implements OnInit, OnDestroy {
 
     this.projectForm = new FormGroup({
       'name': new FormControl(projectName, Validators.required),
-      'imagePath': new FormControl(projectImagePath, Validators.required),
+      'imagePath': new FormControl(projectImagePath),
       'description': new FormControl(projectDescription, Validators.required),
       'category': new FormControl(projectCategory, Validators.required)
     });

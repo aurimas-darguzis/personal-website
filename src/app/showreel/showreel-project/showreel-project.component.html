@@ -21,7 +21,6 @@
 
   <div fxLayout="row">
     <div fxLayoutAlign="center" fxFlexOffset="20px">
-      <!-- <div fxFlex *ngFor="let project of projects; let i = index"> -->
       <div fxFlex *ngFor="let project of projects | async; let i = index">
 
         <md-card>
@@ -35,8 +34,9 @@
         </md-card>
         <md-card-actions>
           <a [routerLink]="[i]"><button md-fab><md-icon>details</md-icon></button></a>
-          <button md-fab (click)="onEditProject(i)" [routerLink]="[i] + '/edit'"><md-icon>edit</md-icon></button>
-           <button md-fab (click)="deleteProject(project.$key)"><md-icon>delete</md-icon></button> 
+          <!-- <button md-fab (click)="onEditProject(i)" [routerLink]="[i] + '/edit'"><md-icon>edit</md-icon></button> -->
+          <button md-fab (click)="onEditProject(project.$key)"><md-icon>edit</md-icon></button>
+          <button md-fab (click)="deleteProject(project.$key)"><md-icon>delete</md-icon></button> 
           <!--<a [routerLink]="[i] + '/edit'"><button md-fab><md-icon>edit</md-icon></button></a>-->
         </md-card-actions>
       </div>
