@@ -4,7 +4,7 @@ import { ShowreelService } from './../showreel.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { Project } from '../showreel.model';
 
-import { AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
+import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 
 @Component({
   selector: 'app-showreel-project',
@@ -17,6 +17,7 @@ export class ShowreelProjectComponent implements OnInit {
   // private projects: Project[];
   // private projects: any[] = [];
   projects: FirebaseListObservable<any[]>;
+  // projects: FirebaseObjectObservable<any[]>;
   id: number;
 
   constructor(private showreelService: ShowreelService,
@@ -27,13 +28,17 @@ export class ShowreelProjectComponent implements OnInit {
             }
 
   ngOnInit () {
-   // this.getProjects();
-  //  this.showreelService.getProjects()
-  //   .subscribe(project => {
-  //     this.projects.push(project);
-  //     console.log(this.projects);
-  //     console.log(project);
-  //   });
+    // this.getProjects();
+    //  this.showreelService.getProjects()
+    //   .subscribe(project => {
+    //     this.projects.push(project);
+    //     console.log(this.projects);
+    //     console.log(project);
+    //   });
+  }
+
+  deleteProject (key: string) {
+    this.projects.remove(key);
   }
 
   showAddOption () {
@@ -67,7 +72,7 @@ export class ShowreelProjectComponent implements OnInit {
     this.showreelService.getProjects().subscribe(
       (response: Response) => {
         console.log(response);
-        this.projects.push(response.json());
+      //  this.projects.push(response.json());
       });
   }
 }

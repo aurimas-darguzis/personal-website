@@ -31,7 +31,7 @@ export class ShowreelService {
              ) { }
 
   /*  Firebase  */
-  
+
   getProjects () {
     return this.http.get(this.url)
       .map((res: Response) => {
