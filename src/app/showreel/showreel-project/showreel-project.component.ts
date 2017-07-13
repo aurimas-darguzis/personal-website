@@ -4,7 +4,7 @@ import { ShowreelService } from './../showreel.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { Project } from '../showreel.model';
 
-import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
+// import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 
 @Component({
   selector: 'app-showreel-project',
@@ -13,7 +13,7 @@ import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable }
 })
 export class ShowreelProjectComponent implements OnInit {
 
-  projects: FirebaseListObservable<Project[]>;
+  // projects: FirebaseListObservable<Project[]>;
   id: number;
 
   constructor(private showreelService: ShowreelService,
@@ -21,11 +21,11 @@ export class ShowreelProjectComponent implements OnInit {
               private route: ActivatedRoute) {}
 
   ngOnInit () {
-    this.projects = this.showreelService.getProjectsList();
+  //  this.projects = this.showreelService.getProjectsList();
   }
 
   deleteProject (key: string) {
-    this.projects.remove(key);
+    // this.projects.remove(key);
   }
 
   showAddOption () {

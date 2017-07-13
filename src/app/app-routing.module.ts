@@ -16,15 +16,15 @@ const appRoutes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'about', component: AboutMeComponent },
-  { path: 'showreel', component: ShowreelComponent, children: [
-      { path: '', component: ShowreelProjectComponent },
-      { path: 'new', component: ProjectEditComponent },
-      { path: ':id', component: ProjectDetailsComponent },
-      { path: ':id/edit', component: ProjectEditComponent }
-    ]
-  },
-  { path: 'blog', component: BlogComponent },
-  { path: 'signup', component: SignupComponent }
+  // { path: 'showreel', component: ShowreelComponent, children: [
+  //     { path: '', component: ShowreelProjectComponent },
+  //     { path: 'new', component: ProjectEditComponent },
+  //     { path: ':id', component: ProjectDetailsComponent },
+  //     { path: ':id/edit', component: ProjectEditComponent }
+  //   ]
+  // },
+  // { path: 'blog', component: BlogComponent },
+  // { path: 'signup', component: SignupComponent }
 ];
 
 @NgModule({

@@ -1,4 +1,4 @@
-import { FirebaseObjectObservable } from 'angularfire2/database';
+// import { FirebaseObjectObservable } from 'angularfire2/database';
 import { ShowreelService } from './../../showreel.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
@@ -18,15 +18,15 @@ export class ProjectDetailsComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit() {
-    this.route.params
-      .subscribe(
-        (params: Params) => {
-          this.id = params['id'];
-            this.showreelService.getProject(this.id).subscribe(p => {
-            this.project = p;
-          });
-        }
-      );
+    // this.route.params
+    //   .subscribe(
+    //     (params: Params) => {
+    //       this.id = params['id'];
+    //         this.showreelService.getProject(this.id).subscribe(p => {
+    //         this.project = p;
+    //       });
+    //     }
+    //   );
   }
 
   onEditProject () {

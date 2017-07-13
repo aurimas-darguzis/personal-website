@@ -36,9 +36,9 @@ export class ProjectEditComponent implements OnInit, OnDestroy {
 
   onSubmit() {
     if (this.editMode) {
-      this.showreelService.updateProject(this.id, this.projectForm.value);
+      // this.showreelService.updateProject(this.id, this.projectForm.value);
     } else {
-      this.showreelService.createProject(this.projectForm.value);
+      // this.showreelService.createProject(this.projectForm.value);
     }
       this.router.navigate(['/showreel'], { relativeTo: this.route });
   }
@@ -50,12 +50,12 @@ export class ProjectEditComponent implements OnInit, OnDestroy {
     let projectCategory = '';
 
     if (this.editMode) {
-      this.showreelService.getProject(this.id).subscribe(p => {
-        projectName = p.name;
-        projectImagePath = p.imagePath;
-        projectDescription = p.description;
-        projectCategory = p.category;
-     });
+    //   this.showreelService.getProject(this.id).subscribe(p => {
+    //     projectName = p.name;
+    //     projectImagePath = p.imagePath;
+    //     projectDescription = p.description;
+    //     projectCategory = p.category;
+    //  });
 
     }
 
