@@ -15,6 +15,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
+import { AuthService} from './auth/auth.service';
 // import { AF } from './providers/af';
 
 import { AppComponent } from './app.component';
@@ -64,7 +65,7 @@ import { HomeComponent } from './home/home.component';
     AngularFireDatabaseModule,
     AngularFireAuthModule
   ],
-  providers: [ShowreelService, ProjectsService],
+  providers: [ShowreelService, ProjectsService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
