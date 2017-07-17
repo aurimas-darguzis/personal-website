@@ -1,3 +1,6 @@
+import { ShowreelService } from './../showreel.service';
+import { RouterTestingModule } from '@angular/router/testing';
+import { MaterialModule } from '@angular/material';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ShowreelProjectComponent } from './showreel-project.component';
@@ -8,7 +11,12 @@ describe('ShowreelProjectComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ShowreelProjectComponent ]
+      imports: [
+        MaterialModule,
+        RouterTestingModule
+      ],
+      declarations: [ ShowreelProjectComponent ],
+      providers: [ ShowreelService ]
     })
     .compileComponents();
   }));
