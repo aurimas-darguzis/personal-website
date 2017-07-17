@@ -1,3 +1,4 @@
+import { MaterialModule } from '@angular/material';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HeaderComponent } from './header.component';
@@ -8,6 +9,7 @@ describe('HeaderComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [ MaterialModule ],
       declarations: [ HeaderComponent ]
     })
     .compileComponents();
