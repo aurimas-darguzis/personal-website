@@ -1,3 +1,5 @@
+import { ShowreelService } from './../showreel.service';
+import { MaterialModule } from '@angular/material';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AngularFirstAppComponent } from './angular-first-app.component';
@@ -8,7 +10,9 @@ describe('AngularFirstAppComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AngularFirstAppComponent ]
+      imports: [ MaterialModule ],
+      declarations: [ AngularFirstAppComponent ],
+      providers: [ ShowreelService]
     })
     .compileComponents();
   }));
