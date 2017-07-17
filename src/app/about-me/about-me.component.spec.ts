@@ -1,3 +1,4 @@
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { AboutMeComponent } from './about-me.component';
@@ -9,7 +10,10 @@ describe('AboutMeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ FlexLayoutModule, MaterialModule ],
+      imports: [
+        FlexLayoutModule,
+        MaterialModule,
+        BrowserAnimationsModule ],
       declarations: [ AboutMeComponent ]
     })
     .compileComponents();
