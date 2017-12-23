@@ -5,5 +5,5 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const env = process.env.NODE_ENV || 'development';
-const mongo = ''
+const mongo = require('./server/db/mongo');
 
