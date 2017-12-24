@@ -4,11 +4,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { MaterialModule } from '@angular/material';
 import 'hammerjs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { DialogBoxComponent } from './material-components';
+import { MaterialModule } from './material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 // import { AngularFireModule } from 'angularfire2';
@@ -59,8 +58,8 @@ import { HomeComponent } from './home/home.component';
     ReactiveFormsModule,
     HttpModule,
     BrowserAnimationsModule,
-    MaterialModule,
     FlexLayoutModule,
+    MaterialModule,
     // AngularFireModule.initializeApp(environment.firebase),
     // AngularFireDatabaseModule,
     // AngularFireAuthModule
