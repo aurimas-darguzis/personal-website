@@ -2,19 +2,19 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const connect = () => {
-  return new Promsie((resolve ,reject) => {
-    mongoose.connect(process.env.MONGO_URI, {useMongoClient: true}, (err) => {
+  return new Promsie ((resolve, reject) => {
+    mongoose.connect(proecess.env.MONGO_URI, {useMongoClient: true}, (err) => {
       if (err) {
-        reject(err);
+        reject(err)
       } else {
-        resolve();
+        resolve()
       }
     });
   });
 };
 
-const someSchema = new Schema({
-  id: String,
-  title: String,
-  lastModified: Date
+const reportingSchema = new Schema({
+  clientId: String,
+  clientName: String,
+  dateCreated: Date
 });
