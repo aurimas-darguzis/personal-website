@@ -6,3 +6,27 @@ body {
 nav {
   border: 1px solid green;
 }
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+ul.main-navigation {
+  display: flex;
+  justify-content: flex-start
+}
+
+ul.main-navigation li {
+  padding-left: 10px;
+  cursor: pointer;
+  list-style: none;
+}
+
+ul.main-navigation li a {
+  text-decoration: none;
+}
+
+ul.main-navigation li a:hover {
+  border: 1px solid red;
+}
