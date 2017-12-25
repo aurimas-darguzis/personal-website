@@ -3,11 +3,18 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 94.8vh;
 }
 
 .button {
   border: 1px solid green;
   text-align: center;
-  width: 15%;
   cursor: pointer;
+  width: 17rem;
+  height: 5rem;
+  margin: 10px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 1.5rem;
 }
