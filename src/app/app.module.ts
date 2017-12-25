@@ -7,6 +7,7 @@ import { routing } from './app.routing';
 import { HomeComponent } from './components/home/home.component';
 import { MeComponent } from './components/me/me.component';
 import { ShowreelComponent } from './components/showreel/showreel.component';
+import { StoriesComponent } from './components/stories/stories.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { ShowreelComponent } from './components/showreel/showreel.component';
     AppComponent,
     HomeComponent,
     MeComponent,
-    ShowreelComponent
+    ShowreelComponent,
+    StoriesComponent
   ],
   imports: [
     BrowserModule,
