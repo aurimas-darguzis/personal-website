@@ -1,5 +1,5 @@
+import { StoriesComponent } from './../stories/stories.component';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { ShowreelComponent } from './showreel.component';
 
 describe('ShowreelComponent', () => {
