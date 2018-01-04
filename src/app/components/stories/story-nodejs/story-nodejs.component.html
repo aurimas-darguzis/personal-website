@@ -30,3 +30,43 @@
   At that point, we can't write to the socket any more. Let's console log that client is disconnected.
   Let's test that now. Connect, and we can disconnect a netcat session with Cmd+D. The server logs the line.
 </p>
+
+<h2>Node for Web</h2>
+<h3>The Basic Streaming HTTP Server</h3>
+<p>
+  HTTP is a first class citizen in Node. In fact, node started as web server and evolved into
+  much more generalized framework it is today. Node's HTTP module designed with streaming and low latency
+  in mind. Node is today a very popular tool to create and run web servers. Let's look at the typical hello-world
+  example for Node's http module. We create a server using the HTTP module create server method, which gives
+  us, no surprise there, an event emitter object. That event emitter has many events, one of which is the request
+  event, and this even happens every time a client connects to this http server. It exposes a request object and a
+  response object. We can use the response object to modify the response Node will be using for that request.
+  In here, we respond with 200 ok, content-type text, and the text 'hello world'. The server runs on port 8000.
+  When we run this script, node will not exit, because it has a listener handler and it will respond to any
+  http request on port 8000. If we inspect the headers this simple http server is sending, we'll see http 1.1,
+  this is the current most recent version of http that's supported in browsers. Response code is 200 ok, and the content-type
+  is what we set it to, and we have a connection keep-alive and transfer-encoding is chunked. Keep-alive means
+  that the connection to the web server will be persisted. The tcp connection will not be killed after a request
+  receives a response, so that they can send multiple requests on the same connection. Transfer-encoding chunked is used
+  to send a variable length response text. It basically means that the response is being streamd! Node is ok with us
+  sending partial chunked reponses, because the response object is a writable stream. There is no response length value
+  being sent. After Node sends the 200 ok here, it can do many other things before terminating the response, and instead
+  of inefficiently buffering everything it wants to write in memory and then write it at once, it can just stream
+  parts of the response as they're ready. So this very simple http server can be used, for example, to stream video files
+  out of the box. But remember that the connection is not terminated here, so the browser knows that the content
+  is done through the http protocol. Http 1.1 has a way of terminating a message, and it's what happens when we use the
+  response .end function. Si if we don't actually use the end method, if we use the write method instead, in this case,
+  when a client connects, they get the 'hello world', but the response is not terminated, because basically Node is still streaming.
+  In fact, in here, we can define a timer function. Let's make that fire after on second. And inside this function,
+  we'll go  ahead and write another message. And how about we write yet another message after two seconds? Let's try it.
+  Run the server. Connect. And you'll see 'hello world'. After one second you'll see another message, and after two seconds
+  you'll see the third message. And the server is still streaming. We have not instructed http to terminate the response object.
+  Let's make the timeout periods here a little bit longer. Lets do 10 seconds and 20 seconds and test that. Initiate an http request.
+  I see the 'hello worl'. Node is not really sleeping, it's just idling, and it can actually handle other client
+  requests during this idling phase, thatnks to the event loop. Both of these requests are being handled concurrently with the
+  same node process. Please note, however, that terminating the response object with a call to the end method is not optional, you have to do it for
+  every request. If you don't, the request will timeout after the default timeout period, which is set to two minutes.
+  As you can see, this right line did not happen, beause it's delayed till after the default server timeout.
+  We can actually control the server timeout using the timeout property, so this line will make the timeout one second,
+  and you'll see now how the server is going to timeout right away.
+</p>
