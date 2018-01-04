@@ -70,3 +70,25 @@
   We can actually control the server timeout using the timeout property, so this line will make the timeout one second,
   and you'll see now how the server is going to timeout right away.
 </p>
+
+<h3>Working with HTTPS</h3>
+<p>
+  HTTPS is the HTTP protocol over TLS/SSL. Node has a separate module to work with HTTPS, but it's very similar to the
+  HTTP module. To convert the basic HTTP server example to work with HTTPS, all we need to do is require https instead
+  and provide the createServer method with an options object. This object can be used to configure multiple things. Usually
+  we can pass key and certificate. Those can be buffers or strings to represent a private key and the certificate. We can also pass
+  a pfx option to combine them if you want. I'll just use key insert and let's walk through a complete example. We first need to generate
+  a certificate. We can use the openssl toolkit for that, which will allow us to first generate a certificate. We can have it
+  encrypted or not encrypted. And it will allow us to generate a certificate signing request (CSR), and then self-sign this certificate to test it.
+  Of course, the browsers will not trust our self-signed certificate, but it's good for testing purposes. We can actually combine all these
+  steps wit one command that will output a private key and a certificate file for us. It will ask for some information, but since
+  it's all just a test, you can use the default answers here. When this command is done, you should see a key,pem file, and a cert.pem file in the
+  working directory. Now that we have these files, we just need to pass them here to the create server method. We can use the fs module to do that.
+  We'll do readFileSync. Since these files are to be read once, and used for creating a server, this is okay here. We'll do ./, the key.pem file, and same
+  thing for the cert. So it's cert.pem and of course we need to require the fs module, and the last thing we need to do is to change this port
+  to 443, which is the defaultport for https communication. To test all that, we need to execute the script. In my environment I need to sudo this command
+  to get access to the 443 port. So sudo node https.js an we have an https server. So we can go to https locaholst and the browser is going to warn us
+  about the self-signed certificate. It simply means that hte bworser does not recognize this certificate, but we can trust it manually.
+  And there you go, very simple.
+  
+</p>
