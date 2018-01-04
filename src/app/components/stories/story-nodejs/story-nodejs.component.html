@@ -1,5 +1,7 @@
 <h1>NodeJs</h1>
-<h2>TCP Networking with the Net Module</h2>
+
+<h2>Node for Networing</h2>
+<h3>TCP Networking with the Net Module</h3>
 
 <p>
   Let's create a basic network server. We use the net's module, create server method.
@@ -13,5 +15,18 @@
   the welcome message is sent to the client, and then node keeps running, because we did not terminate
   that connection. Now the client can write to that socket, but we have not registered a handler to read
   from the socket. The socket being a duplex stream means that it's also an EventEmitter. So we can listen
-  to data event on the socket.
+  to data event on the socket. The handler for this event gives us access to a buffer object. Let's console
+  log it. Now when the client types something, we get it as a buffer. This is great, because Node does not
+  assume anything about encoding. The user can be typing here in any language. Let's now echo this data
+  object back to the user using socket.write. When we do so, you'll notice that the data we are writing back
+  is actually a string. This is because the write method on the socket assumes a utf8 encoding here.
+  This second argument can be used to control the encoding and the default is utf8. We can also globally
+  set the encoding if we need to, so the global encoding is now utf8 and the data argument here becomes
+  a string instead of a buffer, because we now told Node to assume a utf8 encoding for anything received
+  from this socket. Both the console log line and the echoed data are assumed to be utf8. I'm gonna keep
+  an example without global encoding, just in case we need access to the buffer object. What happens
+  when the client disconnects? The socket emitter has an on 'end' event that gets triggered when the
+  client disconnects? The socket emitter has an on 'end' event that gets triggered when the client disconnects.
+  At that point, we can't write to the socket any more. Let's console log that client is disconnected.
+  Let's test that now. Connect, and we can disconnect a netcat session with Cmd+D. The server logs the line.
 </p>
