@@ -1,3 +1,17 @@
+<h1>NodeJs</h1>
+<h2>TCP Networking with the Net Module</h2>
+
 <p>
-  story-nodejs works!
+  Let's create a basic network server. We use the net's module, create server method.
+  We then need to register a connection handler that fires every time ad client connects
+  to this server. When that happens, let's log to the console and see if the client is connected.
+  The handler also gives us access to a connected socket itself. This socket object implements
+  a duplex stream interface, which means that we can read and write to it. Let's write "Welcome
+  new Client". To run the server we need to listen to a port, and the callback here is just to
+  confirm it. Let's test. Testing this is simple, we can use either telnet or netcat.
+  For example, nc localhost 8000, we get the client is connected message in the server console, and
+  the welcome message is sent to the client, and then node keeps running, because we did not terminate
+  that connection. Now the client can write to that socket, but we have not registered a handler to read
+  from the socket. The socket being a duplex stream means that it's also an EventEmitter. So we can listen
+  to data event on the socket.
 </p>
