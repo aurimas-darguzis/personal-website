@@ -9,6 +9,7 @@ import { MeComponent } from './components/me/me.component';
 import { ShowreelComponent } from './components/showreel/showreel.component';
 import { StoriesComponent } from './components/stories/stories.component';
 import { SecurityChallengeComponent } from './components/security-challenge/security-challenge.component';
+import { StoryNodejsComponent } from './components/stories/story-nodejs/story-nodejs.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { SecurityChallengeComponent } from './components/security-challenge/secu
     MeComponent,
     ShowreelComponent,
     StoriesComponent,
-    SecurityChallengeComponent
+    SecurityChallengeComponent,
+    StoryNodejsComponent
   ],
   imports: [
     BrowserModule,
