@@ -90,5 +90,37 @@
   to get access to the 443 port. So sudo node https.js an we have an https server. So we can go to https locaholst and the browser is going to warn us
   about the self-signed certificate. It simply means that hte bworser does not recognize this certificate, but we can trust it manually.
   And there you go, very simple.
-  
+</p>
+
+<h3>Requesting HTTP/HTTPS Data</h3>
+<p>
+  Node can also be used as a client for requesting http and https data. There are five major classes of objects in Node's HTTP module. The Server class
+  is what we use to create the basic server, it inherits from net.Server, so it's an EventEmitter. A ServerResponse object gets created internally by an
+  HTTP server. The http.Agent class is used to manage pooling sockets used in HTTP client requests. Node uses a global agent by default, but we can
+  create a different agent with different options when we need to. When we initiate an HTTP request, we will be working with a ClientRequest object. This is
+  different from the request object we've seen in the server example. That request object is actually an IncomingMessage object, which we're gonna see in a little bit.
+  Both clientRequest and serverResponse implement the writable stream interface. IncomingMesssage objects implement the readable stream interface, and all
+  three objects are event emitters. We've seen the basic server example. Let's see a basic requesst example. Let's request the HTML page at google.com with Node.
+  We can use the http.request method. This method takes an option argument and it gives us access to a callback with a response for the host that we're gonna request.
+  We can specify many options here. To request google.com, we need hostname is google.com, and we can use multiple other options here. For example, the default
+  method is GET, but we can use a method like POST if we need to post information to a hostname. I'll leave it default, and in here we can console log the response,
+  which is going to be the html at google.com. You'll notice one thing about the handler that we define in the second argument here, it doesn't have an error
+  argument. It's simply because that this handler gets registered as an event listener and we also handle the error with an event listener here. So this http
+  request method returns an object, and that object is an event emitter. So we can register a handler for the error event. And we can do something like
+  request.on error, and handle the error in that case. Since this request object is a writable stream, we can do things like write, for example, if we're
+  writing with a post method. But for get requests, we don't need that. We just need to terminate the stream ,so we do .end here and that should do it. Let's test.
+  So node request and I'll pipe it on less and you'll see the response object here is an incoming message. So we can read information on this response object like status
+  code.We can also read response.headers, for example, and this response object is an event emitter. It emits a data event when it receives data from the hostname. This
+  data event gives us callback, and that callback's argument is a buffer. So if we want to see the actual HTML, we do toString on it, so let's actually take a look at that.
+  You'll see the status code 200, the headers object, and you'll see the actual html for google.com. If we're not writing any information to the headers
+  request or if we're not posting or putting or deleting data, we could actually just use the get method here. This get method is simpler. Its first argument is
+  just a string with the URL that we want to read, so we need to add the http protocol in here, and we don't need to do a request.end on this. That will be done for us. So this should
+  be equivalent, and this request is done using the global http agent. So the http module has a globalAgent, which node uses to manage the sockets here.
+  It has some pre-configured options. We can see that agent information here if we do a request.agent. So in here you'll first see the agent information and
+  then you'll see the printed information from the response. And all this interface is exactly the same if we want to work with https instead of http.
+  So if we want to fetch https google.com, all we need to is replace http with https, and things will work exactly the same, but it's now
+  communicating the request over https. So let me now show you where to identify these objects in the examples we.ve seen so far. In this example, the request object
+  here is from the class clientRequest. This response object is of type incomingMessage. And the agent that was used for the request is of type http Agent.
+  In the server example, the server object is from the http server class, the request object inside the request listener is from the incomingMessage class,
+  and the response object is from the server response class.
 </p>
