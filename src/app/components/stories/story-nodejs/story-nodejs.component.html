@@ -73,7 +73,18 @@
 
   <h3>Handling Slow Operations</h3>
   <p>
-    
+    As long as the operations we execute in the call stack are fast, there is no problem with having a single
+    thread, but when we start dealing will slow operations, the fact that we have a single thread becomes a
+    problem, because these slow operations will block the execution. You do know that we can still write blocking
+    code in Node, right? For example, a long for looping is a blocking operation. In here the slowAdd function will
+    take a few seconds to complete, depending on the hardware, of course. So what happens in the call stack when we step
+    into a blocking function like slowAdd? Well, the first time we step into it, it gets pushed to the stack, and then we wait
+    until V8 finishes that useless blocking loop and returns from slowAdd(3,3) which gets popped out of the stack at that point.
+    Then we step into slowAdd 4 4, and we wait, done, return, pop. Same thing for slowAdd 5 5, wait, done, return, pop.
+    Then we get into the console.log lines, which are fast and thus non blocking, so push, pop, push, pop, push, and pop.
+    Let me actually show you how Node behaves when we executes this exact code, slowAdd, wait, slowAdd, wait, print, print, print.
+    While Node is waiting after every slowAdd here, it cannot do anything else. This is blocking programming, and
+    Node's event loop exists to allow us to avoid doing this style of programming.
   </p>
   
   <h2>Node for Networing</h2>
