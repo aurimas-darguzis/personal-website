@@ -20,6 +20,25 @@
     and simplify coding for sharde resources. Single threaded frameworks like Node use an event loop to handle requests for slow I/O opeartions
     without blocking the main execution runtime. This is the most important concept to understand about Node, so how exactly does this event loop work?
   </p>
+
+  <h3>The Event Loop</h3>
+  <p>
+    The simplest one-line definition of the event loop is this - it's the entity that handles external events and converts them into
+    callback invocations. Helpful? Maybe not. Let's try another definition: It's the loop that picks events from the event queue and pushes
+    their callbacks to the call stack. This definition is probably worse than the first one. Truth is, it's not easy to understand the event loop
+    without first understanding the data structures it has to deal with. It's also a lot easier to understand the event loop with
+    visuals rather than text, so the next few clips will explain the various things around the event loop with visuals. What I want you to
+    understand first is that there is this thing called the event loop that Node automatically starts when it executes a script, so
+    there is no need for us to manually start it. This event loop is what makes the asynchronous callback programming style possible. Node will
+    exit the event loop when there are no more callbacks to perform. The event loop is also present in browsers and it's very similar to the one
+    that fires in Node. To understand event loop, wee need to understand all the players in this diagram and we need to understand how they interact.
+    So V8 has this thing called stack, which we're going to cover in details in the next section. It also has a heap. The heap is simple, it is
+    where objects are stored in memory. It's basically the memory that gets allocated by the VM for various tasks. For example, when we invoke a function,
+    an area in this heap is allocated to act as the local scope of that function. Both the Stack and the Heap are part of the run-time engine, not
+    Node itself. Node adds APIs like timers, emitters, and wrappers around OS operations. It also provides the event Queue and the event loop using the
+    libuv library. The event loop,  as the name cleary describes, is a simple loop that works between the event queue and the call stack.
+    But again, we can't understand it without first understanding those other entities.
+  </p>
   
   <h2>Node for Networing</h2>
   <h3>TCP Networking with the Net Module</h3>
