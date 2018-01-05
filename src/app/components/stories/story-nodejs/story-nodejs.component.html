@@ -42,7 +42,33 @@
 
   <h3>The Call Stack</h3>
   <p>
-    
+    The V8 Call stack which is simply a list of functions. A stack is a first in last out simple data structure. The top element
+    that we can pop out of the stack is the last element that we pushed into it. In the case of V8 Call stack, these elements are
+    functions. Since JavaScript is single threaded, there is only one stack, and it can do one thing at a time. If the stack is executing
+    something, nothing else will happen in that single thread. When we call multiple functions that call each other, we naturally
+    from stack. Then we back-track the function invocations all the way back to the first caller. Remember how if you want to implement
+    something that's recursive without recursion you need to use a stack? Well, that's because a normal recursive function will use
+    a stack anyway. Let's walk through a simple example to demonstrate what happens in the stack when we call functions. Here we have three
+    simple functions, add, double (which calls add), and printDouble which calls double, and let's assume that all these functions are
+    wrapped in an immediately invoked function expression. When we run this code, V8 uses the stack to record where in the program it is currently
+    executing. Every time we step into a function, it gets pushed to the stack, and every time we return from a function, it gets popped out
+    of the stack. It's really that simple. So we start with the IFFE call, which is an anonymous function. Push that to the
+    stack. The IFFE function defines other functions, but only executes printDouble. That gets pushed to the stack.
+    PrintDouble calls double, so we push double to the stack, double calls add, we push add to the stack and so far,
+    we're still executing all functions. We have not returned from any of them. When we return from add, we pop add out of the stack.
+    We're done with it. Then we return from double, so double gets poped out of the stack, too. Now, the execution continues in printDouble.
+    We get into a new function call, console.log, that get's pushed into the stack and popped immediately, because it did not call any other function.
+    Then we implicitly return from printDouble, so we pop printDouble out of the stack and finally pop the anonymous IIFE itself out of the stack.
+    Note how every time a function is added to the stack, it's arguments and local variables are added too in that same lavel. You'll
+    sometimes hear the term stack frame to reference the function and its arguments and local variables. I
+    am pretty sure you have seen the call stack before, if not in node then the browser. Every time yo get
+    an error, the console will show the call stack. For example, I changed add to use an undefined vaiable
+    here, which will raise an error. When we execute this code in Node or the browser, we'll get an error
+    report which includes the call stack, the anonyous function calls printDouble, which calls double,
+    which calls add. This is the state of the call stack when the error happened. And what do you think will
+    heppn if a function calls itself recursively without an exit condition? It's the equivalent of an infinite
+    loop, but on the stakc. We'll keep pushing the same function to the stack until we reach the V8 size limit for the 
+    stack, and V8 will error out with this error: Maximum call stack size exceeded.
   </p>
   
   <h2>Node for Networing</h2>
