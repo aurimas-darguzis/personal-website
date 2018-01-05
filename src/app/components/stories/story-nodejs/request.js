@@ -1,10 +1,11 @@
 const http = require('http');
 
-// const req = http.request(
-const req = http.get(
-  // { hostname: 'www.google.com'},
+// req: http.ClientRequest
+const req = http.get( // or we can use it like // const req = http.request(
+  // { hostname: 'www.google.com'}, // and then specify the hostname
   'https://www.google.com',
   (res) => {
+    // res: http.IncomingMessage
     console.log(res.statusCode);
     console.log(res.headers);
 
@@ -17,4 +18,4 @@ const req = http.get(
 req.on('error', (e) => console.log(e));
 
 // req.end();
-console.log(req.agent);
+console.log(req.agent); // http.agent

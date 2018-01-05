@@ -124,3 +124,27 @@
   In the server example, the server object is from the http server class, the request object inside the request listener is from the incomingMessage class,
   and the response object is from the server response class.
 </p>
+
+<h3>Working with Routes</h3>
+<p>
+  Let's see how we can work with routes using Node's http module. We have a basic server here, and what I want to do I want to support some routes. Let's try
+  to support a home route, an api route, and see how we can respons to different things in there. So, to support that, we need to first read the URL
+  information, and this is easy. We can use req.url to do so. So now, when I request localhost, the req/url is slash, and anything I put here I will be able to read it.
+  So, to handle routes, all we need to do is we need a switch statement for this req.url. So what should we do when it's slash? Ir, what should we do when it's
+  home, and so on? Let's assume that we have a /home.html file, very basic template HTML, and we want to display this file when we go to slash home. All we need to do is
+  write the header, which in this case is text HTML, and then in here we want to read home that HTML and write it to the response. So we can use fs.readfileSync ./home.html.
+  And of course, we need fs module and let's try it. Excellent. What if we have an about.html and now we also want to support /about.
+  It's exact same code as this portion. So we can actually make it dynamic. Let's make it support both home and about, and let's make it support dynamic,
+  because this is the exact req.url part. So first convert this into a template string and then this part becomes variable req.url, just like that. Let's test.
+  We can now see the about page and the home page. So what should we do on the root route? How about we redirect the uer to /home? With Node, we just write a header for that.
+  So it's writeHead, and we'll just use 301 here to indicate a permanent move, and the ehader that we want to write here is the location header.
+  So, this is permanently moved to /home. And we still need to end the response, so now when we request the slash route, it will tell us that it was moved
+  permanently to slash home. By the way, this first number here is the http status code. We can actually take a look at all the status codes using http.status_codes.
+  You'll see all of them here. 301 is movde permanently. If you need to work with json data, say that we have a route there. We'll make it /api, so this route
+  is going to respond with some data. Let's assume that we have the data here is a constant. This data is some kind of object and we want to respond with this data json,
+  o we need to do two things. First, the content type in this case is application/json. And the information that we want to write here is a stringified version
+  of the JSON object. So it's json.stringify the data variable. And we can test that. So in here if we go to /api, we'll get back a json response.
+  Now what happens if we request something that does not exist? Rigth now, the server does not respons with anything adnd it will eventually timeout. So this would be this
+  default case here, so we should probably respond with 404, in this case. So 404 means not found. We should still end the response here, so let's try it now.
+  It will give me a 404 not found.
+</p>
