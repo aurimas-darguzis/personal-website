@@ -152,5 +152,23 @@
 <h3>
   Parsing URLs and Query Strings</h3>
 <p>
-  
+  If you need to work with URLs, especially if you need to parse URL, Node has this URL module that you can use. It has many methods, but the most
+  important is parse. The format method is also useful. So let me show you how to work with that. Before we do, let's take a look at the url api
+  documentation from the nodeJS.org website. This diagram here has details on all the elements of a URL. This example is manually parsing this URL in here.
+  So you can see we have the protocol, which is HTTP. There is the authentication part, which is username and password in case we have those, and then
+  there is hostname and port, and both of them together is a host. And there's the path name, which is what comes after the host and before the query string.
+  And then with a query string, the question mark including the query itself we call it search, but without the question mark we call it query. And pathname + search
+  is called path. And if we have a hash location here it will be called hash. These are all the elements in any URL object. So if we have the URL as a
+  string and we need to parse it into those elements, we can use the URL parse method. For example, I can use the url.parse method to parse this URL that I just
+  grabbed from Pluralsight search, and this call is going to give me all the elements that I have in that URL. We have an HTTPS protocol. We don't have any
+  authentication data. The host is pluralsight.com, and since the port is null the host and hostname is the same, there's no hash, there's a search part query part hash
+  name path and the of itself, which is the full URL. We can actually also specify a second argument here true to parse the query string itself, so if we do that
+  the query string will be parsed ,and reading information from the query string is as easy as doing .query.queue, for example. This will give me exactly the search
+  query for that URL. If, on the other hand, you have the inverse situation, if you have an object with all these elements detailed and you want to format this
+  object into a URL, you can use the url.format method. And this will give you back a string with all these URL object properties concatenated in the right way.
+  If you only care about the query string, the you can use the query string module, which has many methods, as you see, but the most importantones are the parse
+  method and this stringify method. So if we have an object like this one and we want to convert this object into a query string portion, all we need to do is call
+  queryString.stringy on that object, and it will give me an actual string I can use in any url query. And you can see how this stringify method escaped some special
+  characters by default, which is great. If you have the inverse situation, if you have a query string and you want to parse it into an object, what you need here is queryString.parse,
+  and you give the string that you want to parse, and this will give you back an object parsed from that query string.
 </p>
