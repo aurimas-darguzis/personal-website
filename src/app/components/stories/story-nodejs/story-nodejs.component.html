@@ -167,6 +167,23 @@ In ./index.js
                 </pre>
               </div>
             </div>
+            
+            <p>
+              This behaves exactly the same as require, but does not load the file. It will still
+              throw an error if the file does not exist. This can be used, for example, to check
+              whether an optional package is installed or not. If another find-me.js now existed
+              of the any paths, for example, if we have a node module's directory under the home
+              directory, and if we have a different find-me.js in there. Now if we execute the
+              index file, the find-me.js file in this new route node_modules directory will not be
+              loaded, because node already resolved find-me.js to the local file found under the
+              local node_modules directory. But if remove the local file and execute again, Node
+              will just pick the next closest find-me.js, and that would be the one under the home
+              directory node_modules directory.
+            </p>
+
+            <p>
+
+            </p>
       </div> <!-- end of .example -->
   </div>
 
