@@ -5,22 +5,36 @@
   <h3>How require() Works</h3>
   <p>
     Modularity is a first class concept in Node. There are two core modules involved:
-    the require function, which is available on the global objectbut each module gets own
+    the require function, which is available on the global object but each module gets own
     require function, and the Module module, also available on the global object, and is used
     to manage all the modules we require with the require function.
-    
-    Requiring a module in node is a very simple concept, to execute a require call, Node goes
-    through the the following sequence of steps: 
-    Resolving, to find the absolute path of a module.
-    Loading, is determined by the content of the file at the resolved path.
-    Wrapping, is what gives every module it's private scope, and what makes require local to every module.
-    Evaluating is what the VM eventually does with the code.
-    And then, Caching, so that when we require this module again, we don't go over all the steps again.
-
-    Let's see how the module looks like. In index.js file write <span class="code">console.log(module)</span>,
-    and run the file with node. You will see an object printed to the console that looks like this:
-    
   </p>
+
+  <div>
+    Requiring a module in node is a very simple concept, to execute a require call, Node goes
+    through the the following sequence of steps
+    <ul>
+      <li>Resolving - to find the absolute path of a module.</li>
+      <li>Loading - determined by the content of the file at the resolved path.</li>
+      <li>Wrapping - what gives every module it's private scope, and what makes require local to every module.</li>
+      <li>Evaluating - what the VM eventually does with the code.</li>
+      <li>Caching - when we require this module again, we don't go over all the steps again.</li>
+    </ul>
+  </div>
+
+  <div>
+      Let's see how the module looks like.
+      <div class="code-editor">
+        <div class="code-title">index.js</div>
+        <div class="code">
+          console.log(module)
+        </div>
+      </div>
+      <div class="console-editor">
+        <div class="code">$ node index.js</div>
+        <div class="output"></div>
+      </div>
+  </div>
 
   <h3>Wrapping and Caching Modules</h3>
   <p>
