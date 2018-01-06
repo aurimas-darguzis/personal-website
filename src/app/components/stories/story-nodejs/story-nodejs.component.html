@@ -147,8 +147,26 @@ In ./node_modules/find-me.js
         </p>
         <div class="code-editor">
             <div class="code-title">index.js</div>
-            <div class="code"></div>
+            <div class="code">
+              <pre>
+console.log('In ./index.js');
+
+require.resolve('find-me');
+              </pre>
+            </div>
           </div>
+          <div class="node-editor">
+              <div class="node-code">
+                <pre>
+$ node index.js
+                </pre>
+              </div>
+              <div class="node-output">
+                <pre>
+In ./index.js
+                </pre>
+              </div>
+            </div>
       </div> <!-- end of .example -->
   </div>
 
