@@ -167,7 +167,7 @@ In ./index.js
                 </pre>
               </div>
             </div>
-            
+
             <p>
               This behaves exactly the same as require, but does not load the file. It will still
               throw an error if the file does not exist. This can be used, for example, to check
@@ -182,14 +182,57 @@ In ./index.js
             </p>
 
             <p>
-
+              Modules don't have to be files. We can also create a find-me folder under node_modules
+              and place an index.js. Index is the default file name, but we can control what file name
+              to start with under the folder using the main property in package.json
             </p>
+
+            <div class="code-editor">
+                <div class="code-title">
+                  <pre>
+package.json
+                  </pre>
+                </div>
+                <div class="code">
+                  <pre>
+{{ '{' }}
+  "name": "find-me",
+  "main": "start.js"
+{{ '}' }}
+                  </pre>
+                </div>
+              </div>
+
+              <p>
+                Other than resolving modules from within the node_module folder, we can also place
+                the module anywhere we want and require it with eith er relative paths, './', and
+                '../', or with absolute paths, starting with '/'. If, for example, find-me was under
+                the lib folder instead of a node_modules folder, we can still require it this way
+              </p>
+              <div class="code-editor">
+                  <div class="code-title">
+                    <pre>
+index.js
+                    </pre>
+                  </div>
+                  <div class="code">
+                    <pre>
+require('./lib/find-me');     
+                    </pre>
+                  </div>
+                </div>
       </div> <!-- end of .example -->
   </div>
 
+  5:33
+
  
   <div class="code-editor">
-    <div class="code-title"></div>
+    <div class="code-title">
+      <pre>
+
+      </pre>
+    </div>
     <div class="code">
       <pre>
 
