@@ -22,12 +22,16 @@
     </ul>
   </div>
 
+  <p>
+    Let's see how the module looks like.
+  </p>
   <div>
-      Let's see how the module looks like.
       <div class="code-editor">
         <div class="code-title">index.js</div>
         <div class="code">
-          console.log(module)
+          <pre>
+console.log(module)
+          </pre>
         </div>
       </div>
       <div class="node-editor">
@@ -60,6 +64,20 @@ Module {{'{'}}
         For example, if we require a 'find-me' module from the index module, Node will look for find-me.js in 'path' property
         of Module object, which start looking from the current directory and go up all the way to the root directory. If it
         can't find find-me.js in any of these paths, it will throw a cannot find module error.
+        <div class="code-editor">
+            <div class="code-title">index.js</div>
+            <div class="code">
+              <pre>
+require('find-me');
+
+// $HOME/.node_modules
+// $HOME/.node_libraries
+// $PREFIX/lib/node
+
+// const fs = require('fs');
+              </pre>
+            </div>
+          </div>
         <div class="node-editor">
           <div class="node-code">$ node index.js</div>
           <div class="node-output">
@@ -83,9 +101,54 @@ at Function.Module._load (module.js:439:3)
             </pre>
           </div>
         </div>
+        <p>
+          To be exact, Node will actually look for the find-me.js in more folders, but those are supported for mostly
+          historic reasons and using them is no longer recommended. Also, core node modules are an exception here.
+          The resolve step returns immediately for core modules.
+        </p>
+
+        <p>
+          Let's see how Node actually resolve a non-core module. We'll use the first path in paths array, a node_modules directory
+          under the current directory. We'll create on manually and simply add a find-me.js in there. Let's also add a console.log
+          line in this file to identify it, and we'll do the same for index.js. When we now execute the index file, node will find
+          a path to find-me.js and it will load it.
+        </p>
+
+        <div class="code-editor">
+          <div class="code-title">index.js</div>
+          <div class="code"></div>
+          <pre>
+console.log('In ./index.js');
+
+require('find-me')
+          </pre>
+        </div>
+
+        <div class="node-editor">
+          <div class="node-code">$ node index.js</div>
+          <div class="node-output">
+            <pre>
+In ./index.js
+In ./node_modules/find-me.js
+            </pre>
+          </div>
+        </div>
+
+        <p>
+          If we want to only resolve the module and not execute it, we can use require.resolve method.
+        </p>
       </div> <!-- end of .example -->
   </div>
 
+  <div class="code-editor">
+    <div class="code-title"></div>
+    <div class="code"></div>
+  </div>
+
+  <div class="node-editor">
+    <div class="node-code"></div>
+    <div class="node-output"></div>
+  </div>
 
   <h3>Wrapping and Caching Modules</h3>
   <p>
