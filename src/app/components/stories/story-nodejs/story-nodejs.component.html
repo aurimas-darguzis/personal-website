@@ -30,9 +30,9 @@
           console.log(module)
         </div>
       </div>
-      <div class="console-editor">
-        <div class="code">$ node index.js</div>
-        <div class="output">
+      <div class="node-editor">
+        <div class="node-code">$ node index.js</div>
+        <div class="node-output">
           <pre>
 Module {{'{'}}
   id: '.', <span class="comment">object id to identify it</span>
@@ -52,8 +52,38 @@ Module {{'{'}}
 
       <p>
         Node Modules have a one-to-one relation with files on the file-system. We require a module by loading the content of
-        a file into memory.
+        a file into memory. However, before we can load the content of a file into the memory, we need to find the location
+        of a file.
       </p>
+
+      <div class="example">
+        For example, if we require a 'find-me' module from the index module, Node will look for find-me.js in 'path' property
+        of Module object, which start looking from the current directory and go up all the way to the root directory. If it
+        can't find find-me.js in any of these paths, it will throw a cannot find module error.
+        <div class="node-editor">
+          <div class="node-code">$ node index.js</div>
+          <div class="node-output">
+            
+            <pre>
+  module.js:472
+  throw err;
+  ^
+
+Error: Cannot find module 'find-me'
+at Function.Module._resolveFilename (module.js:470:15)
+at Function.Module._load (module.js:418:25)
+at Module.require (module.js:498:17)
+at require (internal/module.js:20:19)
+at Object.<span><</span>anonymous> (/Users/aurimasdarguzis/index.js:1:63)
+at Module._compile (module.js:571:32)
+at Object.Module._extensions..js (module.js:580:10)
+at Module.load (module.js:488:32)
+at tryModuleLoad (module.js:447:12)
+at Function.Module._load (module.js:439:3)
+            </pre>
+          </div>
+        </div>
+      </div> <!-- end of .example -->
   </div>
 
 
