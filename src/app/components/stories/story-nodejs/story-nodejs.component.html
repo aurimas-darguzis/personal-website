@@ -32,9 +32,30 @@
       </div>
       <div class="console-editor">
         <div class="code">$ node index.js</div>
-        <div class="output"></div>
+        <div class="output">
+          <pre>
+Module {{'{'}}
+  id: '.', <span class="comment">object id to identify it</span>
+  exports: {{'{'}}{{'}'}},
+  parent: null,
+  filename: '/Users/aurimasdarguzis/index.js', <span class="comment">path to the filename can be accessed with this property</span>
+  loaded: false,
+  children: [],
+  paths:
+  [ '/Users/aurimasdarguzis/node_modules',
+  '/Users/node_modules',
+  '/node_modules' ]
+{{ '}'}}
+            </pre>
+        </div>
       </div>
+
+      <p>
+        Node Modules have a one-to-one relation with files on the file-system. We require a module by loading the content of
+        a file into memory.
+      </p>
   </div>
+
 
   <h3>Wrapping and Caching Modules</h3>
   <p>
