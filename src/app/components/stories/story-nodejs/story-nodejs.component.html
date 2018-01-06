@@ -89,9 +89,92 @@
 
   <h3>How Callbacks Actually Work</h3>
   <p>
-    
+    We all know that Node API is designed around callbacks. We pass functions to other functions as
+    arguments, and those argument functions get executed at a later time, somehow. For example, if we
+    change our slowAdd function to output the result in a setTimeout call after five seconds, the first
+    argument to setTimeout is the function that is famously known as a callback. So let's see what
+    happens on the stack for this case. We call slowAdd 3 and 3, push that to the stack, slowAdd calls
+    setTimeout, so we push that to the stack, since setTimeout does not call any functions but rather has a
+    function argument, it gets popped out of stack immediately, and at that point, slowAdd 3 and 3 is
+    done, so we pop that out of the stack too. Then we continue, slowAdd 4 and 4, push it to stack, calls
+    setTimeout, push that to the stack and immediately pop it, then pop slowAdd 3 and 3, then somehow,
+    console.log(6) gets added to the stack to be executed, and after that, console.log(8) gets added to the
+    stack to be executed. To understand how the last two calls to console.log appeared in the call stack,
+    let's take a look at the bigger picture here. First, it's important to understand that an API call like
+    setTimeout is not part of V8. It's provided by Node itself, just like it's provided by browsers, too. It's
+    wired in a way to work with the event loop asynchronously. That's why it behaves a bit weirdly on the
+    normal call stack. Let's talk about the event queue, which is sometimes called the message queue or
+    the callback queue. It's simply a list of things to be processed. Let's call these things events. When we
+    store an event on the queue, we sometimes store a plain-old function with it. This function is what we
+    know as a callback. A queue data structure is a first in first out structure, so the first event we queue
+    will be the first event to get de-queued. To de-queue and process an event from the edge of the
+    queue, we just invoke the function associated with it. Invoking a function will push it to the stack. So
+    we start with the anonymous function, it puhsed slowAdd 3, 3 to the call stack, which in turn pushes
+    setTimeout cb 1, delay of 5 seconds. The setTimeout callbacks here in this example are actually
+    anonymous functions, but to simplify the visualization, I labeled them cb1 and cb2. At this point, Node
+    sees a call to its setTimeout API, takes note of it, and instantiate a timer outside of the JavaScript
+    runtime. The setTimeout call on the stack will be done and popped out, and while the Node timer is
+    running, the stack is free to continue processing its items. It pops slowAdd 3, 3, pushed slowAdd 4, 4,
+    which in turn pushes setTimeout with the second callback. Node kick off another timer for this new
+    setTimeout call and the stack continues to pop its done functions. After five seconds, both timers
+    complete, and when they do they queue the callbacks associated with them into the event queue.
+    Exactly at this moment, the event loop has something important to do. The event loop job is super
+    simple. It monitors the call stack and the event queue. When the stack is empty, and the queue is not
+    empty (there are events waiting to be processed in the queue), it will de-queue one event from the
+    queue and push its callback to the stack. It's called an event loop, because it loops this simple logic
+    until the event Queue is empty. Right now, our example's call stack is empty and the queue is not. The
+    event loop will pick cb1, and push it to the stack. Cb1 will push console.log call to the stack, which
+    returns immediately, and this marks cb as done. The stack is empty again, and we still have one event
+    to proess, so the event loop will push cb2 to the stack and cb2 pushes console.log, done, pop, cb2 is
+    done, and we are at an idle state now for the event loop. The stack is empty and the queue is empty.
+    Node will exit the process when we reach this state. All Node APIs work with this concept. Some
+    process will go handle a certain I/O asynchronously, keeping track of a callback, and when it's done it
+    will queue the callback into the event queue. Keep in mind that any slow code being executed on the
+    stack directly will block the event loop. Similarly, if we're not careful about the amount of events that
+    get queued in the event queue, we can overwhelm the queue and keep both the event loop and the
+    call stack busy. As a Node developer, these are some of the most important things to understand
+    about blocking vs non-blocking code.
   </p>
   
+  <h3>setImmediate and process.nextTick</h3>
+  <p>
+    What happens when the timer delay is 0 milliseconds? Well, almost the same thing. The main function
+    pushes slowAdd 3 3, which pushes the setTimeout, which creates the timer. The timer immediately queues
+    its callback on the queue. However, the event loop will not process that event, because the stack is
+    not empty. So the stack continues its normal flow until we get to the second timer, which also immediately
+    queues its callback. The stack is still not empty. After we pop all calls from the stack, the event loop
+    picks the first callback and pushes that to the stack, and then does the same thing with the second one.
+    Because of this loop, the timers are not really executed after 0 milliseconds, but rather after we're
+    done with the stack, so if there was a slow operation on the stack, those timers will have to wait. The
+    delay we define in a timer is not a guaranteed time to execution, but rather a minimum time to execution.
+    The timer will execute after a minimum of this delay. Node's event loop has multiple phases. The timers
+    run in one of those phases while most I/O operations run in another phase. Node has a special timer,
+    setImmediate, which runs in a separate phase of the event loop. It's mostly equivalent to a 0ms timer,
+    except in some situations, setImmediate will actually take precedence over preiously defined 0ms setTimeouts.
+    For example, this code will always display immediate before timeout, although we kick the 0ms timeout first.
+    It's generally recommended to always use setImmediate when you want something to get executed on the next
+    tick of the event loop. Ironically, Node has a process.nextTick api that is very similar to setImmediate,
+    but Node actually does not execute its callback on the next tick of the event loop, so the name here is
+    misleading, but it's unlikely to change. Process.nextTick is not technically part of the event loop, and 
+    it does not care about phases of the event loop. Node processes the callback registered with nextTick after the
+    current operation completes and before the event loop continues. This is both useful and dangerous,
+    so be careful about it, especially when using process.nextTick recursively. One good example for using
+    nextTick is to make for a standard function contract. For example, in this script, the fileSize function
+    receives a fileName argument and a callback. It first makes sure the fileName argument is a string, and
+    it executes the callback with an error if not. Then, it executes the async function fs.stat and executes
+    the callback with the file size. An example use of the fileSize function is here where we log the file size.
+    Very simple. If we execute it with the current file name, it should log the size of this file. This call was
+    async because we saw the Hello message first, which is expected beause of our use of the async
+    fs.stat function. But something is wrong with this fileSize function. Can you identify it? Let me give you
+    a hint. Let's trigger the validation by passing anumber instead of a string here. Validation is a go, but
+    the console Hello line was not executed at atll in this case, because the validation code here is
+    synchronous. So the fileSize function could be both sync and async depending on the first argument.
+    This is usually a bad design. A function should always be either sync or async. To fix this problem,
+    instead of directly calling the callback with an error here, we can use process.nextTick call for the
+    callback, and with the argument of the error that we want. This way, when we actually trigger, the
+    validation, the error will happen asynchronously and the file size function is going to be always async.
+  </p>
+
   <h2>Node for Networing</h2>
   <h3>TCP Networking with the Net Module</h3>
   <p>
