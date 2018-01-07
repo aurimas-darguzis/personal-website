@@ -227,7 +227,10 @@ require('./lib/find-me');
                   requires find-me module? This is where we get into what's known as the circular modular
                   dependency, which is actually allowed in Node. To understand it better, let's first
                   understand a few other concepts on the module object. First, let's talk about exports.
-                  In any module, exports is a special object. We can put anything on the export object like so
+                  In any module, exports is a special object. We can put anything on the export object. It is
+                  actually what we get in the findMeExports constant below. Let's console log this constant
+                  and put an id attribute on the exports object in the find-me module to identify it. When we
+                  test that, the findMeExports constant has that id attribute.
                 </p>
                 <div class="code-editor">
                     <div class="code-title">
@@ -255,6 +258,44 @@ exports.id = 'find-me';
                       </pre>
                     </div>
                   </div>
+
+                  <div class="node-editor">
+                      <div class="node-code">
+                        <pre>
+$ node index.js
+                        </pre>
+                      </div>
+                      <div class="node-output">
+                        <pre>
+findMeExports: {{ '{' }} id: 'find-me' {{ '}' }}
+                        </pre>
+                      </div>
+                    </div>
+
+                    <p>
+                      Let's also discuss about loaded attribute in Module object. Node keeps it false as long
+                      as there is still more content to be loaded. So now we can get back to the original question,
+                      what happens when module 1 requires module, and module 2 requires module 1?
+                      Let's create an m1 module under the lib folder. We'll require it in index.js and console.log it.
+                      Under the lib folder, m1.js, let's give it an id to identify it. Let's add some more content in
+                      here. We'll start an array with one value and then push two more values after that. Let's duplicate
+                      m1 as m2, and use different values in there. Now we'll make m1 require m2 somewhere before it's done
+                      loading. Now to the interesting part, if anywhere within m2 we require m1 and printed it, we have a
+                      circular reference. Node will partially print m1. At this point of the lifecycle of m2, the m1 module
+                      is not ready yet, it still has 2 more lines be processed, but Node was able to share a partial
+                      exports object from m1 to m2. In terms of the loaded attribute, in the last line of m2, the m1 
+                      module had a loaded false attribute, while in the last line of index file, the m1 module has a loaded
+                      true attribute.
+                    </p>
+
+                    <div class="node-editor">
+                        <div class="node-code"></div>
+                        <div class="node-output">
+                          <pre>
+                    
+                          </pre>
+                        </div>
+                      </div>
                 
       </div> <!-- end of .example -->
   </div>
@@ -275,7 +316,11 @@ exports.id = 'find-me';
   </div>
 
   <div class="node-editor">
-    <div class="node-code"></div>
+    <div class="node-code">
+      <pre>
+
+      </pre>
+    </div>
     <div class="node-output">
       <pre>
 
