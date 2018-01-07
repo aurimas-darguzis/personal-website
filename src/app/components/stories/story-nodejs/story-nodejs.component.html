@@ -288,11 +288,69 @@ findMeExports: {{ '{' }} id: 'find-me' {{ '}' }}
                       true attribute.
                     </p>
 
+                    <div class="code-editor">
+                        <div class="code-title">
+                          <pre>
+index.js
+                          </pre>
+                        </div>
+                        <div class="code">
+                          <pre>
+const m1 = require('./lib/m1');
+console.log(m1)              
+                          </pre>
+                        </div>
+                      </div>
+                    <div class="code-editor">
+                        <div class="code-title">
+                          <pre>
+m1.js                  
+                          </pre>
+                        </div>
+                        <div class="code">
+                          <pre>
+exports.id = 'm1';
+
+exports.content = [1];
+const m2 = require('./m2');
+console.log(m2);
+exports.content.push(11);
+exports.content.push(111);
+                          </pre>
+                        </div>
+                    </div>
+
+                    <div class="code-editor">
+                        <div class="code-title">
+                          <pre>
+m2.js
+                          </pre>
+                        </div>
+                        <div class="code">
+                          <pre>
+exports.id = 'm2';
+
+exports.content = [2];
+exports.content.push(22);
+exports.content.push(222);
+
+const m1 = require('./m1');
+console.log('m1 is not loaded yet', m1); <span class="comment">// loaded: false</span>
+                          </pre>
+                        </div>
+                    </div>
+
                     <div class="node-editor">
-                        <div class="node-code"></div>
+                        <div class="node-code">
+                          <pre>
+$ node index.js
+                          </pre>
+                        </div>
                         <div class="node-output">
                           <pre>
-                    
+m1 is not loaded yet {{ '{' }} id: 'm1', content: [ 1 ] {{ '}' }}
+{{ '{' }} id: 'm2', content: [ 2, 22, 222 ] {{ '}' }}
+{{ '{' }} id: 'm1', content: [ 1, 11, 111 ] {{ '}' }}
                           </pre>
                         </div>
                       </div>
