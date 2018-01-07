@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-showreel',
   templateUrl: './showreel.component.html',
-  styleUrls: ['./showreel.component.css']
+  styleUrls: ['./showreel.component.scss']
 })
 export class ShowreelComponent implements OnInit {
 
