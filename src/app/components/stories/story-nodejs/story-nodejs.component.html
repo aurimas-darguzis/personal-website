@@ -226,8 +226,35 @@ require('./lib/find-me');
                   What happens if the find-me module required the main index module and the index module
                   requires find-me module? This is where we get into what's known as the circular modular
                   dependency, which is actually allowed in Node. To understand it better, let's first
-                  understand a few other concepts on the module object.
-                </p> 
+                  understand a few other concepts on the module object. First, let's talk about exports.
+                  In any module, exports is a special object. We can put anything on the export object like so
+                </p>
+                <div class="code-editor">
+                    <div class="code-title">
+                      <pre>
+index.js
+                      </pre>
+                    </div>
+                    <div class="code">
+                      <pre>
+const findMeExports = require('./lib/find-me');
+console.log('findMeEports: ', findMeExports)
+                      </pre>
+                    </div>
+                  </div>
+                
+                <div class="code-editor">
+                    <div class="code-title">
+                      <pre>
+find-me.js
+                      </pre>
+                    </div>
+                    <div class="code">
+                      <pre>
+exports.id = 'find-me';
+                      </pre>
+                    </div>
+                  </div>
                 
       </div> <!-- end of .example -->
   </div>
