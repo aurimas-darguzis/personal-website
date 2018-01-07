@@ -42,7 +42,7 @@ Module {{'{'}}
   id: '.', <span class="comment">object id to identify it</span>
   exports: {{'{'}}{{'}'}},
   parent: null,
-  filename: '/Users/aurimasdarguzis/index.js', <span class="comment">path to the filename can be accessed with this property</span>
+  filename: '/Users/aurimasdarguzis/index.js', <span class="comment">// path to the filename can be accessed with this property</span>
   loaded: false,
   children: [],
   paths:
@@ -125,6 +125,13 @@ at Function.Module._load (module.js:439:3)
 console.log('In ./index.js');
 
 require('find-me')
+          </pre>
+        </div>
+        <div class="code-editor">
+          <div class="code-title">find-me.js</div>
+          <div class="code"></div>
+          <pre>
+console.log('In ./node_modules/find-me.js');
           </pre>
         </div>
 
