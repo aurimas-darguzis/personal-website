@@ -1,0 +1,13 @@
+.story {
+  // border: 1px solid green;
+  width: 87vw;
+  max-width: 66em;
+  margin-top: 3em;
+
+  p {
+    max-width: 50%;
+    margin: 0 auto;
+    font-size: 2em;
+    line-height: calc(1.5em + .2vw);
+  }
+}
