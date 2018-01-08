@@ -399,7 +399,12 @@ m1 is not loaded yet {{ '{' }} id: 'm1', content: [ 1 ] {{ '}' }}
     require line to be mocked by default and just returns an empty object instead of the required module
     exports object. This simple reassignment of require will do the trick, and if we test that by requiring
     any module and console logging that module, we'll get the mocked object by default. To explore this
-    require object a bit more, let's say we have this simple trend function. 
+    require object a bit more, let's say we have this simple trend function. It takes a numeric argument
+    stars and a string argument header and it prints this header between the number of stars that we
+    specify. And we want to use this file in two ways. We want to use it on the command line, just like this,
+    by passing stars in the header arguments as command line arguments, but we also want to use it
+    with require. We just require the file and then use whatever the file exports as a function and call that
+    function.
   </p>
 
 
