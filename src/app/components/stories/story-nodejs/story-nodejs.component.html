@@ -381,7 +381,25 @@ m1 is not loaded yet {{ '{' }} id: 'm1', content: [ 1 ] {{ '}' }}
     variables in any module scoped to that module and it is what makes the module/exports/require
     variables appear to look global when, in fact, they are specific to each module. Same thing for the
     __filename/__dirname variables, which will contain the module's absolute filename and direcotry path.
-    
+    All of these variables are simply functions arguments whose values are provided to the wrapped
+    function by Node. You can see this wrapping in action if you run a script with a problem on its firs line.
+    This might actually depend on your environment, but on mine you can clearly see the anonymous
+    wrapping function and its arguments here. Since we are in a function here, we can actually access the
+    function's arguments in here, and you'll see how the first argument is the empty exports object, then
+    we get the require object, then the module object, then filename and dirname. Not how both the
+    require object and the module object are the copies associated with this index file. They are not global
+    variables. The wrapping functions return value is this exports object reference. Note how we have both
+    exports and the module object itself passed in the wrapper function. Exports is simply a variable
+    reference to module.exports, so what happens here is equivalent to doing this line at the top of the
+    module. So we can change the properties of the exports object, but if we change the whole export
+    object, it would no longer be a reference to module.exports. This is the way JavaScript reference
+    objects work everywhere, not just in this context. There is nothing special about require. It's a function
+    that takes a module name or path and returns the exports object. We can simply override the require
+    function to do our own logic if we want to. Say, for example, for testing purposes, we want every
+    require line to be mocked by default and just returns an empty object instead of the required module
+    exports object. This simple reassignment of require will do the trick, and if we test that by requiring
+    any module and console logging that module, we'll get the mocked object by default. To explore this
+    require object a bit more, let's say we have this simple trend function. 
   </p>
 
 
