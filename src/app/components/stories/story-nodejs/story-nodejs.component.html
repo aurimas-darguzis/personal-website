@@ -409,7 +409,21 @@ m1 is not loaded yet {{ '{' }} id: 'm1', content: [ 1 ] {{ '}' }}
     If require.main = the module object. When, we run this as a script, this if statement will be true. So we
     can simply call the function here with process.argv elements. Otherwise, if require.main does not equal
     module, it means that this file is being required by other files. And in this case, we can just change the
-    export's object to be the print function. And now we can test this script.
+    export's object to be the print function. And now we can test this script. It should work both from the
+    command line directly, and when we run the index file, which requires the print stars.
+  </p>
+
+  <p>
+      Caching is important to understand. Here is a simple example to demonstrate it. Say that we have this ascii-art
+      file that prinst a cool looking header, and we want to display this header every time we require the file.
+      So if we require this line twice, we want the header to show up twice. But because of module's
+      caching, that's not going to happen. Node caches the first call and does not load the file on the second
+      call. We can see the cache using require.cache, and in there you will find an entry for the ascii-art file.
+      Those entries are indexed by the full file path. We can actually remove the cache entry here if we want
+      to, using this full file path, and Node will re-load the module fine after that. But this is not the mst§
+      efficient solution for this problem. The simple solution for this case is to wrap the log line here in a
+      function, and exports that insteads. Then when we require the file, we just execute the exports object as
+      a function, and every time we do so, the function will execute the console.log statement.
   </p>
 
 
