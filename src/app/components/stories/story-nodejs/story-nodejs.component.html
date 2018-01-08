@@ -404,7 +404,12 @@ m1 is not loaded yet {{ '{' }} id: 'm1', content: [ 1 ] {{ '}' }}
     specify. And we want to use this file in two ways. We want to use it on the command line, just like this,
     by passing stars in the header arguments as command line arguments, but we also want to use it
     with require. We just require the file and then use whatever the file exports as a function and call that
-    function.
+    function. So those are two different usages here. And we need a way to determine if the file is being
+    run as a script or if the file is being required. This is where we can use this simple if statement.
+    If require.main = the module object. When, we run this as a script, this if statement will be true. So we
+    can simply call the function here with process.argv elements. Otherwise, if require.main does not equal
+    module, it means that this file is being required by other files. And in this case, we can just change the
+    export's object to be the print function. And now we can test this script.
   </p>
 
 
