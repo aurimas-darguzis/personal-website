@@ -374,7 +374,14 @@ m1 is not loaded yet {{ '{' }} id: 'm1', content: [ 1 ] {{ '}' }}
     export object directly. When we need to replace the export object, we need to use the module.exports
     syntax. The question is... why? Also, we've seen how the variables we define in the module scope here
     will not be available outside the module. Only the things that we export are available. So how come
-    the variables are magically scoped and the exports object can't be replaced directly?
+    the variables are magically scoped and the exports object can't be replaced directly? The answer is
+    simple. Before compiling a module, Node wraps the module code in a function, which we can inspect
+    using the wrapper property of the module module. This function has 5 arguments: exports, require,
+    module, __filename, and __dirname. This function wrapping process is what keeps the top-level
+    variables in any module scoped to that module and it is what makes the module/exports/require
+    variables appear to look global when, in fact, they are specific to each module. Same thing for the
+    __filename/__dirname variables, which will contain the module's absolute filename and direcotry path.
+    
   </p>
 
 
