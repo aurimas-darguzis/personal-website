@@ -23,3 +23,16 @@
   font-size: 2em;
 }
 */
+
+.stories-container {
+  border: 2px solid blue;
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.story {
+  max-width: 740px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
