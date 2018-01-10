@@ -50,9 +50,21 @@
 }
 
 .code-editor {
-  border: 1px solid green;
+  background-color: #1d1f20;
 
   .code-title {
-    
+    font-family: "Lato", "Lucida Grande", "Lucida Sans Univode", Tahoma, sans-serif;
+    font-weight: bold;
+    color: #ccc;
+    font-size: 1.3em;
+    display: inline-block;
+    padding-left: 2px;
+    vertical-align: middle;
+  }
+
+  .code {
+    font-family: Monaco, monospace;
+    font-size: 14px;
+    color: white;
   }
 }
