@@ -35,4 +35,20 @@
   max-width: 740px;
   padding-left: 20px;
   padding-right: 20px;
+
+  h1 {
+    text-align: center;
+    font-size: 3.1rem;
+  }
+
+
+
+  p {
+    font-size: 22px;
+    line-height: 2.1rem;
+  }
+}
+
+.code-editor {
+  border: 1px solid green;
 }
