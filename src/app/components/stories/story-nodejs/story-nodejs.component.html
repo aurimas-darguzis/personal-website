@@ -29,11 +29,25 @@
     <li>Caching - when we require this module again, we don't go over all the steps again.</li>
   </ul>
 
-  <img src="../../../../assets/images/stories/node/vs_code_snippet.png" alt="snippet">
+  <!-- <img src="../../../../assets/images/stories/node/vs_code_snippet.png" alt="snippet"> -->
   <p>
     Let's see how the module looks like.
   </p>
   <div>
+
+    <div class="code-editor">
+      <header class="code-title"></header>
+      <div class="code code-js">
+        <pre>
+          <code>
+
+          </code>
+          <button title="Copy code snippet" aria-label="Copy code snippet from index.js">Copy code!</button>
+        </pre>
+      </div>
+    </div>
+
+
       <div class="code-editor">
         <header class="code-title">index.js</header>
         <div class="code code-js">
@@ -68,27 +82,6 @@ Module {{'{'}}
           </pre>
         </div>
       </div>
-      
-      <div class="code-edito">
-        <div class="node-output">
-          <pre class="language-javascript">
-<code>
-Module {{'{'}}
-  id: '.', <span class="comment">// object id to identify it</span>
-  exports: {{'{'}}{{'}'}},
-  parent: null,
-  filename: '/Users/aurimasdarguzis/index.js', <span class="comment">// path to the filename can be accessed with this property</span>
-  loaded: false,
-  children: [],
-  paths:
-  [ '/Users/aurimasdarguzis/node_modules',
-  '/Users/node_modules',
-  '/node_modules' ]
-{{ '}'}}
-</code>
-            </pre>
-        </div>
-      </div>
 
       <p>
         Node Modules have a one-to-one relation with files on the file-system. We require a module by loading the content of
@@ -97,11 +90,13 @@ Module {{'{'}}
       </p>
 
       <div class="example">
-        For example, if we require a 'find-me' module from the index module, Node will look for find-me.js in 'path' property
-        of Module object, which start looking from the current directory and go up all the way to the root directory. If it
-        can't find find-me.js in any of these paths, it will throw a cannot find module error.
+        <p>
+          For example, if we require a 'find-me' module from the index module, Node will look for find-me.js in 'path' property
+          of Module object, which start looking from the current directory and go up all the way to the root directory. If it
+          can't find find-me.js in any of these paths, it will throw a cannot find module error.
+        </p>
         <div class="code-editor">
-            <div class="code-title">index.js</div>
+            <header class="code-title">index.js</header>
             <div class="code">
               <pre>
 require('find-me');
@@ -842,4 +837,16 @@ m1 is not loaded yet {{ '{' }} id: 'm1', content: [ 1 ] {{ '}' }}
     characters by default, which is great. If you have the inverse situation, if you have a query string and you want to parse it into an object, what you need here is queryString.parse,
     and you give the string that you want to parse, and this will give you back an object parsed from that query string.
   </p>
+
+      <div class="code-editor">
+      <header class="code-title"></header>
+      <div class="code code-js">
+        <pre>
+          <code>
+
+          </code>
+          <button title="Copy code snippet" aria-label="Copy code snippet from index.js">Copy code!</button>
+        </pre>
+      </div>
+    </div>
  -->
