@@ -105,7 +105,11 @@
       color: #dcdcaa;
     }
 
-    .require-param {
+    .second-level, .var-name {
+      color: #9cdcfe;
+    }
+
+    .func-param {
       color: #ce9178;
     }
 
@@ -128,6 +132,10 @@
     .comment {
       color: #608b4e;
     }
+
+    .var {
+      color: #569cd6;
+    }
   }
 
   .code-node {
@@ -138,5 +146,9 @@
     .output {
       color: #e6e6e6;
     }
+  }
+
+  .code-json {
+    color: #ce9178;
   }
 }

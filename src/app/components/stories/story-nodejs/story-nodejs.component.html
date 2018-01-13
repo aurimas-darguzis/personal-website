@@ -96,24 +96,12 @@ Module {{'{'}}
           can't find find-me.js in any of these paths, it will throw a cannot find module error.
         </p>
 
-        <!-- <div class="code-editor">
-            <header class="code-title"></header>
-            <div class="code code-js">
-              <pre>
-                <code>
-      
-                </code>
-                <button title="Copy code snippet" aria-label="Copy code snippet from index.js">Copy code!</button>
-              </pre>
-            </div>
-        </div> -->
-
         <div class="code-editor">
             <header class="code-title">index.js</header>
             <div class="code code-js">
               <pre>
                 <code>
-<span class="require">require</span><span class="parenth">(</span><span class="require-param">'find-me'</span><span class="parenth">)</span><span class="dot">;</span>
+<span class="require">require</span><span class="parenth">(</span><span class="func-param">'find-me'</span><span class="parenth">)</span><span class="dot">;</span>
 
 <span class="comment">// $HOME/.node_modules</span>
 <span class="comment">// $HOME/.node_libraries</span>
@@ -125,32 +113,32 @@ Module {{'{'}}
             </div>
           </div>
 
-        <div class="node-editor">
-          <div class="node-code">
+        <div class="code-editor">
+          <div class="code code-node">
             <pre>
-$ node index.js
-            </pre>
-          </div>
-          <div class="node-output">
-            
-            <pre>
-  module.js:472
-  throw err;
-  ^
+              <code>
+<span class="command">$ node index.js</span>
+<div class="output">
+module.js:472
+throw err;
+^
 
-Error: Cannot find module 'find-me'
-at Function.Module._resolveFilename (module.js:470:15)
-at Function.Module._load (module.js:418:25)
-at Module.require (module.js:498:17)
-at require (internal/module.js:20:19)
-at Object.<span><</span>anonymous> (/Users/aurimasdarguzis/index.js:1:63)
-at Module._compile (module.js:571:32)
-at Object.Module._extensions..js (module.js:580:10)
-at Module.load (module.js:488:32)
-at tryModuleLoad (module.js:447:12)
-at Function.Module._load (module.js:439:3)
+  Error: Cannot find module 'find-me'
+  at Function.Module._resolveFilename (module.js:470:15)
+  at Function.Module._load (module.js:418:25)
+  at Module.require (module.js:498:17)
+  at require (internal/module.js:20:19)
+  at Object.<span><</span>anonymous> (/Users/aurimasdarguzis/index.js:1:63)
+  at Module._compile (module.js:571:32)
+  at Object.Module._extensions..js (module.js:580:10)
+  at Module.load (module.js:488:32)
+  at tryModuleLoad (module.js:447:12)
+  at Function.Module._load (module.js:439:3)
+</div>
+              </code>
             </pre>
           </div>
+
         </div>
         <p>
           To be exact, Node will actually look for the find-me.js in more folders, but those are supported for mostly
@@ -166,32 +154,40 @@ at Function.Module._load (module.js:439:3)
         </p>
 
         <div class="code-editor">
-          <div class="code-title">index.js</div>
-          <div class="code"></div>
-          <pre>
-console.log('In ./index.js');
+          <header class="code-title">index.js</header>
+          <div class="code code-js">
+            <pre>
+              <code>
+<!-- console.log -->
+<span class="console">console</span><span class="dot">.</span><span class="log">log</span><span class="parenth">(</span><span class="func-param">'In ./index.js'</span><span class="parenth">)</span><span class="dot">;</span>
 
-require('find-me')
-          </pre>
+<span class="require">require</span><span class="parenth">(</span><span class="func-param">'find-me'</span><span class="parenth">)</span><span class="dot">;</span>
+              </code>
+            </pre>
+        </div>
         </div>
         <div class="code-editor">
-          <div class="code-title">find-me.js</div>
-          <div class="code"></div>
-          <pre>
-console.log('In ./node_modules/find-me.js');
-          </pre>
+          <header class="code-title">find-me.js</header>
+          <div class="code code-js">
+              <pre>
+                  <code>
+<span class="console">console</span><span class="dot">.</span><span class="log">log</span><span class="parenth">(</span><span class="func-param">'In ./node_modules/find-me.js'</span><span class="parenth">)</span><span class="dot">;</span>    
+                  </code>
+                </pre>
+          </div>
+          
         </div>
 
-        <div class="node-editor">
-          <div class="node-code">
+        <div class="code-editor">
+          <div class="code code-node">
             <pre>
-$ node index.js
-            </pre>
-          </div>
-          <div class="node-output">
-            <pre>
+              <code>
+<span class="command">$ node index.js</span>
+<div class="output">
 In ./index.js
 In ./node_modules/find-me.js
+</div>
+              </code>
             </pre>
           </div>
         </div>
@@ -200,24 +196,26 @@ In ./node_modules/find-me.js
           If we want to only resolve the module and not execute it, we can use require.resolve method.
         </p>
         <div class="code-editor">
-            <div class="code-title">index.js</div>
-            <div class="code">
+            <header class="code-title">index.js</header>
+            <div class="code code-js">
               <pre>
-console.log('In ./index.js');
+                <code>
+<span class="console">console</span><span class="dot">.</span><span class="log">log</span><span class="parenth">(</span><span class="func-param">'In ./index.js'</span><span class="parenth">)</span><span class="dot">;</span>
 
-require.resolve('find-me');
+<span class="require">require</span><span class="dot">.</span><span class="second-level">resolve</span><span class="parenth">(</span><span class="func-param">'find-me'</span><span class="parenth">)</span><span class="dot">;</span>
+                </code>
               </pre>
             </div>
           </div>
-          <div class="node-editor">
-              <div class="node-code">
+          <div class="code-editor">
+              <div class="code code-node">
                 <pre>
-$ node index.js
-                </pre>
-              </div>
-              <div class="node-output">
-                <pre>
+                  <code>
+<span class="command">$ node index.js</span>
+<div class="output">
 In ./index.js
+</div>
+                  </code>
                 </pre>
               </div>
             </div>
@@ -242,19 +240,17 @@ In ./index.js
             </p>
 
             <div class="code-editor">
-                <div class="code-title">
+                <header class="code-title">package.json</header>
+                <div class="code code-json">
                   <pre>
-package.json
-                  </pre>
-                </div>
-                <div class="code">
-                  <pre>
+                    <code>
 {{ '{' }}
   "name": "find-me",
   "main": "start.js"
 {{ '}' }}
+                    </code>
                   </pre>
-                </div>
+                </div>     
               </div>
 
               <p>
@@ -264,64 +260,73 @@ package.json
                 the lib folder instead of a node_modules folder, we can still require it this way
               </p>
               <div class="code-editor">
-                  <div class="code-title">
-                    <pre>
-index.js
-                    </pre>
-                  </div>
-                  <div class="code">
-                    <pre>
-require('./lib/find-me');     
-                    </pre>
-                  </div>
+                <header class="code-title">index.js</header>
+                <div class="code code-js">
+                  <pre>
+                    <code>
+<span class="require">require</span><span class="parenth">(</span><span class="func-param">'./lib/find-me'</span><span class="parenth">)</span><span class="dot">;</span>
+                    </code>
+                  </pre>
+                </div>  
+              </div>
+
+              <p>
+                What happens if the find-me module required the main index module and the index module
+                requires find-me module? This is where we get into what's known as the circular modular
+                dependency, which is actually allowed in Node. To understand it better, let's first
+                understand a few other concepts on the module object. First, let's talk about exports.
+                In any module, exports is a special object. We can put anything on the export object. It is
+                actually what we get in the findMeExports constant below. Let's console log this constant
+                and put an id attribute on the exports object in the find-me module to identify it. When we
+                test that, the findMeExports constant has that id attribute.
+              </p>
+                <div class="code-editor">
+                  <header class="code-title">index.js</header>
+                    <div class="code code-js">
+                      <pre>
+                        <code>
+<span class="var">const</span> <span class="var-name">findMeExports</span> <span class="dot">=</span> <span class="require">require</span><span class="parenth">(</span><span class="func-param">'./lib/find-me'</span><span class="parenth">)</span><span class="dot">;</span>
+
+<span class="console">console</span><span class="dot">.</span><span class="log">log</span><span class="parenth">(</span><span class="func-param">'findMeEports: '</span><span class="dot">,</span><span class="second-level"> findMeExports</span><span class="parenth">)</span><span class="dot">;</span>
+                        </code>
+                      </pre>
+                    </div>
                 </div>
                 
-                <p>
-                  What happens if the find-me module required the main index module and the index module
-                  requires find-me module? This is where we get into what's known as the circular modular
-                  dependency, which is actually allowed in Node. To understand it better, let's first
-                  understand a few other concepts on the module object. First, let's talk about exports.
-                  In any module, exports is a special object. We can put anything on the export object. It is
-                  actually what we get in the findMeExports constant below. Let's console log this constant
-                  and put an id attribute on the exports object in the find-me module to identify it. When we
-                  test that, the findMeExports constant has that id attribute.
-                </p>
                 <div class="code-editor">
-                    <div class="code-title">
+                  <header class="code-title">find-me.js</header>
+                  <div class="code code-js">
                       <pre>
-index.js
-                      </pre>
-                    </div>
-                    <div class="code">
-                      <pre>
-const findMeExports = require('./lib/find-me');
-console.log('findMeEports: ', findMeExports)
-                      </pre>
-                    </div>
-                  </div>
-                
-                <div class="code-editor">
-                    <div class="code-title">
-                      <pre>
-find-me.js
-                      </pre>
-                    </div>
-                    <div class="code">
-                      <pre>
-exports.id = 'find-me';
+                        <code>
+<span class="var-name">exports</span><span class="dot">.</span><span class="var-name">id</span> <span class="dot">=</span> <span class="func-param">'find-me'</span><span class="dot">;</span>
+                        </code>
                       </pre>
                     </div>
                   </div>
 
-                  <div class="node-editor">
-                      <div class="node-code">
+                  <!-- <div class="code-editor">
+                      <div class="code code-node">
                         <pre>
-$ node index.js
+                          <code>
+            <span class="command">$ node index.js</span>
+            <div class="output">
+            In ./index.js
+            In ./node_modules/find-me.js
+            </div>
+                          </code>
                         </pre>
                       </div>
-                      <div class="node-output">
+                    </div> -->
+
+                  <div class="code-editor">
+                      <div class="code code-node">
                         <pre>
+                          <code>
+<span class="command">$ node index.js</span>
+<div class="output">
 findMeExports: {{ '{' }} id: 'find-me' {{ '}' }}
+</div>
+                          </code>
                         </pre>
                       </div>
                     </div>
