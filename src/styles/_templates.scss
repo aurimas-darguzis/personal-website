@@ -50,20 +50,19 @@
 }
 
 .code-editor {
-  background-color: hsla(0, 0%, 95%,.2);
+  // background-color: hsla(0, 0%, 95%,.2);
+  background-color: rgb(30, 30, 30);
   border: 0.5px solid #dbdbdb;
   border-radius: 5px;
   color: #333;
   margin: 16px auto;
 
-  // .code-title {
   header {
-    // font-family: "Lato", "Lucida Grande", "Lucida Sans Univode", Tahoma, sans-serif;
     font-family: Roboto,Helvetica Neue Light,Helvetica Neue,Helvetica,Arial,Lucida Grande,sans-serif;
-    background-color: #1e88e5;
     color: #fafafa;
     font-size: 0.88em;
     padding: 8px 16px;
+    border-bottom: 1px solid #958484;
   }
 
   .code {
@@ -74,18 +73,45 @@
       position: relative;
       display: flex;
       font-family: Droid Sans Mono, monospace;
+      white-space: pre-wrap;
 
       code {
         font-size: 0.9em;
-        
+        margin-left: 1.5rem;
       }
 
       button {
+        display: inline-block;
+        position: absolute;
+        top: -5px;
+        right: 0px;
         color: #b0bec5;
         background-color: transparent;
         border: none;
         cursor: pointer;
      }
+    }
+  }
+
+  .code-js {
+    .console {
+      color: #4ec9b0;
+    }
+
+    .dot {
+      color: #d4d4d4;
+    }
+
+    .log {
+      color: #dcdcaa;
+    }
+
+    .parenth {
+      color: #ffd700;
+    }
+
+    .func-parameter-module {
+      color: #569cd6;
     }
   }
 }
