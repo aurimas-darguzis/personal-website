@@ -69,6 +69,23 @@
   .code {
     font-family: Monaco, monospace;
     font-size: 14px;
-    // color: white;
+    
+    pre {
+      position: relative;
+      display: flex;
+      font-family: Droid Sans Mono, monospace;
+
+      code {
+        font-size: 0.9em;
+        
+      }
+
+      button {
+        color: #b0bec5;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+     }
+    }
   }
 }
