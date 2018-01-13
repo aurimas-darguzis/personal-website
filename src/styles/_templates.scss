@@ -94,9 +94,19 @@
     }
   }
 
+  
+
   .code-js {
     .console {
       color: #4ec9b0;
+    }
+
+    .require {
+      color: #dcdcaa;
+    }
+
+    .require-param {
+      color: #ce9178;
     }
 
     .dot {
@@ -113,6 +123,10 @@
 
     .func-parameter-module {
       color: #569cd6;
+    }
+
+    .comment {
+      color: #608b4e;
     }
   }
 
