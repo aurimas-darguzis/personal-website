@@ -304,20 +304,6 @@ In ./index.js
                     </div>
                   </div>
 
-                  <!-- <div class="code-editor">
-                      <div class="code code-node">
-                        <pre>
-                          <code>
-            <span class="command">$ node index.js</span>
-            <div class="output">
-            In ./index.js
-            In ./node_modules/find-me.js
-            </div>
-                          </code>
-                        </pre>
-                      </div>
-                    </div> -->
-
                   <div class="code-editor">
                       <div class="code code-node">
                         <pre>
@@ -348,26 +334,22 @@ findMeExports: {{ '{' }} id: 'find-me' {{ '}' }}
                     </p>
 
                     <div class="code-editor">
-                        <div class="code-title">
+                        <header class="code-title">index.js</header>
+                        <div class="code code-js">
                           <pre>
-index.js
-                          </pre>
-                        </div>
-                        <div class="code">
-                          <pre>
+                            <code>
 const m1 = require('./lib/m1');
 console.log(m1) <span class="comment">// loaded: true</span>
+                            </code>
                           </pre>
                         </div>
                       </div>
+
                     <div class="code-editor">
-                        <div class="code-title">
+                        <header class="code-title">m1.js</header>
+                        <div class="code code-js">
                           <pre>
-m1.js                  
-                          </pre>
-                        </div>
-                        <div class="code">
-                          <pre>
+                            <code>
 exports.id = 'm1';
 
 exports.content = [1];
@@ -375,6 +357,7 @@ const m2 = require('./m2');
 console.log(m2);
 exports.content.push(11);
 exports.content.push(111);
+                            </code>
                           </pre>
                         </div>
                     </div>
@@ -399,17 +382,17 @@ console.log('m1 is not loaded yet', m1); <span class="comment">// loaded: false<
                         </div>
                     </div>
 
-                    <div class="node-editor">
-                        <div class="node-code">
+                    <div class="code-editor">
+                        <div class="code code-node">
                           <pre>
-$ node index.js
-                          </pre>
-                        </div>
-                        <div class="node-output">
-                          <pre>
+                            <code>
+<span class="command">$ node index.js</span>
+<div class="output">
 m1 is not loaded yet {{ '{' }} id: 'm1', content: [ 1 ] {{ '}' }}
 {{ '{' }} id: 'm2', content: [ 2, 22, 222 ] {{ '}' }}
 {{ '{' }} id: 'm1', content: [ 1, 11, 111 ] {{ '}' }}
+</div>
+                            </code>
                           </pre>
                         </div>
                       </div>
