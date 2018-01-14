@@ -350,34 +350,35 @@ findMeExports: {{ '{' }} id: 'find-me' {{ '}' }}
                         <div class="code code-js">
                           <pre>
                             <code>
-exports.id = 'm1';
+<span class="var-name">exports</span><span class="dot">.</span><span class="var-name">id</span> <span class="dot">=</span> <span class="func-param">'m1'</span><span class="dot">;</span>
 
-exports.content = [1];
-const m2 = require('./m2');
-console.log(m2);
-exports.content.push(11);
-exports.content.push(111);
+<span class="var-name">exports</span><span class="dot">.</span><span class="var-name">content</span> <span class="dot">=</span> <span class="parenth">[</span><span class="var-name">1</span><span class="parenth">]</span><span class="dot">;</span>
+
+<span class="var">const</span> <span class="var-name">m2</span> <span class="dot">=</span> <span class="require">require</span><span class="parenth">(</span><span class="func-param">'./m2'</span><span class="parenth">)</span><span class="dot">;</span>
+<span class="console">console</span><span class="dot">.</span><span class="log">log</span><span class="parenth">(</span><span class="var-name">m2</span><span class="parenth">)</span><span class="dot">;</span>
+<span class="var-name">exports</span><span class="dot">.</span><span class="var-name">content</span><span class="dot">.</span><span class="var-name">push</span><span class="parenth">(</span><span class="var-name">11</span><span class="parenth">)</span><span class="dot">;</span>
+<span class="var-name">exports</span><span class="dot">.</span><span class="var-name">content</span><span class="dot">.</span><span class="var-name">push</span><span class="parenth">(</span><span class="var-name">111</span><span class="parenth">)</span><span class="dot">;</span>
+
                             </code>
                           </pre>
                         </div>
                     </div>
 
                     <div class="code-editor">
-                        <div class="code-title">
+                        <header class="code-title">m2.js</header>
+                        <div class="code code-js">
                           <pre>
-m2.js
-                          </pre>
-                        </div>
-                        <div class="code">
-                          <pre>
-exports.id = 'm2';
+                            <code>
+<span class="var-name">exports</span><span class="dot">.</span><span class="var-name">id</span> <span class="dot">=</span> <span class="func-param">'m2'</span><span class="dot">;</span>
 
-exports.content = [2];
-exports.content.push(22);
-exports.content.push(222);
+<span class="var-name">exports</span><span class="dot">.</span><span class="var-name">content</span> <span class="dot">=</span> <span class="parenth">[</span><span class="var-name">2</span><span class="parenth">]</span><span class="dot">;</span>
 
-const m1 = require('./m1');
-console.log('m1 is not loaded yet', m1); <span class="comment">// loaded: false</span>
+<span class="var-name">exports</span><span class="dot">.</span><span class="var-name">content</span><span class="dot">.</span><span class="var-name">push</span><span class="parenth">(</span><span class="var-name">22</span><span class="parenth">)</span><span class="dot">;</span>
+<span class="var-name">exports</span><span class="dot">.</span><span class="var-name">content</span><span class="dot">.</span><span class="var-name">push</span><span class="parenth">(</span><span class="var-name">222</span><span class="parenth">)</span><span class="dot">;</span>
+
+<span class="var">const</span> <span class="var-name">m1</span> <span class="dot">=</span> <span class="require">require</span><span class="parenth">(</span><span class="func-param">'./m1'</span><span class="parenth">)</span><span class="dot">;</span>
+<span class="console">console</span><span class="dot">.</span><span class="log">log</span><span class="parenth">(</span><span class="func-param">'m1 is not loaded yet'</span><span class="dot">, </span><span class="var-name">m1</span><span class="parenth">)</span><span class="dot">;</span><span class="comment">// loaded: false</span>
+                            </code>
                           </pre>
                         </div>
                     </div>
