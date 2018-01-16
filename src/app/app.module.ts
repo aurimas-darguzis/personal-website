@@ -10,6 +10,7 @@ import { ShowreelComponent } from './components/showreel/showreel.component';
 import { StoriesComponent } from './components/stories/stories.component';
 import { SecurityChallengeComponent } from './components/security-challenge/security-challenge.component';
 import { StoryNodejsComponent } from './components/stories/story-nodejs/story-nodejs.component';
+import { UserLoginComponent } from './components/user-login/user-login.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { StoryNodejsComponent } from './components/stories/story-nodejs/story-no
     ShowreelComponent,
     StoriesComponent,
     SecurityChallengeComponent,
-    StoryNodejsComponent
+    StoryNodejsComponent,
+    UserLoginComponent
   ],
   imports: [
     BrowserModule,
