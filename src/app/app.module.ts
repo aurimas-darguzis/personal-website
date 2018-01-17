@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-
+import { AngularFireModule } from 'angularfire2';
+import { environment} from '../environments/environment';
 import { AppComponent } from './app.component';
 import { routing } from './app.routing';
 import { HomeComponent } from './components/home/home.component';
@@ -26,7 +27,8 @@ import { UserLoginComponent } from './components/user-login/user-login.component
   ],
   imports: [
     BrowserModule,
-    routing
+    routing,
+    AngularFireModule.initializeApp(environment.firebase)
   ],
   providers: [],
   bootstrap: [AppComponent]
