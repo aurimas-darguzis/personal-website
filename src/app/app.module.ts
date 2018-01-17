@@ -13,6 +13,7 @@ import { SecurityChallengeComponent } from './components/security-challenge/secu
 import { StoryNodejsComponent } from './components/stories/story-nodejs/story-nodejs.component';
 import { UserLoginComponent } from './components/user-login/user-login.component';
 import { CoreModule } from './core/core.module';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { CoreModule } from './core/core.module';
     StoriesComponent,
     SecurityChallengeComponent,
     StoryNodejsComponent,
-    UserLoginComponent
+    UserLoginComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
