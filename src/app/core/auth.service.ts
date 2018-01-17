@@ -19,6 +19,19 @@ interface User {
 @Injectable()
 export class AuthService {
 
-  constructor() { }
+  user: Observable<User>;
+  constructor(private afAuth: AngularFireAuth,
+              private afs: AngularFirestore,
+              private router: Router) {
+      //// Get auth data, then get firestore user document || null
+      this.user = this.afAuth.authState
+        .switchMap(user => {
+          if (user) {
+            return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
+          } else {
+            return Observable.of(null);
+          }
+        });
+  }
 
 }
