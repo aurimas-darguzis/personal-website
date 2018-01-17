@@ -12,6 +12,7 @@ import { StoriesComponent } from './components/stories/stories.component';
 import { SecurityChallengeComponent } from './components/security-challenge/security-challenge.component';
 import { StoryNodejsComponent } from './components/stories/story-nodejs/story-nodejs.component';
 import { UserLoginComponent } from './components/user-login/user-login.component';
+import { CoreModule } from './core/core.module';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { UserLoginComponent } from './components/user-login/user-login.component
   imports: [
     BrowserModule,
     routing,
-    AngularFireModule.initializeApp(environment.firebase)
+    AngularFireModule.initializeApp(environment.firebase),
+    CoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
