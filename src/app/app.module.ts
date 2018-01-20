@@ -31,7 +31,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
   imports: [
     BrowserModule,
     routing,
-    AngularFireModule.initializeApp(environment.firebase),
+    // AngularFireModule.initializeApp(environment.firebase),
     CoreModule
   ],
   providers: [],
