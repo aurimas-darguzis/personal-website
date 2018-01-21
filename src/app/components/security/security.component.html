@@ -1,3 +1,160 @@
-<p>
-  security works!
-</p>
+<div class="stories-container">
+    <div class="story">
+      <h1>Jason Web Tokens (JWT)</h1>
+
+      <h2>What is a JSON Web Token?</h2>
+      <p>
+        An open standard: RFC 7519
+        A method for transferring claims (assertions) between two parties securely through a JSON payload
+        A digitally signed and compact, self-container package
+        A great mechanism for stateless authentication.
+      </p>
+
+      <p>
+        Basic JWT consists of Header, Payload and Signature. The header has the Meta information.
+        It has a data about the type of data. Payload is kind of a meat part. This part consist
+        of a claim who the user is. Signature is what makes the token secure. Base64UrlEncode on
+        header, concatenate '.' and encode the payload and then adding the secret. If someone try
+        to change anything in the token - they instantly invalidate the token.
+      </p>
+
+      <h3>JWT Header</h3>
+      <p>
+        JSON object that describes the token
+        At a minimum it should include the token type and signin algorithm
+        The signin algorithm is necessary for the token to be verified
+        Commonly tokens are signed with Hs256 (symmetric) or RS256 (asymmetric).
+      </p>
+
+<pre class="language-javascript line-numbers"><code>{{ '{' }}
+  "algorithm": "HS256",
+  "type": "JWT"
+{{ '}' }}</code></pre>
+
+      <h3>JWT Payload</h3>
+      <p>
+        JSON object which contains any claims (assertions_about the entity for which it was issued)
+        The JWT standard describes a set of reserved claims (iss, sub, aud, exp, nbf, iat, jti)
+        The payload can also contain any arbitrary claims defined at will.
+      </p>
+
+      <pre class="language-javascript line-numbers"><code>{{ '{' }}
+  "sub":"1234567890",
+  "name":"Culprit",
+  "admin": true
+{{ '}' }}</code></pre>
+
+        <h3>JWT Signature</h3>
+        <p>
+          JSON object produced by Base64 URL encoding the header and payload and then
+          running them through a hashing algorithm with a secret key. The signature
+          is used as a means to digitally sign the token so that its validity can be
+          verified later. If anything in the header or payload is modified, the token will
+          be invalidated.
+        </p>
+
+        <pre class="language-none line-numbers"><code>HMACSHA256(base64UrlEncode(header) + "." + base64UrlEncode(payload), secret)</code></pre>
+
+        <h2>JSON Web Tokens and Single Page Apps</h2>
+        
+        <h3>Traditional Authentication</h3>
+        <p>
+          The user submits their credentials which are checked against a database. If
+          everything is good, a session is created for them on the server, and a cookie
+          with a 'session_id' is sent back to the browser. The cookie is sent back to the
+          server on all subsequent requests and is verified against the session.
+        </p>
+
+        <h3>Downsides to Cookies/Session Auth</h3>
+        <p>
+          Let's see some problems with traditional authentication is SPAs. First of all,
+          since the SPA does not refresh, how does it know that the user is logged in?
+          Traditional apps construct views on the backend, which is where auth can be
+          checked. How do SPAs get their data? Well, generally a REST API. They should
+          be stateless and traditional authentication is stateful.
+        </p>
+
+        <p>
+          Modern architectures relies on micro services and downstream servers but cookies
+          do not flow downstream. Can't communicate easily between multiple servers with
+          traditional auth. Access control required database queries and general chattiness
+          on the back end. The downside also is the fact, it does not scale well and can
+          become memory-intensive. In traditional authentication, the server does heavy lifting.
+        </p>
+
+        <h3>JWT Authentication</h3>
+        <p>
+          The user submits their credentials which are checked against a database.
+          If everytyhing is good, a token is signed and returned to the client in the response.
+          The token is saved on the client, usually in web storage or in a cookie.
+          The token is sent as an Authorization header on every HTTP request.
+          When the request is received on the backend, the JWT is verified against the secret the only the server knows.
+          The payload is checked to route the request based on the JWT's claims (usually with middleware).
+          If the JWT is valid, the requested resource is returned.
+          If it is invalid, a 401 is returned.
+        </p>
+
+        <h3>How Does This Help?</h3>
+        <p>
+          The SPA no longer relies on the backend to tell it whether the user is authenticated.
+          The backend can receive requests from multiple clients and the backend only cares
+          that the token is valid. Requests can flow to downstream servers if necessary.
+          The client tells the backend what is permissible instead of asking and there is no
+          need for user access lookups.
+        </p>
+
+        <h3>How Does the SPA Get a JWT?</h3>
+        <p>
+          The user submits their credentials. If the credentials are valid, a JWT is signed
+          and returned in the response. A secret key (only known by the server) is used to sign the JWT.
+        </p>
+
+        <h3>JWT Storage</h3>
+        <p>
+          Once the JWT comes back, it needs to be stored somewhere in the suer's browser.
+          Storing it in memory is not greate because it will be lost when the page is refreshed.
+          JWTs are typically stored in browser storage (local storage or session storage) or in
+          HTTP-only cookies.
+        </p>
+        Service Component
+        <pre class="language-javascript line-numbers"><code>@Injcetable()
+export class AuthService {{'{'}}
+  constructor (private http: Http, private router: Router) {{'{'}} {{'}'}}
+
+  login (credentials): Observable{{'<'}}{{'Response>'}} {{'{'}}
+    return this.http.post(`${{'{'}}API_URL{{'}'}}/users/authenticate`, credentials);
+  {{'}'}}
+
+  signup (credentials): Observable{{'<'}}{{'Response>'}} {{'{'}}
+    return this.http.post(`${{'{'}}API_URL{{'}'}}/users`, credentials);
+  {{'}'}}
+
+  finishAuthentication (token): void {{'{'}}
+    localStorage.setItem('token', token);
+    this.router.navigate(['profile']);
+  {{'}'}}
+  
+  logout (): void {{'{'}}
+    localStorage.removeItem('token');
+  {{'}'}}
+{{'}'}}</code></pre>
+
+          Login Component
+          <pre class="language-javascript line-numbers"><code>export class LoginComponent {{'{'}}
+  errorMessage: string;
+
+  constructor (private auth: AuthService) {{'{'}} {{'}'}}
+
+  onLoginSubmit (credentials) {{'{'}}
+    this.auth.login(credentials)
+      .map(res => res.json())
+      .subscribe(
+        response => this.auth.finishAuthentication(response.token),
+        error => this.errorMessage = error.json().message
+      );
+  {{'}'}}
+{{'}'}}
+
+          </code></pre>
+    </div>
+</div>
