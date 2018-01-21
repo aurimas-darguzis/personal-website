@@ -10,6 +10,7 @@ export class StoryNodejsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    const code = 'const data = 1';
   }
 
 }
