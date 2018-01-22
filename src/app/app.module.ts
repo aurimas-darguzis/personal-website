@@ -15,6 +15,7 @@ import { UserLoginComponent } from './components/user-login/user-login.component
 import { CoreModule } from './core/core.module';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { SecurityComponent } from './components/security/security.component';
+import { StoryCssgridComponent } from './components/stories/story-cssgrid/story-cssgrid.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { SecurityComponent } from './components/security/security.component';
     StoryNodejsComponent,
     UserLoginComponent,
     UserProfileComponent,
-    SecurityComponent
+    SecurityComponent,
+    StoryCssgridComponent
   ],
   imports: [
     BrowserModule,
