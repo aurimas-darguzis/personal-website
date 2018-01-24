@@ -1,0 +1,46 @@
+.story {
+  display: grid;
+  max-width: 1000px;
+  margin: 200px auto;
+  grid-gap: 10px 50px;
+  grid-template-columns: 3fr 12fr 5fr;
+}
+
+.story>* {
+  grid-column: 2 / -2;
+}
+
+.story > figure {
+  margin: 0;
+  grid-column: 1 / -1;
+}
+
+figcaption {
+  font-size: 10px;
+}
+
+.story>blockquote {
+  grid-column: 1 / -1;
+  font-size: 60px;
+  font-style: italic;
+  text-align: center;
+  margin: 0;
+}
+
+.tip {
+  background: #fafafa;
+  padding: 10px;
+  grid-row: span 4;
+  align-self: start;
+}
+
+.tip-left {
+  grid-column: 1 / span 1;
+  text-align: right;
+  border-right: 2px solid var(--yellow);
+}
+
+.tip-right {
+  grid-column: span 1 / -1;
+  border-left: 2px solid var(--yellow);
+}
