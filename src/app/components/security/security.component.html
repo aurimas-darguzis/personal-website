@@ -1,30 +1,34 @@
 <!-- <div class="stories-container"> -->
     <article class="story">
-      <h1>Jason Web Tokens (JWT)</h1>
+      <div>
+        <h1>Jason Web Tokens (JWT)</h1>
+      </div>
 
-      <h2>What is a JSON Web Token?</h2>
-      <p>
-        An open standard: RFC 7519
-        A method for transferring claims (assertions) between two parties securely through a JSON payload
-        A digitally signed and compact, self-container package
-        A great mechanism for stateless authentication.
-      </p>
+      <div> <!-- 2nd column -->
+        <h2>What is a JSON Web Token?</h2>
+        <p>
+          An open standard: RFC 7519
+          A method for transferring claims (assertions) between two parties securely through a JSON payload
+          A digitally signed and compact, self-container package
+          A great mechanism for stateless authentication.
+        </p>
 
-      <p>
-        Basic JWT consists of Header, Payload and Signature. The header has the Meta information.
-        It has a data about the type of data. Payload is kind of a meat part. This part consist
-        of a claim who the user is. Signature is what makes the token secure. Base64UrlEncode on
-        header, concatenate '.' and encode the payload and then adding the secret. If someone try
-        to change anything in the token - they instantly invalidate the token.
-      </p>
-
-      <h3>JWT Header</h3>
-      <p>
-        JSON object that describes the token
-        At a minimum it should include the token type and signin algorithm
-        The signin algorithm is necessary for the token to be verified
-        Commonly tokens are signed with Hs256 (symmetric) or RS256 (asymmetric).
-      </p>
+        
+        <p>
+          Basic JWT consists of Header, Payload and Signature. The header has the Meta information.
+          It has a data about the type of data. Payload is kind of a meat part. This part consist
+          of a claim who the user is. Signature is what makes the token secure. Base64UrlEncode on
+          header, concatenate '.' and encode the payload and then adding the secret. If someone try
+          to change anything in the token - they instantly invalidate the token.
+        </p>
+        
+        <h3>JWT Header</h3>
+        <p>
+          JSON object that describes the token
+          At a minimum it should include the token type and signin algorithm
+          The signin algorithm is necessary for the token to be verified
+          Commonly tokens are signed with Hs256 (symmetric) or RS256 (asymmetric).
+        </p>
 
 <pre class="language-javascript line-numbers"><code>{{ '{' }}
   "algorithm": "HS256",
@@ -156,5 +160,6 @@ export class AuthService {{'{'}}
 {{'}'}}
 
           </code></pre>
+        </div> <!-- 2nd column END -->
+
     </article>
-<!-- </div> -->
